@@ -8,8 +8,11 @@ import Database.Drasil (Block, ChunkDB, ReferenceDB, SystemInformation(SI),
   _quants, _sys, _sysinfodb, _usedinfodb)
 import Theory.Drasil (DataDefinition, GenDefn, InstanceModel, TheoryModel)
 import Utils.Drasil
+
 import Data.Drasil.People (amclemeno)
 import Data.Drasil.Concepts.Software (program)
+import Data.Drasil.Concepts.Documentation (doccon)
+--import Drasil.DiagnosisAIDs.Figures (figVirusbody)
 
 import qualified Data.Drasil.Concepts.Documentation as Doc (srs)
 import Drasil.DocLang.SRS
@@ -17,6 +20,8 @@ import Drasil.DocLang (AuxConstntSec(AuxConsProg),
   DocSection(AuxConstntSec, Bibliography, RefSec),
   Emphasis(Bold), RefSec(..), RefTab(..),
   TConvention(..), TSIntro(..), intro,tsymb, SRSDecl, mkDoc, Sentence)
+  
+
 
 srs :: Document
 srs = mkDoc mkSRS (for'' titleize phrase) si
@@ -33,14 +38,14 @@ mkSRS = [RefSec $      --This creates the Reference section of the SRS
       , TAandA         -- Add table of abbreviation and acronym section
       ],
    IntroSec $
-     IntroProg #justification (phrase diagnosisAIDstitle)
+     IntroProg justification (phrase diagnosisAIDstitle)
        [ IScope scope ],
-      SSDSec $ SSDProg
-          [ SSDProblem $ PDProg prob []
-            [ TermsAndDefs Nothing terms
-          , PhySysDesc dblpendulum physSystParts figLaunch []
-          , Goals goalsInputs]
-  --        SSDSolChSpec $ SCSProg
+   SSDSec $ SSDProg
+       [ SSDProblem $ PDProg prob []
+         [ TermsAndDefs Nothing terms
+         , PhySysDesc diagnosisaids physSystParts figVirusbody []
+         , Goals goalsInputs]
+       , SSDSolChSpec $ SCSProg
   --        [ Assumptions
   --          , TMs [] (Label : stdFields)
   --       , GDs [] ([Label, Units] ++ stdFields) ShowDerivation
@@ -88,7 +93,8 @@ si = SI {
 }
 
 symbMap :: ChunkDB
-symbMap = cdb ([] :: [QuantityDict]) (nw diagnosisAIDstitle) [nw program] ([] :: [ConceptChunk])
+symbMap = cdb ([] :: [QuantityDict]) (nw diagnosisAIDstitle) [nw program] 
+  (nw diagnosisAIDstitle: [nw program] ++ map nw doccon ++ map nw doccon’)([] :: [ConceptChunk])
   ([] :: [UnitDefn]) ([] :: [DataDefinition]) ([] :: [InstanceModel])
   ([] :: [GenDefn]) ([] :: [TheoryModel]) ([] :: [ConceptInstance])
   ([] :: [Section]) ([] :: [LabelledContent])
