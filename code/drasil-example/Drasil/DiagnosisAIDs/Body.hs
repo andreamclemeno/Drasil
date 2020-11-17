@@ -12,11 +12,11 @@ import Data.Drasil.People (amclemeno)
 import Data.Drasil.Concepts.Software (program)
 
 import qualified Data.Drasil.Concepts.Documentation as Doc (srs)
+import Drasil.DocLang.SRS
 import Drasil.DocLang (AuxConstntSec(AuxConsProg),
   DocSection(AuxConstntSec, Bibliography, RefSec),
   Emphasis(Bold), RefSec(..), RefTab(..),
   TConvention(..), TSIntro(..), intro,tsymb, SRSDecl, mkDoc, Sentence)
-
 
 srs :: Document
 srs = mkDoc mkSRS (for'' titleize phrase) si
@@ -38,7 +38,7 @@ mkSRS = [RefSec $      --This creates the Reference section of the SRS
       SSDSec $ SSDProg
           [ SSDProblem $ PDProg prob []
             [ TermsAndDefs Nothing terms
-   --     --  , PhySysDesc dblpendulum physSystParts figLaunch []
+          , PhySysDesc dblpendulum physSystParts figLaunch []
           , Goals goalsInputs]
   --        SSDSolChSpec $ SCSProg
   --        [ Assumptions
@@ -118,15 +118,15 @@ diagnosisAIDstitle = commonIdeaWithDict "diagnosisAIDstitle" (pn "DiagnosisAIDs"
 --Problem Description
 ------------------------------------
 
--- prob :: Sentence
--- prob = foldlSent_ [S "Problem Description" `sAnd` S "Problem Description"]
+prob :: Sentence
+prob = foldlSent_ [S "Problem Description" `sAnd` S "Problem Description"]
 
 -- ---------------------------------
 -- -- Terminology and Definitions --
 -- ---------------------------------
 
--- terms :: [ConceptChunk]
--- terms = [gravity]
+terms :: [ConceptChunk]
+terms = [viralload]
 
 
 -- ---------------------------------
@@ -135,13 +135,13 @@ diagnosisAIDstitle = commonIdeaWithDict "diagnosisAIDstitle" (pn "DiagnosisAIDs"
 
 -- physSystParts :: [Sentence]
 -- physSystParts = map foldlSent [
---   [S "The", phrase dblpendulum],
---   [S "The", phrase dblpendulum],
---   [S "The", phrase gravity]]
+--   [S "The", phrase diagnosisAIDstitle],
+--   [S "The", phrase diagnosisAIDstitle],
+--   [S "The", phrase viralload]]
 
 -- ------------------------------
 
--- goalsInputs :: [Sentence]
--- goalsInputs = [phrase dblpendulum `ofThe` dblpendulum ]-}
+goalsInputs :: [Sentence]
+goalsInputs = [phrase diagnosisAIDstitle `ofThe` diagnosisAIDstitle ]-}
  
 
