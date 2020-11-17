@@ -316,12 +316,13 @@ executable dblpendulum
   default-language: Haskell2010
   ghc-options:      -Wall -Wredundant-constraints
 
-executable DiagnosisAIDs
+executable DiagnoseAIDs
   hs-source-dirs: .
   main-is: Drasil/DiagnosisAIDs/Main.hs
   other-modules:
       Drasil.DiagnosisAIDs.Body
     , Drasil.DiagnosisAIDs.Concepts
+    , Drasil.DiagnosisAIDs.Goals
   Build-Depends:
     base >= 4.7,
     lens >= 4.12,
