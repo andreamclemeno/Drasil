@@ -139,11 +139,11 @@ terms = [viralload]
 -- -- Physical System Description --
 -- ---------------------------------
 
--- physSystParts :: [Sentence]
--- physSystParts = map foldlSent [
---   [S "The", phrase diagnosisAIDstitle],
---   [S "The", phrase diagnosisAIDstitle],
---   [S "The", phrase viralload]]
+ physSystParts :: [Sentence]
+ physSystParts = map foldlSent [
+   [S "The", phrase diagnosisAIDstitle],
+   [S "The", phrase diagnosisAIDstitle],
+   [S "The", phrase viralload]]
 
 -- ------------------------------
 

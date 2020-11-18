@@ -15,6 +15,11 @@ goals = []
 --  (S "Determine if the" +:+ phrase projectile +:+ S "hits the" +:+. phrase target)
 --  "targetHit" goalStmtDom
 
+
+-------------------------
+--goals :: [ConceptInstance]
+--goals = [determine-clearance-rate, predict-VL-30]
+
 --determine-clearance-rate :: ConceptInstance
 --determine-clearance-rate = cic "determine-clearance-rate" 
 --  (S "Determine the" +:+ phrase clearance rate +:+ S "of the HIV Virus due to immune response.")

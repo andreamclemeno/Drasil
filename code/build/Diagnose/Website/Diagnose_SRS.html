@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="Diagnose_SRS.css">
+    <title>Software Requirements Specification for Diagnose</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+  </head>
+  <body>
+    <div class="title">
+      <h1>Software Requirements Specification for Diagnose</h1>
+    </div>
+    <div class="author"><h2>Andrea Clemeno</h2></div>
+    <div id="Sec:RefMat">
+      <div class="section">
+        <h1>Reference Material</h1>
+        <p class="paragraph">
+          This section records information for easy reference.
+        </p>
+        <div id="Sec:ToU">
+          <div class="subsection">
+            <h2>Table of Units</h2>
+            <p class="paragraph">
+              The unit system used throughout is SI (Système International d'Unités). In addition to the basic units, several derived units are also used. For each unit, <a href=#Table:ToU>Tab: ToU</a> lists the symbol, a description and the SI name.
+            </p>
+            <div id="Table:ToU">
+              <table class="table">
+                <tr>
+                  <th>Symbol</th>
+                  <th>Description</th>
+                  <th>SI Name</th>
+                </tr>
+              </table>
+              <p class="caption">Table of Units</p>
+            </div>
+          </div>
+        </div>
+        <div id="Sec:ToS">
+          <div class="subsection">
+            <h2>Table of Symbols</h2>
+            <p class="paragraph">
+              The symbols used in this document are summarized in <a href=#Table:ToS>Tab: ToS</a> along with their units. Throughout the document, symbols in bold will represent vectors, and scalars otherwise. The symbols are listed in alphabetical order. For vector quantities, the units shown are for each component of the vector.
+            </p>
+            <div id="Table:ToS">
+              <table class="table">
+                <tr>
+                  <th>Symbol</th>
+                  <th>Description</th>
+                  <th>Units</th>
+                </tr>
+              </table>
+              <p class="caption">Table of Symbols</p>
+            </div>
+          </div>
+        </div>
+        <div id="Sec:TAbbAcc">
+          <div class="subsection">
+            <h2>Abbreviations and Acronyms</h2>
+            <div id="Table:TAbbAcc">
+              <table class="table">
+                <tr>
+                  <th>Abbreviation</th>
+                  <th>Full Form</th>
+                </tr>
+              </table>
+              <p class="caption">Abbreviations and Acronyms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="Sec:Intro">
+      <div class="section">
+        <h1>Introduction</h1>
+        <p class="paragraph">
+          HIV-1 is a virus that attacks cells of the immune system needed to fight off diseases. The virus leads to an uncurable disease called AIDs. Therefore, it is useful to have a program to model these types of problems. The program documented here is called Diagnose.
+        </p>
+        <p class="paragraph">
+          The following section provides an overview of the Software Requirements Specification (SRS) for Diagnose. This section explains the purpose of this document, the scope of the requirements, the characteristics of the intended reader, and the organization of the document.
+        </p>
+        <div id="Sec:ReqsScope">
+          <div class="subsection">
+            <h2>Scope of Requirements</h2>
+            <p class="paragraph">
+              The scope of the requirements includes the analysis of HIV-1 concentration over time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="Sec:SpecSystDesc">
+      <div class="section">
+        <h1>Specific System Description</h1>
+        <p class="paragraph">
+          This section first presents the problem description, which gives a high-level view of the problem to be solved. This is followed by the solution characteristics specification, which presents the assumptions, theories, and definitions that are used.
+        </p>
+        <div id="Sec:ProbDesc">
+          <div class="subsection">
+            <h2>Problem Description</h2>
+            <p class="paragraph">
+              A system is needed to assess the risk before substantial immune destruction has occurred. The system will predict viral load at 30 days and the patient's progression.
+            </p>
+            <div id="Sec:TermDefs">
+              <div class="subsubsection">
+                <h3>Terminology and Definitions</h3>
+                <p class="paragraph">
+                  This subsection provides a list of terms that are used in the subsequent sections and their meaning, with the purpose of reducing ambiguity and making it easier to correctly understand the requirements.
+                </p>
+                <ul class="list">
+                  <li>Virus: Submicroscopic parasites that infect cells.</li>
+                  <li>
+                    Viral load: The concentration of HIV virus at a point in time.
+                  </li>
+                  <li>
+                    Infected cells: Cells that interact with the virus replicate into cells altered by the virus.
+                  </li>
+                  <li>
+                    Helper T cell: Cells of the immune system that neutralize infected cells.
+                  </li>
+                  <li>
+                    Elimination: Physical quantity undergoing a decline in amount.
+                  </li>
+                  <li>
+                    AIDs: Acquired Immunodeficiency Syndrome develops from an increase in HIV viral load to the extent where T cell count decreases to under 200 mol/L.
+                  </li>
+                  <li>
+                    Diagnosis: The determination of a patient's condition reached by a healthcare professional.
+                  </li>
+                  <li>
+                    Progression: The development towards a more advanced stage.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="Sec:PhysSyst">
+              <div class="subsubsection">
+                <h3>Physical System Description</h3>
+                <p class="paragraph">
+                  The physical system of Diagnose, as shown in <a href=#Figure:Virus>Fig:Virus</a>, includes the following elements:
+                </p>
+                <div class="list">
+                  <p>PS1: The HIV Virion.</p>
+                  <p>PS2: The virus-infected cell.</p>
+                  <p>PS3: The Helper T cell.</p>
+                </div>
+                <div id="Figure:Virus">
+                  <figure>
+                    <img src="../../../datafiles/Diagnose/figVirusinbody.jpg" alt="The physical system" width="70.0%" >
+                    <figcaption>The physical system</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div id="Sec:GoalStmt">
+              <div class="subsubsection">
+                <h3>Goal Statements</h3>
+                <p class="paragraph">
+                  Given two HIV-1 viral load datum taken on consecutive days, the goal statements are:
+                </p>
+                <div class="list">
+                  <p>
+                    <div id="detElimrate">
+                      detElimrate: Determine the elimination rate of the HIV Virus due to immune response.
+                    </div>
+                  </p>
+                  <p>
+                    <div id="predictVL30">
+                      predictVL30: Determine the viral load at 30 days.
+                    </div>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="Sec:Requirements">
+      <div class="section">
+        <h1>Requirements</h1>
+        <p class="paragraph">
+          This section provides the functional requirements, the tasks and behaviours that the software is expected to complete, and the non-functional requirements, the qualities that the software is expected to exhibit.
+        </p>
+        <div id="Sec:NFRs">
+          <div class="subsection">
+            <h2>Non-Functional Requirements</h2>
+            <p class="paragraph">
+              This section provides the non-functional requirements, the qualities that the software is expected to exhibit.
+            </p>
+            <div class="list">
+              <p>
+                <div id="correct">
+                  Correct: The outputs of the code have the properties described in <a href=#Sec:CorSolProps>Section: Properties of a Correct Solution</a>.
+                </div>
+              </p>
+              <p>
+                <div id="verifiable">
+                  Verifiable: The code is tested with complete verification and validation plan.
+                </div>
+              </p>
+              <p>
+                <div id="understandable">
+                  Understandable: The code is modularized with complete module guide and module interface specification.
+                </div>
+              </p>
+              <p><div id="reusable">Reusable: The code is modularized.</div></p>
+              <p>
+                <div id="maintainable">
+                  Maintainable: The traceability between requirements, assumptions, theoretical models, general definitions, data definitions, instance models, likely changes, unlikely changes, and modules is completely recorded in traceability matrices in the SRS and module guide.
+                </div>
+              </p>
+              <p>
+                <div id="portable">
+                  Portable: The code is able to be run in different environments.
+                </div>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="Sec:References">
+      <div class="section">
+        <h1>References</h1>
+        <ul class="hide-list-style"></ul>
+      </div>
+    </div>
+  </body>
+</html>

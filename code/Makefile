@@ -34,14 +34,14 @@ PROJECTILE_DIR = Projectile
 TEMPLATE_DIR = Template
 GOOLTEST_DIR = GOOLTest
 DBLPENDULUM_DIR = DblPendulum
-DIAGNOSEAIDS_DIR = DiagnoseAIDs
+DIAGNOSE_DIR = Diagnose
 
 
 
 MULTI_SRC_DIRS = $(PROJECTILE_DIR) # Directories for examples with multiple src versions
 
 EXAMPLE_DIRS = $(MULTI_SRC_DIRS) $(HGHC_DIR) $(GLASSBR_DIR) $(NOPCM_DIR) \
-  $(SWHS_DIR) $(SSP_DIR) $(GAMEPHYSICS_DIR)  $(DBLPENDULUM_DIR) $(DBLPENDULUM_DIR) $(DIAGNOSEAIDS_DIR)# All example directories
+  $(SWHS_DIR) $(SSP_DIR) $(GAMEPHYSICS_DIR)  $(DBLPENDULUM_DIR) $(DBLPENDULUM_DIR) $(DIAGNOSE_DIR)# All example directories
 
 # and the name of their executables
 HGHC_EXE  = hghc
@@ -54,7 +54,7 @@ PROJECTILE_EXE = projectile
 TEMPLATE_EXE = template
 GOOLTEST_EXE = codegenTest
 DBLPENDULUM_EXE = dblpendulum
-DIAGNOSEAIDS_EXE = diagnose
+DIAGNOSE_EXE = diagnose
 
 # and the associated per-example information generated
 GEN_E_SUFFIX = _gen

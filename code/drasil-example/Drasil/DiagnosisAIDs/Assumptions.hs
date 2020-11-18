@@ -1,6 +1,11 @@
 module Drasil.DiagnosisAIDs.Assumptions (accelYGravity, accelXZero, cartSyst,
   assumptions, constAccel, gravAccelValue, launchOrigin, pointMass, 
   posXDirection, targetXAxis, timeStartZero, twoDMotion, yAxisGravity) where
+ ---------------------------------------------------
+--module Drasil.DiagnosisAIDs.Assumptions (accelYGravity, accelXZero, cartSyst,
+--  assumptions, constAccel, gravAccelValue, launchOrigin, pointMass, 
+--  posXDirection, targetXAxis, timeStartZero, twoDMotion, yAxisGravity) where
+----------------------------------------------------------------
 
 import Language.Drasil
 import Utils.Drasil
@@ -95,6 +100,12 @@ gravAccelValueDesc = S "The" +:+ phrase acceleration +:+ S "due to" +:+
   S "provided in" +:+. makeRef2S (SRS.valsOfAuxCons ([]::[Contents]) 
   ([]::[Section]))
   
+  
+  
+-- alphabetical: all-productive, always-decay, const-conditions, const-growth, const-volume, initial-inf, neglect-drugs, neglect-sick, proportional
+  
+  
+  
 assumptions :: [ConceptInstance]
 assumptions = [initial-inf, const-growth, const-volume, const-conditions, all-productive, 
   always-decay, neglect-drugs, neglect-sick, clear-proportional]
@@ -111,4 +122,35 @@ all-productive      = cic "all-productive"     all-productiveDesc      "all-prod
 always-decay        = cic "always-decay"       always-decayDesc        "always-decay"       assumpDom
 neglect-drugs       = cic "neglect-drugs"      neglect-drugsDesc       "neglect-drugs"      assumpDom
 neglect-sick        = cic "neglect-sick"       neglect-sickDesc        "neglect-sick"       assumpDom
-clear-proportional  = cic "clear-proportional" clear-proportionalDesc  "clear-proportional" assumpDom
+proportional        = cic "proportional"       proportionalDesc        "proportional"       assumpDom
+
+initial-inf :: Sentence
+initial-infDesc = S "Initial infection of an HIV patient assumed."
+
+const-growth :: Sentence
+const-growthDesc = S "The virions will invade uninfected cells at a constant rate."
+
+const-volume :: Sentence
+const-volumeDesc = S "The dimensions of the location associated with the infection remains constant."
+
+const-conditions :: Sentence
+const-conditionsDesc = S "Temperature of the location associated with the infection remains constant."
+
+all-productive :: Sentence
+all-productiveDesc = S "All infected cells are infect other cells productively."
+
+always-decay :: Sentence
+always-decayDesc = S "After viremia peak, no significant upward trends occur."
+
+neglect-drugs :: Sentence
+neglect-drugsDesc = S "The effect of drugs on the elimination rate will be not be considered."
+
+neglect-sick :: Sentence
+neglect-sickDesc = S "The effect of other infections on the elimination rate will be not be considered."
+
+proportional :: Sentence
+proportionalDesc = S "The elimination of the virus is assumed to be proportional to the amount of viruses present."
+
+
+
+
