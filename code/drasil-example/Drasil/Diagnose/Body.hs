@@ -25,8 +25,7 @@ import Drasil.Diagnose.Goals (goals)
 import Drasil.Diagnose.Assumptions (assumptions)
 import Drasil.Diagnose.TMods (tMods)
 import Drasil.Diagnose.References (citations)
-import Drasil.Diagnose.Requirements (nonfuncReqs)
---import Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs)
+import Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs)
 
 
 import Drasil.DocLang (AuxConstntSec(AuxConsProg),
@@ -75,8 +74,8 @@ mkSRS = [
       ],
   ReqrmntSec $
     ReqsProg
-      [ NonFReqsSub --FReqsSub EmptyS []
---      , NonFReqsSub
+      [ FReqsSub EmptyS []
+      , NonFReqsSub
       ],
 --  TraceabilitySec $ TraceabilityProg $ traceMatStandard si,
 --  AuxConstntSec $
@@ -136,8 +135,7 @@ refDB :: ReferenceDB
 refDB = rdb citations concIns
 
 concIns :: [ConceptInstance]
-concIns = assumptions ++ goals ++ nonfuncReqs
---concIns = assumptions ++ funcReqs ++ goals ++ nonfuncReqs
+concIns = assumptions ++ funcReqs ++ goals ++ nonfuncReqs
 
 -------------------------
 -- Problem Description --
@@ -162,7 +160,8 @@ physSystParts :: [Sentence]
 physSystParts = map foldlSent [
   [S "The HIV Virion"],
   [S "The virus-infected cells"],
-  [S "The Helper T cell"]]
+  [S "The Helper T cell"],
+  [S "The Human Body"]]
   
 ---------------------------------
 -- Goal Statements --

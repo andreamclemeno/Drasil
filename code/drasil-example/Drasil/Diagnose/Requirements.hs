@@ -1,6 +1,5 @@
-module Drasil.Diagnose.Requirements (nonfuncReqs) where
+module Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs) where
 
---(funcReqs, nonfuncReqs) where
 import Language.Drasil
 import Drasil.DocLang.SRS (datCon, propCorSol)
 import Utils.Drasil
@@ -14,52 +13,61 @@ import Data.Drasil.Concepts.Software (errMsg)
 
 import Data.Drasil.IdeaDicts (dataDefn, genDefn, inModel, thModel)
 
---import Drasil.Projectile.IMods (landPosIM, messageIM, offsetIM, timeIM)
---import Drasil.Projectile.Unitals (flightDur, landPos, message, offset)
 
 --{--Functional Requirements--}
 
---funcReqs :: [ConceptInstance]
---funcReqs = [verifyInVals, calcValues, outputValues]
---
---verifyInVals, calcValues, outputValues :: ConceptInstance
---
---verifyInVals = cic "verifyInVals" verifyParamsDesc "Verify-Input-Values" funcReqDom
---calcValues   = cic "calcValues"   calcValuesDesc   "Calculate-Values"    funcReqDom
---outputValues = cic "outputValues" outputValuesDesc "Output-Values"       funcReqDom
---
---verifyParamsDesc, calcValuesDesc, outputValuesDesc :: Sentence
---verifyParamsDesc = foldlSent [S "Check the entered", plural inValue,
+funcReqs :: [ConceptInstance]
+funcReqs = [inputValues, verifyInput, calcValues, verifyOutput, outputValues]
+
+inputValues, verifyInput, calcValues, verifyOutput, outputValues :: ConceptInstance
+
+inputValues  = cic "inputValues"  inputValuesDesc  "Input-Values"        funcReqDom
+verifyInput  = cic "verifyInput"  verifyInputDesc  "Verify-Input-Values" funcReqDom
+calcValues   = cic "calcValues"   calcValuesDesc   "Calculate-Values"    funcReqDom
+verifyOutput = cic "verifyOutput" verifyOutputDesc "Verify-Output"       funcReqDom
+outputValues = cic "outputValues" outputValuesDesc "Output-Values"       funcReqDom
+
+inputValuesDesc :: Sentence
+inputValuesDesc = foldlSent [S "Input two viral load concentrations taken on ",
+  S "two consecutive days"]
+  
+verifyInputDesc :: Sentence
+verifyInputDesc = foldlSent [S "The software will ensure that the inputs are not  ",
+  S "out of bounds and in accordance with the data constraints. If any inputs are",
+  S "out of bounds, an error message is displayed"]
+   
+calcValuesDesc :: Sentence
+calcValuesDesc = foldlSent [S "Software calculates the viral load at 30 days and ",
+  S "the probability of progression to AIDs after 3 years"]
+  
+verifyOutputDesc :: Sentence
+verifyOutputDesc = foldlSent [S "The output values will be cross referenced  with ",
+  S "the result constraints"]
+  
+outputValuesDesc :: Sentence
+outputValuesDesc = foldlSent [S "Output related requirements. "]
+
+--inputValuesDesc :: Sentence
+--inputValuesDesc = foldlSent [S "Check the entered", plural inValue,
 --  S "to ensure that they do not exceed the", plural datumConstraint,
 --  S "mentioned in" +:+. makeRef2S (datCon ([]::[Contents]) ([]::[Section])), 
 --  S "If any of the", plural inValue, S "are out of bounds" `sC`
 --  S "an", phrase errMsg, S "is displayed" `andThe` plural calculation, S "stop"]
---calcValuesDesc = foldlSent [S "Calculate the following" +: plural value,
---  foldlList Comma List [
---    ch flightDur +:+ sParen (S "from" +:+ makeRef2S timeIM),
---    ch landPos   +:+ sParen (S "from" +:+ makeRef2S landPosIM),
---    ch offset    +:+ sParen (S "from" +:+ makeRef2S offsetIM),
---    ch message   +:+ sParen (S "from" +:+ makeRef2S messageIM)
---  ]]
---outputValuesDesc = foldlSent [atStart output_, ch message,
---  sParen (S "from" +:+ makeRef2S messageIM) `sAnd` ch offset,
---  sParen (S "from" +:+ makeRef2S offsetIM)]
---
+  
 {--Nonfunctional Requirements--}
 
 nonfuncReqs :: [ConceptInstance]
 nonfuncReqs = [correct, verifiable, understandable, reusable, maintainable, portable]
 
 correct :: ConceptInstance
-correct = cic "correct" (foldlSent [
-  plural output_ `ofThe'` phrase code, S "have the",
-  plural property, S "described in", makeRef2S (propCorSol [] [])
-  ]) "Correct" nonFuncReqDom
+correct = cic "correctness" (foldlSent [
+  S "The outputs have to adhere to the output properties in the output ",
+  S "constraints"]) "Correctness" nonFuncReqDom
  
 verifiable :: ConceptInstance
 verifiable = cic "verifiable" (foldlSent [
-  S "The", phrase code, S "is tested with complete",
-  phrase vavPlan]) "Verifiable" nonFuncReqDom
+  S "The", phrase code, S "is tested with complete verification ",
+  S "and validation plan"]) "Verifiable" nonFuncReqDom
 
 understandable :: ConceptInstance
 understandable = cic "understandable" (foldlSent [
