@@ -17,6 +17,7 @@ import Data.Drasil.Concepts.Documentation (analysis, doccon, doccon', physics,
   problem, srsDomains)
 
 import Data.Drasil.People (amclemeno)
+import Data.Drasil.SI_Units (metre, radian, second)
 import Data.Drasil.Concepts.Software (program)
 import Drasil.Diagnose.Concepts
 import Drasil.Diagnose.Figures (figVirusinbody)
@@ -26,6 +27,7 @@ import Drasil.Diagnose.Assumptions (assumptions)
 import Drasil.Diagnose.TMods (tMods)
 import Drasil.Diagnose.References (citations)
 import Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs)
+import Drasil.Diagnose.GenDefs (genDefns)
 
 
 import Drasil.DocLang (AuxConstntSec(AuxConsProg),
@@ -101,7 +103,7 @@ si = SI {
   _concepts    = [] :: [DefinedQuantityDict],
   _definitions = [] :: [QDefinition],
   _datadefs    = [] :: [DataDefinition],
-  _configFiles  = [],
+  _configFiles = [],
   _inputs      = [] :: [QuantityDict],
   _outputs     = [] :: [QuantityDict],
   _defSequence = [] :: [Block QDefinition],
@@ -113,9 +115,10 @@ si = SI {
 }
 
 ------
-
+  
+  
 symbMap :: ChunkDB
-symbMap = cdb ([] :: [QuantityDict]) (nw diagnoseTitle : [nw program]++
+symbMap = cdb ([] :: [QuantityDict]) (nw diagnoseTitle : [nw program] ++
     map nw doccon ++ map nw doccon') ([] :: [ConceptChunk])
   ([] :: [UnitDefn]) ([] :: [DataDefinition]) ([] :: [InstanceModel])
   ([] :: [GenDefn]) (tMods :: [TheoryModel]) (concIns :: [ConceptInstance])

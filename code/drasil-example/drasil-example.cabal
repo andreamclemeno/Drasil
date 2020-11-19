@@ -328,6 +328,7 @@ executable diagnose
     , Drasil.Diagnose.References
     , Drasil.Diagnose.TMods
     , Drasil.Diagnose.Requirements
+    , Drasil.Diagnose.GenDefs
     
   Build-Depends:
     base >= 4.7,

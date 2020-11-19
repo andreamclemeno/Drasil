@@ -1,11 +1,12 @@
+--module Drasil.Diagnose.Requirements (nonfuncReqs) where
 module Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs) where
-
 import Language.Drasil
 import Drasil.DocLang.SRS (datCon, propCorSol)
 import Utils.Drasil
 
+import Data.Drasil.Concepts.Documentation (funcReqDom, nonFuncReqDom)
 import Data.Drasil.Concepts.Computation (inValue)
-import Data.Drasil.Concepts.Documentation (assumption, code, datumConstraint,
+import Data.Drasil.Concepts.Documentation as Doc (assumption, code, datumConstraint,
   environment, funcReqDom, likelyChg, mg, mis, module_, nonFuncReqDom, output_,
   property, requirement, srs, traceyMatrix, unlikelyChg, value, vavPlan)
 import Data.Drasil.Concepts.Math (calculation)
@@ -14,7 +15,7 @@ import Data.Drasil.Concepts.Software (errMsg)
 import Data.Drasil.IdeaDicts (dataDefn, genDefn, inModel, thModel)
 
 
---{--Functional Requirements--}
+{--Functional Requirements--}
 
 funcReqs :: [ConceptInstance]
 funcReqs = [inputValues, verifyInput, calcValues, verifyOutput, outputValues]
