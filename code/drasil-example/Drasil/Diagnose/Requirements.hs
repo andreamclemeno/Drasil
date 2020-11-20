@@ -46,14 +46,9 @@ verifyOutputDesc = foldlSent [S "The output values will be cross referenced  wit
   S "the result constraints"]
   
 outputValuesDesc :: Sentence
-outputValuesDesc = foldlSent [S "Output related requirements. "]
+outputValuesDesc = foldlSent [S "Output related requirements "]
 
---inputValuesDesc :: Sentence
---inputValuesDesc = foldlSent [S "Check the entered", plural inValue,
---  S "to ensure that they do not exceed the", plural datumConstraint,
---  S "mentioned in" +:+. makeRef2S (datCon ([]::[Contents]) ([]::[Section])), 
---  S "If any of the", plural inValue, S "are out of bounds" `sC`
---  S "an", phrase errMsg, S "is displayed" `andThe` plural calculation, S "stop"]
+
   
 {--Nonfunctional Requirements--}
 

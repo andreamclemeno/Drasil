@@ -13,7 +13,7 @@ import Data.Drasil.Concepts.Physics (position, speed)
 --  ++ map nw defs
 
 defs :: [ConceptChunk]
-defs = [virus, viralload, infectedcells, helperTcell, elimination, aids, diagnosis, progression]
+defs = [virus, viralloaddef, infectedcells, helperTcell, elimination, aids, diagnosis, progression]
 
 diagnoseTitle :: CI
 diagnoseTitle = commonIdeaWithDict "diagnoseTitle" (pn "Diagnose") "Diagnose" [physics]
@@ -31,9 +31,9 @@ diagnoseTitle = commonIdeaWithDict "diagnoseTitle" (pn "Diagnose") "Diagnose" [p
 
 ---
 
-virus, viralload, infectedcells, helperTcell, elimination, aids, diagnosis, progression :: ConceptChunk
+virus, viralloaddef, infectedcells, helperTcell, elimination, aids, diagnosis, progression :: ConceptChunk
 virus          = dcc "virus"          (nounPhraseSP "virus")          "Submicroscopic parasites that infect cells"
-viralload      = dcc "viral load"     (nounPhraseSP "viral load")     ("The concentration of HIV virus at a " ++
+viralloaddef   = dcc "viral load"     (nounPhraseSP "viral load")     ("The concentration of HIV virus at a " ++
                                                                       "point in time")
 infectedcells  = dcc "infected cells" (nounPhraseSP "infected cells") ("Cells that interact with the virus " ++
                                                                       "replicate into cells altered by the virus")

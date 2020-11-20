@@ -10,24 +10,34 @@ import Database.Drasil (Block, ChunkDB, ReferenceDB, SystemInformation(SI),
 import Theory.Drasil (DataDefinition, GenDefn, InstanceModel, TheoryModel)
 import Utils.Drasil
 
-import Drasil.DocLang (SRSDecl, mkDoc)
+import Drasil.DocLang --(SRSDecl, mkDoc)
 
 import qualified Data.Drasil.Concepts.Documentation as Doc (srs)
 import Data.Drasil.Concepts.Documentation (analysis, doccon, doccon', physics,
   problem, srsDomains)
+import Data.Drasil.Concepts.Math (cartesian, mathcon)
 
 import Data.Drasil.People (amclemeno)
-import Data.Drasil.SI_Units (metre, radian, second)
+import Data.Drasil.SI_Units
 import Data.Drasil.Concepts.Software (program)
 import Drasil.Diagnose.Concepts
 import Drasil.Diagnose.Figures (figVirusinbody)
-import Drasil.Diagnose.Concepts (diagnoseTitle, virus, viralload, infectedcells, helperTcell, elimination, aids, diagnosis, progression)
+import Drasil.Diagnose.Concepts (diagnoseTitle, virus, viralloaddef, infectedcells, helperTcell, elimination, aids, diagnosis, progression)
 import Drasil.Diagnose.Goals (goals)
 import Drasil.Diagnose.Assumptions (assumptions)
-import Drasil.Diagnose.TMods (tMods)
+import Drasil.Diagnose.TMods 
+import Drasil.Diagnose.Unitals
 import Drasil.Diagnose.References (citations)
 import Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs)
 import Drasil.Diagnose.GenDefs (genDefns)
+import Drasil.Diagnose.DataDefs (dataDefs,viralLoadDD)
+import Drasil.Diagnose.Changes
+
+import Data.Drasil.Quantities.Physics (iVel, physicscon)
+import Data.Drasil.Concepts.Physics (constAccel, gravity, physicCon, physicCon',
+  rectilinear, twoD)
+import Data.Drasil.Concepts.Computation (inValue)
+import Data.Drasil.Concepts.PhysicalProperties (mass, dimension, concent, physicalcon, materialProprty)
 
 
 import Drasil.DocLang (AuxConstntSec(AuxConsProg),
@@ -79,6 +89,8 @@ mkSRS = [
       [ FReqsSub EmptyS []
       , NonFReqsSub
       ],
+  LCsSec, 
+  UCsSec,     
 --  TraceabilitySec $ TraceabilityProg $ traceMatStandard si,
 --  AuxConstntSec $
 --    AuxConsProg projectileTitle constants,
@@ -99,10 +111,10 @@ si = SI {
   _kind        = Doc.srs,
   _authors     = [amclemeno],
   _purpose     = [],
-  _quants      = [] :: [QuantityDict],
+  _quants      = symbols, -- [QuantityDict],
   _concepts    = [] :: [DefinedQuantityDict],
   _definitions = [] :: [QDefinition],
-  _datadefs    = [] :: [DataDefinition],
+  _datadefs    = dataDefs,
   _configFiles = [],
   _inputs      = [] :: [QuantityDict],
   _outputs     = [] :: [QuantityDict],
@@ -118,14 +130,15 @@ si = SI {
   
   
 symbMap :: ChunkDB
-symbMap = cdb ([] :: [QuantityDict]) (nw diagnoseTitle : [nw program] ++
-    map nw doccon ++ map nw doccon') ([] :: [ConceptChunk])
-  ([] :: [UnitDefn]) ([] :: [DataDefinition]) ([] :: [InstanceModel])
-  ([] :: [GenDefn]) (tMods :: [TheoryModel]) (concIns :: [ConceptInstance])
+symbMap = cdb (map qw physicscon ++ symbols) (nw diagnoseTitle : nw mass : nw inValue : [nw program] ++
+    map nw doccon ++ map nw doccon' ++ map nw physicalcon ++ map nw physicCon ++ map nw physicCon' ++
+    map nw mathcon ++ map nw fundamentals ++ map nw derived ++ map nw tMCC ++ map nw unitless) (map cw defSymbols ++ srsDomains)
+  (siUnits) ([] :: [DataDefinition]) ([] :: [InstanceModel])
+  ([] :: [GenDefn]) (tMods) (concIns)
   ([] :: [Section]) ([] :: [LabelledContent])
-
+ 
 usedDB :: ChunkDB
-usedDB = cdb ([] :: [QuantityDict]) ([] :: [IdeaDict]) ([] :: [ConceptChunk])
+usedDB = cdb ([] :: [QuantityDict]) ( map nw physicalcon ++ map nw tMCC) ([] :: [ConceptChunk])
   ([] :: [UnitDefn]) ([] :: [DataDefinition]) ([] :: [InstanceModel])
   ([] :: [GenDefn]) ([] :: [TheoryModel]) ([] :: [ConceptInstance])
   ([] :: [Section]) ([] :: [LabelledContent])
@@ -138,7 +151,7 @@ refDB :: ReferenceDB
 refDB = rdb citations concIns
 
 concIns :: [ConceptInstance]
-concIns = assumptions ++ funcReqs ++ goals ++ nonfuncReqs
+concIns = assumptions ++ funcReqs ++ goals ++ nonfuncReqs ++ likelyChgs ++ unlikelyChgs
 
 -------------------------
 -- Problem Description --
@@ -151,9 +164,9 @@ prob = foldlSent_ [S "A system is needed to assess the risk before substantial i
 ---------------------------------
 -- Terminology and Definitions --
 ---------------------------------
-
 terms :: [ConceptChunk]
-terms = [virus, viralload, infectedcells, helperTcell, elimination, aids, diagnosis, progression]
+terms = [virus, viralloaddef, infectedcells, helperTcell, elimination, aids, diagnosis, progression]
+
 
 ---------------------------------
 -- Physical System Description --

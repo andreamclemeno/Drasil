@@ -4,7 +4,7 @@ import Language.Drasil
 
 import Data.Drasil.Concepts.Documentation (goalStmtDom)
 
-import Drasil.Diagnose.Concepts (elimination, viralload)
+import Drasil.Diagnose.Concepts (elimination)
 
 --goals :: [ConceptInstance]
 --goals = [targetHit]
@@ -31,7 +31,7 @@ predictVL30 = cic "predictVL30"
   (S "Determine the viral load at 30 days.")
   "predictVL30" goalStmtDom
   
---  (S "Determine the" +:+ phrase viralload +:+ S " at 30 days.")
+--  (S "Determine the viral load at 30 days.")
 --  "predictVL30" goalStmtDom
 
 --goalsInputs :: [Sentence]

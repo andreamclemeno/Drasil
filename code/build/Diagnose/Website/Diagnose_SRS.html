@@ -30,6 +30,21 @@
                   <th>Description</th>
                   <th>SI Name</th>
                 </tr>
+                <tr>
+                  <td><em>L</em></td>
+                  <td>volume</td>
+                  <td>litre</td>
+                </tr>
+                <tr>
+                  <td><em>mol</em></td>
+                  <td>amount of substance</td>
+                  <td>mole</td>
+                </tr>
+                <tr>
+                  <td><em>s</em></td>
+                  <td>time</td>
+                  <td>second</td>
+                </tr>
               </table>
               <p class="caption">Table of Units</p>
             </div>
@@ -47,6 +62,46 @@
                   <th>Symbol</th>
                   <th>Description</th>
                   <th>Units</th>
+                </tr>
+                <tr>
+                  <td><em><b>a</b></em></td>
+                  <td>Acceleration</td>
+                  <td><em>\(\frac{\text{m}}{\text{s}^{2}}\)</em></td>
+                </tr>
+                <tr>
+                  <td><em>C</em></td>
+                  <td>Concentration</td>
+                  <td><em>\(\frac{\text{mol}}{\text{L}}\)</em></td>
+                </tr>
+                <tr>
+                  <td><em>k</em></td>
+                  <td>Dimensionless constant</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td><em>n</em></td>
+                  <td>NumberV</td>
+                  <td><em>mol</em></td>
+                </tr>
+                <tr>
+                  <td><em>r</em></td>
+                  <td>VRate</td>
+                  <td><em>\(\frac{\text{mol}}{\text{L}\text{s}}\)</em></td>
+                </tr>
+                <tr>
+                  <td><em>t</em></td>
+                  <td>Time</td>
+                  <td><em>s</em></td>
+                </tr>
+                <tr>
+                  <td><em>V</em></td>
+                  <td>Vol</td>
+                  <td><em>L</em></td>
+                </tr>
+                <tr>
+                  <td><em><b>v</b></em></td>
+                  <td>Velocity</td>
+                  <td><em>\(\frac{\text{m}}{\text{s}}\)</em></td>
                 </tr>
               </table>
               <p class="caption">Table of Symbols</p>
@@ -98,7 +153,7 @@
           <div class="subsection">
             <h2>Problem Description</h2>
             <p class="paragraph">
-              A system is needed to assess the risk before substantial immune destruction has occurred. The system will predict viral load at 30 days and the patient's progression.
+              A system is needed to A system is needed to assess the risk before substantial immune destruction has occurred. The system will predict viral load at 30 days and the patient's progression.
             </p>
             <div id="Sec:TermDefs">
               <div class="subsubsection">
@@ -140,8 +195,9 @@
                 </p>
                 <div class="list">
                   <p>PS1: The HIV Virion.</p>
-                  <p>PS2: The virus-infected cell.</p>
+                  <p>PS2: The virus-infected cells.</p>
                   <p>PS3: The Helper T cell.</p>
+                  <p>PS4: The Human Body.</p>
                 </div>
                 <div id="Figure:Virus">
                   <figure>
@@ -173,6 +229,119 @@
             </div>
           </div>
         </div>
+        <div id="Sec:SolCharSpec">
+          <div class="subsection">
+            <h2>Solution Characteristics Specification</h2>
+            <p class="paragraph">
+              The instance models that govern Diagnose are presented in <a href=#Sec:IMs>Section: Instance Models</a>. The information to understand the meaning of the instance models and their derivation is also presented, so that the instance models can be verified.
+            </p>
+            <div id="Sec:Assumps">
+              <div class="subsubsection">
+                <h3>Assumptions</h3>
+                <p class="paragraph">
+                  This section simplifies the original problem and helps in developing the theoretical models by filling in the missing information for the physical system. The assumptions refine the scope by providing more detail.
+                </p>
+                <div class="list">
+                  <p>
+                    <div id="initialInf">
+                      initialInf: Initial infection of an HIV patient assumed.
+                    </div>
+                  </p>
+                  <p>
+                    <div id="constGrowth">
+                      constGrowth: The virions will invade uninfected cells at a constant rate.
+                    </div>
+                  </p>
+                  <p>
+                    <div id="constVolume">
+                      constVolume: The dimensions of the location associated with the infection remains constant.
+                    </div>
+                  </p>
+                  <p>
+                    <div id="constConditions">
+                      constConditions: Temperature of the location associated with the infection remains constant.
+                    </div>
+                  </p>
+                  <p>
+                    <div id="allProductive">
+                      allProductive: All infected cells are infect other cells productively.
+                    </div>
+                  </p>
+                  <p>
+                    <div id="alwaysElim">
+                      alwaysElim: After viremia peak, no significant upward trends occur.
+                    </div>
+                  </p>
+                  <p>
+                    <div id="neglectDrugs">
+                      neglectDrugs: The effect of drugs on the elimination rate will be not be considered.
+                    </div>
+                  </p>
+                  <p>
+                    <div id="neglectSick">
+                      neglectSick: The effect of other infections on the elimination rate will be not be considered.
+                    </div>
+                  </p>
+                  <p>
+                    <div id="proportional">
+                      proportional: The elimination of the virus is assumed to be proportional to the amount of viruses present.
+                    </div>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="Sec:TMs">
+              <div class="subsubsection">
+                <h3>Theoretical Models</h3>
+                <p class="paragraph">
+                  This section focuses on the general equations and laws that Diagnose is based on.
+                </p>
+                <div id="TM:rate-elimination">
+                  <table class="tdefn">
+                    <tr>
+                      <th>Refname</th>
+                      <td><b>TM:rate-elimination</b></td>
+                    </tr>
+                    <tr>
+                      <th>Label</th>
+                      <td><p class="paragraph"> Average rate of elimination</p></td>
+                    </tr>
+                    <tr>
+                      <th>Equation</th>
+                      <td>\[r=\frac{\,dA}{\,dt}\]</td>
+                    </tr>
+                    <tr>
+                      <th>Description</th>
+                      <td>
+                        <ul class="hide-list-style-no-indent">
+                          <li>
+                            <em>r</em> is the vRate (<em>\(\frac{\text{mol}}{\text{L}\text{s}}\)</em>)
+                          </li>
+                          <li><em>t</em> is the time (<em>s</em>)</li>
+                          <li>
+                            <em>A</em> is the concentration (<em>\(\frac{\text{mol}}{\text{L}}\)</em>)
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Source</th>
+                      <td>
+                        <p class="paragraph">
+                          <a href=#accelerationWiki>accelerationWiki</a> and <a href=#hibbeler2004>hibbeler2004</a> (pg. 7)
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>RefBy</th>
+                      <td><p class="paragraph"></p></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div id="Sec:Requirements">
@@ -181,6 +350,58 @@
         <p class="paragraph">
           This section provides the functional requirements, the tasks and behaviours that the software is expected to complete, and the non-functional requirements, the qualities that the software is expected to exhibit.
         </p>
+        <div id="Sec:FRs">
+          <div class="subsection">
+            <h2>Functional Requirements</h2>
+            <p class="paragraph">
+              This section provides the functional requirements, the tasks and behaviours that the software is expected to complete.
+            </p>
+            <div class="list">
+              <p>
+                <div id="inputValues">
+                  Input-Values: Input the values from <a href=#Table:ReqInputs>Table:ReqInputs</a>.
+                </div>
+              </p>
+              <p>
+                <div id="inputValues">
+                  Input-Values: Input two viral load concentrations taken on  two consecutive days.
+                </div>
+              </p>
+              <p>
+                <div id="verifyInput">
+                  Verify-Input-Values: The software will ensure that the inputs are not   out of bounds and in accordance with the data constraints. If any inputs are out of bounds, an error message is displayed.
+                </div>
+              </p>
+              <p>
+                <div id="calcValues">
+                  Calculate-Values: Software calculates the viral load at 30 days and  the probability of progression to AIDs after 3 years.
+                </div>
+              </p>
+              <p>
+                <div id="verifyOutput">
+                  Verify-Output: The output values will be cross referenced  with  the result constraints.
+                </div>
+              </p>
+              <p>
+                <div id="outputValues">
+                  Output-Values: Output related requirements .
+                </div>
+              </p>
+            </div>
+            <div id="Table:ReqInputs">
+              <table class="table">
+                <tr>
+                  <th>Symbol</th>
+                  <th>Description</th>
+                  <th>Units</th>
+                </tr>
+              </table>
+              <p class="caption">
+                Required Inputs following <a href=#inputValues>FR: Input-Values</a>
+              </p>
+            </div>
+          </div>
+        </div>
         <div id="Sec:NFRs">
           <div class="subsection">
             <h2>Non-Functional Requirements</h2>
@@ -189,13 +410,13 @@
             </p>
             <div class="list">
               <p>
-                <div id="correct">
-                  Correct: The outputs of the code have the properties described in <a href=#Sec:CorSolProps>Section: Properties of a Correct Solution</a>.
+                <div id="correctness">
+                  Correctness: The outputs have to adhere to the output properties in the output  constraints.
                 </div>
               </p>
               <p>
                 <div id="verifiable">
-                  Verifiable: The code is tested with complete verification and validation plan.
+                  Verifiable: The code is tested with complete verification  and validation plan.
                 </div>
               </p>
               <p>
@@ -219,10 +440,81 @@
         </div>
       </div>
     </div>
+    <div id="Sec:LCs">
+      <div class="section">
+        <h1>Likely Changes</h1>
+        <p class="paragraph">
+          This section lists the likely changes to be made to the software.
+        </p>
+        <div class="list">
+          <p>
+            <div id="incTimeFrame">
+              Increase-time-frame: The software may be expanded to cover a wide range of time frames.
+            </div>
+          </p>
+          <p>
+            <div id="moreInputs">
+              More-Inputs: The software may be expanded to include more inputs from the user  to increase the accuracy of the output.
+            </div>
+          </p>
+          <p>
+            <div id="moreOutputs">
+              More-Outputs: The software may be expanded to include more outputs  like a suggestion for therapy.
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="Sec:UCs">
+      <div class="section">
+        <h1>Unlikely Changes</h1>
+        <p class="paragraph">
+          This section lists the unlikely changes to be made to the software.
+        </p>
+        <div class="list">
+          <p>
+            <div id="detElimRate">
+              Determine-elimination-rate: The goal of determining the elimination rate of the virus will not likely change.
+            </div>
+          </p>
+          <p>
+            <div id="externalInput">
+              External-input: There will always be a source of input  data external to the software.
+            </div>
+          </p>
+          <p>
+            <div id="inConstraints">
+              Unchanging-input-constraints: The input constraints will not  likely change.
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
     <div id="Sec:References">
       <div class="section">
         <h1>References</h1>
-        <ul class="hide-list-style"></ul>
+        <ul class="hide-list-style">
+          <li>
+            <div id="hibbeler2004">
+              [1]: Hibbeler, R. C. <em>Engineering Mechanics: Dynamics</em>. Pearson Prentice Hall, 2004. Print.
+            </div>
+          </li>
+          <li>
+            <div id="accelerationWiki">
+              [2]: Wikipedia Contributors. <em>Acceleration</em>. June, 2019. <a href="https://en.wikipedia.org/wiki/Acceleration">https://en.wikipedia.org/wiki/Acceleration</a>.
+            </div>
+          </li>
+          <li>
+            <div id="cartesianWiki">
+              [3]: Wikipedia Contributors. <em>Cartesian coordinate system</em>. June, 2019. <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">https://en.wikipedia.org/wiki/Cartesian_coordinate_system</a>.
+            </div>
+          </li>
+          <li>
+            <div id="velocityWiki">
+              [4]: Wikipedia Contributors. <em>Velocity</em>. June, 2019. <a href="https://en.wikipedia.org/wiki/Velocity">https://en.wikipedia.org/wiki/Velocity</a>.
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </body>
