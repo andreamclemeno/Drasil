@@ -139,7 +139,7 @@ The physical system of Diagnose, as shown in \hyperref[Figure:Virus]{Fig:Virus},
 \end{itemize}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.7\textwidth]{../../../datafiles/Diagnose/Virusinbody.JPG}
+\includegraphics[width=0.7\textwidth]{../../../datafiles/Diagnose/figVirusinbody.jpg}
 \caption{The physical system}
 \label{Figure:Virus}
 \end{center}
@@ -203,91 +203,6 @@ RefBy &
 \\ \bottomrule
 \end{tabular}
 \end{minipage}
-\subsubsection{General Definitions}
-\label{Sec:GDs}
-There are no general definitions.
-
-\subsubsection{Data Definitions}
-\label{Sec:DDs}
-This section collects and defines all the data needed to build the instance models.
-
-\vspace{\baselineskip}
-\noindent
-\begin{minipage}{\textwidth}
-\begin{tabular}{>{\raggedright}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.82\textwidth}}
-\toprule \textbf{Refname} & \textbf{DD:viralLoad}
-\phantomsection 
-\label{DD:viralLoad}
-\\ \midrule \\
-Label & Concentration
-        
-\\ \midrule \\
-Symbol & $A$
-         
-\\ \midrule \\
-Units & $\frac{\text{mol}}{\text{L}}$
-        
-\\ \midrule \\
-Equation & \begin{displaymath}
-           A=\frac{n}{V}
-           \end{displaymath}
-\\ \midrule \\
-Description & \begin{symbDescription}
-              \item{$A$ is the concentration ($\frac{\text{mol}}{\text{L}}$)}
-              \item{$n$ is the numberV (${\text{mol}}$)}
-              \item{$V$ is the vol (${\text{L}}$)}
-              \end{symbDescription}
-\\ \midrule \\
-Notes & The viral load describes the concentration of  a virus within the body at a certain time.
-        
-\\ \midrule \\
-Source & --
-         
-\\ \midrule \\
-RefBy & 
-\\ \bottomrule
-\end{tabular}
-\end{minipage}
-
-\vspace{\baselineskip}
-\noindent
-\begin{minipage}{\textwidth}
-\begin{tabular}{>{\raggedright}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.82\textwidth}}
-\toprule \textbf{Refname} & \textbf{DD:rateElim}
-\phantomsection 
-\label{DD:rateElim}
-\\ \midrule \\
-Label & VRate
-        
-\\ \midrule \\
-Symbol & $r$
-         
-\\ \midrule \\
-Units & $\frac{\text{mol}}{\text{L}\text{s}}$
-        
-\\ \midrule \\
-Equation & \begin{displaymath}
-           r=\frac{n}{V t}
-           \end{displaymath}
-\\ \midrule \\
-Description & \begin{symbDescription}
-              \item{$r$ is the vRate ($\frac{\text{mol}}{\text{L}\text{s}}$)}
-              \item{$n$ is the numberV (${\text{mol}}$)}
-              \item{$V$ is the vol (${\text{L}}$)}
-              \item{$t$ is the time (${\text{s}}$)}
-              \end{symbDescription}
-\\ \midrule \\
-Notes & The viral load describes the concentration of  a virus within the body at a certain time.
-        
-\\ \midrule \\
-Source & --
-         
-\\ \midrule \\
-RefBy & 
-\\ \bottomrule
-\end{tabular}
-\end{minipage}
-
 \section{Requirements}
 \label{Sec:Requirements}
 This section provides the functional requirements, the tasks and behaviours that the software is expected to complete, and the non-functional requirements, the qualities that the software is expected to exhibit.

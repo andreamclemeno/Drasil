@@ -30,7 +30,7 @@ import Drasil.Diagnose.Unitals
 import Drasil.Diagnose.References (citations)
 import Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs)
 import Drasil.Diagnose.GenDefs (genDefns)
-import Drasil.Diagnose.DataDefs (dataDefs,viralLoadDD)
+import Drasil.Diagnose.DataDefs (dataDefs)
 import Drasil.Diagnose.Changes
 
 import Data.Drasil.Quantities.Physics (iVel, physicscon)
@@ -77,8 +77,8 @@ mkSRS = [
       , SSDSolChSpec $ SCSProg
         [ Assumptions
         , TMs [] (Label : stdFields)
---        , GDs [] ([Label, Units] ++ stdFields) ShowDerivation
---        , DDs [] ([Label, Symbol, Units] ++ stdFields) ShowDerivation
+        , GDs [] ([Label, Units] ++ stdFields) ShowDerivation
+        , DDs [] ([Label, Symbol, Units] ++ stdFields) ShowDerivation
 --        , IMs [] ([Label, Input, Output, InConstraints, OutConstraints] ++ stdFields) ShowDerivation
 --        , Constraints EmptyS inConstraints
 --        , CorrSolnPpties outConstraints []
@@ -133,8 +133,8 @@ symbMap :: ChunkDB
 symbMap = cdb (map qw physicscon ++ symbols) (nw diagnoseTitle : nw mass : nw inValue : [nw program] ++
     map nw doccon ++ map nw doccon' ++ map nw physicalcon ++ map nw physicCon ++ map nw physicCon' ++
     map nw mathcon ++ map nw fundamentals ++ map nw derived ++ map nw tMCC ++ map nw unitless) (map cw defSymbols ++ srsDomains)
-  (siUnits) ([] :: [DataDefinition]) ([] :: [InstanceModel])
-  ([] :: [GenDefn]) (tMods) (concIns)
+  (siUnits) (dataDefs) ([] :: [InstanceModel])
+  (genDefns) (tMods) (concIns)
   ([] :: [Section]) ([] :: [LabelledContent])
  
 usedDB :: ChunkDB

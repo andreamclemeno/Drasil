@@ -9,4 +9,4 @@ resourcePath = "../../../datafiles/Diagnose/"
 
 figVirusinbody :: LabelledContent
 figVirusinbody = llcc (makeFigRef "Virus") $ figWithWidth (S "The" +:+ phrase physicalSystem)
-  (resourcePath ++ "figVirusinbody.jpg") 70
+  (resourcePath ++ "Virusinbody.JPG") 70
