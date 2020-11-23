@@ -24,7 +24,7 @@ kelvin   = fund "kelvin"   "temperature"          "K"
 mole     = fund "mole"     "amount of substance"  "mol"
 ampere   = fund "ampere"   "electric current"     "A"
 candela  = fund "candela"  "luminous intensity"   "cd"
-copies   = fund "copies"   "number of units"      "copies"
+copies   = fund "copies"   "number of biological units"      "copies"
 
 ------------- Commonly defined units -------------------------------------------
 

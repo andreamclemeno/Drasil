@@ -1,8 +1,9 @@
---module Drasil.Diagnose.Requirements (nonfuncReqs) where
-module Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs) where
+
+module Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs, verifyOutput) where
 import Language.Drasil
 import Drasil.DocLang.SRS (datCon, propCorSol)
 import Utils.Drasil
+
 
 import Data.Drasil.Concepts.Documentation (funcReqDom, nonFuncReqDom)
 import Data.Drasil.Concepts.Computation (inValue)
@@ -14,27 +15,28 @@ import Data.Drasil.Concepts.Software (errMsg)
 
 import Data.Drasil.IdeaDicts (dataDefn, genDefn, inModel, thModel)
 
+import Drasil.Diagnose.Assumptions
 
 {--Functional Requirements--}
 
 funcReqs :: [ConceptInstance]
-funcReqs = [inputValues, verifyInput, calcValues, verifyOutput, outputValues]
-
-inputValues, verifyInput, calcValues, verifyOutput, outputValues :: ConceptInstance
-
-inputValues  = cic "inputValues"  inputValuesDesc  "Input-Values"        funcReqDom
+funcReqs = [verifyInput, calcValues, verifyOutput, outputValues]
+--inputValues,
+verifyInput, calcValues, verifyOutput, outputValues :: ConceptInstance
+--inputValues,
+--inputValues  = cic "inputValues"  inputValuesDesc  "Input-Values"        funcReqDom
 verifyInput  = cic "verifyInput"  verifyInputDesc  "Verify-Input-Values" funcReqDom
 calcValues   = cic "calcValues"   calcValuesDesc   "Calculate-Values"    funcReqDom
 verifyOutput = cic "verifyOutput" verifyOutputDesc "Verify-Output"       funcReqDom
 outputValues = cic "outputValues" outputValuesDesc "Output-Values"       funcReqDom
 
-inputValuesDesc :: Sentence
-inputValuesDesc = foldlSent [S "Input two viral load concentrations taken on ",
-  S "two consecutive days"]
+--inputValuesDesc :: Sentence
+--inputValuesDesc = foldlSent [S "Input two viral load concentrations taken on ",
+--  S "two consecutive days"]
   
 verifyInputDesc :: Sentence
 verifyInputDesc = foldlSent [S "The software will ensure that the inputs are not  ",
-  S "out of bounds and in accordance with the data constraints. If any inputs are",
+  S "out of bounds and in accordance with the data constraints especially regarding the" +:+ makeRef2S initialInf +:+ S "and furthermore," +:+ makeRef2S alwaysElim +:+ S ". If any inputs are",
   S "out of bounds, an error message is displayed"]
    
 calcValuesDesc :: Sentence
@@ -42,8 +44,8 @@ calcValuesDesc = foldlSent [S "Software calculates the viral load at 30 days and
   S "the probability of progression to AIDs after 3 years"]
   
 verifyOutputDesc :: Sentence
-verifyOutputDesc = foldlSent [S "The output values will be cross referenced  with ",
-  S "the result constraints"]
+verifyOutputDesc = foldlSent [S "The output values will be cross referenced with ",
+  S "the result constraints, related to the assumptions:" +:+ makeRef2S initialInf +:+ S "and",makeRef2S alwaysElim]
   
 outputValuesDesc :: Sentence
 outputValuesDesc = foldlSent [S "Output related requirements "]

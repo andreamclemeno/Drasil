@@ -49,13 +49,13 @@ allProductiveDesc :: Sentence
 allProductiveDesc = S "All infected cells are infect other cells productively."
 
 alwaysElimDesc :: Sentence
-alwaysElimDesc = S "After viremia peak, no significant upward trends occur."
+alwaysElimDesc = foldlSent[S "In accordance with", makeRef2S initialInf `sC` S "after viremia peak, no significant upward trends occur."]
 
 neglectDrugsDesc :: Sentence
-neglectDrugsDesc = S "The effect of drugs on the elimination rate will be not be considered."
+neglectDrugsDesc = foldlSent [S "The effect of antibiotic drugs or therapy on the elimination rate will be not be considered."]
 
 neglectSickDesc :: Sentence
-neglectSickDesc = S "The effect of other infections on the elimination rate will be not be considered."
+neglectSickDesc = foldlSent [S "With reference to", makeRef2S constConditions `sC` S "the effect of other infections on the elimination rate will be not be considered."]
 
 proportionalDesc :: Sentence
 proportionalDesc = S "The elimination of the virus is assumed to be proportional to the amount of viruses present."

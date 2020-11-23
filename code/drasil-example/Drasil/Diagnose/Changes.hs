@@ -10,8 +10,7 @@ import Data.Drasil.Concepts.Documentation (condition, goal, input_, likeChgDom,
 import Data.Drasil.Concepts.Math (calculation)
 import Data.Drasil.Concepts.PhysicalProperties (flexure)
 
---import Drasil.GlassBR.Assumptions (assumpGC, assumpES, assumpSV, assumpGL,
---  assumpBC, assumpRT, assumpLDFC, assumptionConstants)
+import Drasil.Diagnose.Assumptions
 --import Drasil.GlassBR.Concepts (blastRisk, glaSlab, glass)
 --import Drasil.GlassBR.Unitals (explosion, lite)
 
@@ -30,15 +29,16 @@ moreOutputs     = cic "moreOutputs"      moreOutputsDesc   "More-Outputs"       
 incTimeFrameDesc, moreInputsDesc, moreOutputsDesc :: Sentence
 
 incTimeFrameDesc = foldlSent [(S "The"), phrase software,
-  S "may be expanded to cover a wide range of time frames"]
+  S "may be expanded to cover a wide range of time frames which is possible due to " +:+ makeRef2S proportional]
 
 moreInputsDesc = foldlSent [(S "The"), phrase software,
   S "may be expanded to include more inputs from the user",
-  S " to increase the accuracy of the output"]
+  S " to increase the accuracy of the output. This change may alter assumptions:" +:+ makeRef2S allProductive +:+ S "," +:+ makeRef2S neglectSick +:+ S "and" +:+ makeRef2S neglectDrugs]
   
 moreOutputsDesc = foldlSent [(S "The"), phrase software,
   S "may be expanded to include more outputs",
   S " like a suggestion for therapy"]
+
 
 
 {--UNLIKELY CHANGES--}

@@ -43,7 +43,7 @@ import Data.Drasil.Concepts.PhysicalProperties (mass, dimension, concent, physic
 
 import Drasil.DocLang (AuxConstntSec(AuxConsProg),
   DerivationDisplay(ShowDerivation),
-  DocSection(AuxConstntSec, Bibliography, IntroSec, RefSec, ReqrmntSec, SSDSec, TraceabilitySec),
+  DocSection(AuxConstntSec, Bibliography, IntroSec, RefSec, ReqrmntSec, SSDSec, LCsSec, UCsSec, TraceabilitySec), 
   Emphasis(Bold), Field(..), Fields, InclUnits(IncludeUnits),
   IntroSec(IntroProg), IntroSub(IScope), ProblemDescription(PDProg), PDSub(..),
   RefSec(..), RefTab(..), ReqrmntSec(..), ReqsSub(..), SCSSub(..), SRSDecl,
@@ -92,9 +92,9 @@ mkSRS = [
       ],
   LCsSec, 
   UCsSec,     
---  TraceabilitySec $ TraceabilityProg $ traceMatStandard si,
---  AuxConstntSec $
---    AuxConsProg projectileTitle constants,
+  TraceabilitySec $ TraceabilityProg $ traceMatStandard si,
+ AuxConstntSec $
+    AuxConsProg diagnoseTitle constants,
   Bibliography
   ]
   
@@ -121,7 +121,7 @@ si = SI {
   _outputs     = outputs, -- [QuantityDict],
   _defSequence = [] :: [Block QDefinition],
   _constraints = inConstraints, -- [ConstrainedChunk],
-  _constants   = [] :: [QDefinition],
+  _constants   = constants, --[QDefinition],
   _sysinfodb   = symbMap,
   _usedinfodb  = usedDB,
    refdb       = refDB
@@ -161,7 +161,7 @@ concIns = assumptions ++ funcReqs ++ goals ++ nonfuncReqs ++ likelyChgs ++ unlik
 -------------------------
 
 prob :: Sentence
-prob = foldlSent_ [S "A system is needed to assess the risk before substantial immune destruction has occurred."
+prob = foldlSent_ [S "assess the risk before substantial immune destruction has occurred."
   , S "The system will predict viral load at 30 days and the patient's progression"]
   
 ---------------------------------
