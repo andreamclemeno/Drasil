@@ -31,14 +31,14 @@
                   <th>SI Name</th>
                 </tr>
                 <tr>
-                  <td><em>L</em></td>
-                  <td>volume</td>
-                  <td>litre</td>
+                  <td><em>copies</em></td>
+                  <td>number of units</td>
+                  <td>copies</td>
                 </tr>
                 <tr>
-                  <td><em>mol</em></td>
-                  <td>amount of substance</td>
-                  <td>mole</td>
+                  <td><em>mL</em></td>
+                  <td>volume</td>
+                  <td>millilitre</td>
                 </tr>
                 <tr>
                   <td><em>s</em></td>
@@ -69,24 +69,29 @@
                   <td><em>\(\frac{\text{m}}{\text{s}^{2}}\)</em></td>
                 </tr>
                 <tr>
-                  <td><em>C</em></td>
-                  <td>Concentration</td>
-                  <td><em>\(\frac{\text{mol}}{\text{L}}\)</em></td>
+                  <td><em>N</em></td>
+                  <td>VLoad</td>
+                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
-                  <td><em>k</em></td>
-                  <td>Dimensionless constant</td>
-                  <td>--</td>
+                  <td><em>N<sub>o</sub></em></td>
+                  <td>Initial viral load</td>
+                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
+                </tr>
+                <tr>
+                  <td><em>N<sub>t</sub></em></td>
+                  <td>Viral load at time t</td>
+                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>n</em></td>
                   <td>NumberV</td>
-                  <td><em>mol</em></td>
+                  <td><em>copies</em></td>
                 </tr>
                 <tr>
                   <td><em>r</em></td>
                   <td>VRate</td>
-                  <td><em>\(\frac{\text{mol}}{\text{L}\text{s}}\)</em></td>
+                  <td><em>\(\frac{\text{copies}}{\text{mL}\text{s}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>t</em></td>
@@ -96,12 +101,17 @@
                 <tr>
                   <td><em>V</em></td>
                   <td>Vol</td>
-                  <td><em>L</em></td>
+                  <td><em>mL</em></td>
                 </tr>
                 <tr>
                   <td><em><b>v</b></em></td>
                   <td>Velocity</td>
                   <td><em>\(\frac{\text{m}}{\text{s}}\)</em></td>
+                </tr>
+                <tr>
+                  <td><em>λ</em></td>
+                  <td>ElimConst</td>
+                  <td><em>s<sup>-1</sup></em></td>
                 </tr>
               </table>
               <p class="caption">Table of Symbols</p>
@@ -116,6 +126,46 @@
                 <tr>
                   <th>Abbreviation</th>
                   <th>Full Form</th>
+                </tr>
+                <tr>
+                  <td>A</td>
+                  <td>Assumption</td>
+                </tr>
+                <tr>
+                  <td>DD</td>
+                  <td>Data Definition</td>
+                </tr>
+                <tr>
+                  <td>GD</td>
+                  <td>General Definition</td>
+                </tr>
+                <tr>
+                  <td>GS</td>
+                  <td>Goal Statement</td>
+                </tr>
+                <tr>
+                  <td>IM</td>
+                  <td>Instance Model</td>
+                </tr>
+                <tr>
+                  <td>PS</td>
+                  <td>Physical System Description</td>
+                </tr>
+                <tr>
+                  <td>R</td>
+                  <td>Requirement</td>
+                </tr>
+                <tr>
+                  <td>SRS</td>
+                  <td>Software Requirements Specification</td>
+                </tr>
+                <tr>
+                  <td>TM</td>
+                  <td>Theoretical Model</td>
+                </tr>
+                <tr>
+                  <td>Uncert.</td>
+                  <td>Typical Uncertainty</td>
                 </tr>
               </table>
               <p class="caption">Abbreviations and Acronyms</p>
@@ -201,7 +251,7 @@
                 </div>
                 <div id="Figure:Virus">
                   <figure>
-                    <img src="../../../datafiles/Diagnose/figVirusinbody.jpg" alt="The physical system" width="70.0%" >
+                    <img src="../../../datafiles/Diagnose/Virusinbody.JPG" alt="The physical system" width="70.0%" >
                     <figcaption>The physical system</figcaption>
                   </figure>
                 </div>
@@ -296,30 +346,34 @@
                 <p class="paragraph">
                   This section focuses on the general equations and laws that Diagnose is based on.
                 </p>
-                <div id="TM:rate-elimination">
+                <div id="TM:expElim">
                   <table class="tdefn">
                     <tr>
                       <th>Refname</th>
-                      <td><b>TM:rate-elimination</b></td>
+                      <td><b>TM:expElim</b></td>
                     </tr>
                     <tr>
                       <th>Label</th>
-                      <td><p class="paragraph"> Average rate of elimination</p></td>
+                      <td><p class="paragraph">VLoad</p></td>
                     </tr>
                     <tr>
                       <th>Equation</th>
-                      <td>\[r=\frac{\,dA}{\,dt}\]</td>
+                      <td>\[r=\frac{\,dN}{\,dt}=-λ {N_{\text{o}}}\]</td>
                     </tr>
                     <tr>
                       <th>Description</th>
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>r</em> is the vRate (<em>\(\frac{\text{mol}}{\text{L}\text{s}}\)</em>)
+                            <em>r</em> is the vRate (<em>\(\frac{\text{copies}}{\text{mL}\text{s}}\)</em>)
                           </li>
                           <li><em>t</em> is the time (<em>s</em>)</li>
                           <li>
-                            <em>A</em> is the concentration (<em>\(\frac{\text{mol}}{\text{L}}\)</em>)
+                            <em>N</em> is the vLoad (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                          </li>
+                          <li><em>λ</em> is the elimConst (<em>s<sup>-1</sup></em>)</li>
+                          <li>
+                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
                           </li>
                         </ul>
                       </td>
@@ -334,9 +388,313 @@
                     </tr>
                     <tr>
                       <th>RefBy</th>
+                      <td><p class="paragraph"><a href=#GD:vLoadt>GD: vLoadt</a></p></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div id="Sec:GDs">
+              <div class="subsubsection">
+                <h3>General Definitions</h3>
+                <p class="paragraph">
+                  This section collects the laws and equations that will be used to build the instance models.
+                </p>
+                <div id="GD:vLoadt">
+                  <table class="gdefn">
+                    <tr>
+                      <th>Refname</th>
+                      <td><b>GD:vLoadt</b></td>
+                    </tr>
+                    <tr>
+                      <th>Label</th>
+                      <td>
+                        <p class="paragraph">
+                          VLoadt as a function of time for constant decay rate
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Units</th>
+                      <td>
+                        <p class="paragraph">
+                          <em>\(\frac{\text{copies}}{\text{mL}}\)</em>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Equation</th>
+                      <td>\[{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}\]</td>
+                    </tr>
+                    <tr>
+                      <th>Description</th>
+                      <td>
+                        <ul class="hide-list-style-no-indent">
+                          <li>
+                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                          </li>
+                          <li>
+                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                          </li>
+                          <li><em>λ</em> is the elimConst (<em>s<sup>-1</sup></em>)</li>
+                          <li><em>t</em> is the time (<em>s</em>)</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Source</th>
+                      <td>
+                        <p class="paragraph">
+                          <a href=#hibbeler2004>hibbeler2004</a> (pg. 8)
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>RefBy</th>
+                      <td>
+                        <p class="paragraph">
+                          <a href=#IM:calofElimConst>IM: calofElimConst</a>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div id="GD:vLoadtDeriv">
+                  <div class="subsubsubsection">
+                    <h4>Detailed derivation of viral load at time t:</h4>
+                    <p class="paragraph">
+                      Using the First-Order rate Law in <a href=#TM:expElim>TM: expElim</a>, we have:
+                    </p>
+                    \[\frac{\,dN}{\,dt}=-λ {N_{\text{o}}}\]
+                    <p class="paragraph">
+                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>λ</em> denotes the elimConst . When rearranging for integration,  we have:
+                    </p>
+                    \[\int_{{N_{\text{o}}}}^{{N_{\text{t}}}}{1}\,d{N_{\text{t}}}=-\int_{0}^{t}{λ}\,dt\]
+                    <p class="paragraph">
+                      Performing the integration, we have the required equation:
+                    </p>
+                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}\]
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="Sec:DDs">
+              <div class="subsubsection">
+                <h3>Data Definitions</h3>
+                <p class="paragraph">
+                  This section collects and defines all the data needed to build the instance models.
+                </p>
+                <div id="DD:viralLoad">
+                  <table class="ddefn">
+                    <tr>
+                      <th>Refname</th>
+                      <td><b>DD:viralLoad</b></td>
+                    </tr>
+                    <tr>
+                      <th>Label</th>
+                      <td><p class="paragraph">VLoad</p></td>
+                    </tr>
+                    <tr>
+                      <th>Symbol</th>
+                      <td><p class="paragraph"><em>N</em></p></td>
+                    </tr>
+                    <tr>
+                      <th>Units</th>
+                      <td>
+                        <p class="paragraph">
+                          <em>\(\frac{\text{copies}}{\text{mL}}\)</em>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Equation</th>
+                      <td>\[N=\frac{n}{V}\]</td>
+                    </tr>
+                    <tr>
+                      <th>Description</th>
+                      <td>
+                        <ul class="hide-list-style-no-indent">
+                          <li>
+                            <em>N</em> is the vLoad (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                          </li>
+                          <li><em>n</em> is the numberV (<em>copies</em>)</li>
+                          <li><em>V</em> is the vol (<em>mL</em>)</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Notes</th>
+                      <td>
+                        <p class="paragraph">
+                          The viral load describes the concentration of  a virus within the body at a certain time.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Source</th>
+                      <td><p class="paragraph">--</p></td>
+                    </tr>
+                    <tr>
+                      <th>RefBy</th>
                       <td><p class="paragraph"></p></td>
                     </tr>
                   </table>
+                </div>
+                <p class="paragraph"></p>
+              </div>
+            </div>
+            <div id="Sec:IMs">
+              <div class="subsubsection">
+                <h3>Instance Models</h3>
+                <p class="paragraph">
+                  This section transforms the problem defined in <a href=#Sec:ProbDesc>Section: Problem Description</a> into one which is expressed in mathematical terms. It uses concrete symbols defined in <a href=#Sec:DDs>Section: Data Definitions</a> to replace the abstract symbols in the models identified in <a href=#Sec:TMs>Section: Theoretical Models</a> and <a href=#Sec:GDs>Section: General Definitions</a>.
+                </p>
+                <div id="IM:calofElimConst">
+                  <table class="idefn">
+                    <tr>
+                      <th>Refname</th>
+                      <td><b>IM:calofElimConst</b></td>
+                    </tr>
+                    <tr>
+                      <th>Label</th>
+                      <td><p class="paragraph">Calculation of elimination rate</p></td>
+                    </tr>
+                    <tr>
+                      <th>Input</th>
+                      <td>
+                        <p class="paragraph"><em>N<sub>t</sub></em>, <em>t</em></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Output</th>
+                      <td><p class="paragraph"><em>λ</em></p></td>
+                    </tr>
+                    <tr>
+                      <th>Input Constraints</th>
+                      <td>
+                        \[0\lt{}{N_{\text{t}}}\lt{}{N_{\text{o}}}\]
+                        \[t\gt{}0\]
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Output Constraints</th>
+                      <td>\[λ\gt{}0\]</td>
+                    </tr>
+                    <tr>
+                      <th>Equation</th>
+                      <td>
+                        \[λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{t}\]
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Description</th>
+                      <td>
+                        <ul class="hide-list-style-no-indent">
+                          <li><em>λ</em> is the elimConst (<em>s<sup>-1</sup></em>)</li>
+                          <li>
+                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                          </li>
+                          <li>
+                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                          </li>
+                          <li><em>t</em> is the time (<em>s</em>)</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Notes</th>
+                      <td>
+                        <p class="paragraph">
+                          The constraint <em>N<sub>o</sub>&thinsp;&gt;&thinsp;N<sub>t</sub>&thinsp;&gt;&thinsp;0</em> is required for the nature of the problem. Due to the input constraint,  the <em>λ&thinsp;&gt;&thinsp;0</em> is established.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Source</th>
+                      <td><p class="paragraph">--</p></td>
+                    </tr>
+                    <tr>
+                      <th>RefBy</th>
+                      <td><p class="paragraph"></p></td>
+                    </tr>
+                  </table>
+                </div>
+                <div id="IM:calofElimConstDeriv">
+                  <div class="subsubsubsection">
+                    <h4>Detailed derivation of elimConst:</h4>
+                    <p class="paragraph">
+                      Using the relationship for the viral load with respect to time in <a href=#GD:vLoadt>GD: vLoadt</a>, we have:
+                    </p>
+                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}\]
+                    <p class="paragraph">
+                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>λ</em> denotes the elimConst . When isolating for the elimination constant ,  we have:
+                    </p>
+                    \[\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-λ t}\]
+                    <p class="paragraph">
+                      To isolate further, the natural logarithm is applied:
+                    </p>
+                    \[\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-λ t\]
+                    <p class="paragraph">
+                      After using the logarithmic quotient property, we have the required equation:
+                    </p>
+                    \[λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{t}\]
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="Sec:DataConstraints">
+              <div class="subsubsection">
+                <h3>Data Constraints</h3>
+                <p class="paragraph">
+                  <a href=#Table:InDataConstraints>Table:InDataConstraints</a> shows the data constraints on the input variables. The column for physical constraints gives the physical limitations on the range of values that can be taken by the variable. The uncertainty column provides an estimate of the confidence with which the physical quantities can be measured. This information would be part of the input if one were performing an uncertainty quantification exercise. The constraints are conservative, to give the user of the model the flexibility to experiment with unusual situations. The column of typical values is intended to provide a feel for a common scenario.
+                </p>
+                <div id="Table:InDataConstraints">
+                  <table class="table">
+                    <tr>
+                      <th>Var</th>
+                      <th>Physical Constraints</th>
+                      <th>Typical Value</th>
+                      <th>Uncert.</th>
+                    </tr>
+                    <tr>
+                      <td><em>N<sub>o</sub></em></td>
+                      <td><em>N<sub>o</sub>&thinsp;&gt;&thinsp;0</em></td>
+                      <td>
+                        <em>10.0&sdot;10<sup>6</sup></em> <em>\(\frac{\text{copies}}{\text{mL}}\)</em>
+                      </td>
+                      <td>10<em>%</em></td>
+                    </tr>
+                    <tr>
+                      <td><em>N<sub>t</sub></em></td>
+                      <td><em>N<sub>t</sub>&thinsp;&gt;&thinsp;0</em></td>
+                      <td>
+                        <em>5.0&sdot;10<sup>6</sup></em> <em>\(\frac{\text{copies}}{\text{mL}}\)</em>
+                      </td>
+                      <td>10<em>%</em></td>
+                    </tr>
+                  </table>
+                  <p class="caption">Input Data Constraints</p>
+                </div>
+              </div>
+            </div>
+            <div id="Sec:CorSolProps">
+              <div class="subsubsection">
+                <h3>Properties of a Correct Solution</h3>
+                <p class="paragraph">
+                  <a href=#Table:OutDataConstraints>Table:OutDataConstraints</a> shows the data constraints on the output variables. The column for physical constraints gives the physical limitations on the range of values that can be taken by the variable.
+                </p>
+                <div id="Table:OutDataConstraints">
+                  <table class="table">
+                    <tr>
+                      <th>Var</th>
+                      <th>Physical Constraints</th>
+                    </tr>
+                    <tr>
+                      <td><em>λ</em></td>
+                      <td><em>λ&thinsp;&gt;&thinsp;0</em></td>
+                    </tr>
+                  </table>
+                  <p class="caption">Output Data Constraints</p>
                 </div>
               </div>
             </div>
@@ -394,6 +752,16 @@
                   <th>Symbol</th>
                   <th>Description</th>
                   <th>Units</th>
+                </tr>
+                <tr>
+                  <td><em>N<sub>o</sub></em></td>
+                  <td>Initial viral load</td>
+                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
+                </tr>
+                <tr>
+                  <td><em>N<sub>t</sub></em></td>
+                  <td>Viral load at time t</td>
+                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
                 </tr>
               </table>
               <p class="caption">
