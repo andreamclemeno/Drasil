@@ -26,6 +26,7 @@ import Drasil.Diagnose.Concepts (diagnoseTitle, virus, viralloaddef, infectedcel
 import Drasil.Diagnose.Goals (goals)
 import Drasil.Diagnose.Assumptions (assumptions)
 import Drasil.Diagnose.TMods 
+import Drasil.Diagnose.IMods 
 import Drasil.Diagnose.Unitals
 import Drasil.Diagnose.References (citations)
 import Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs)
@@ -79,9 +80,9 @@ mkSRS = [
         , TMs [] (Label : stdFields)
         , GDs [] ([Label, Units] ++ stdFields) ShowDerivation
         , DDs [] ([Label, Symbol, Units] ++ stdFields) ShowDerivation
---        , IMs [] ([Label, Input, Output, InConstraints, OutConstraints] ++ stdFields) ShowDerivation
---        , Constraints EmptyS inConstraints
---        , CorrSolnPpties outConstraints []
+        , IMs [] ([Label, Input, Output, InConstraints, OutConstraints] ++ stdFields) ShowDerivation
+        , Constraints EmptyS inConstraints
+        , CorrSolnPpties outConstraints []
         ]
       ],
   ReqrmntSec $
@@ -116,10 +117,10 @@ si = SI {
   _definitions = [] :: [QDefinition],
   _datadefs    = dataDefs,
   _configFiles = [],
-  _inputs      = [] :: [QuantityDict],
-  _outputs     = [] :: [QuantityDict],
+  _inputs      = inputs, --[QuantityDict],
+  _outputs     = outputs, -- [QuantityDict],
   _defSequence = [] :: [Block QDefinition],
-  _constraints = [] :: [ConstrainedChunk],
+  _constraints = inConstraints, -- [ConstrainedChunk],
   _constants   = [] :: [QDefinition],
   _sysinfodb   = symbMap,
   _usedinfodb  = usedDB,
@@ -131,15 +132,17 @@ si = SI {
   
 symbMap :: ChunkDB
 symbMap = cdb (map qw physicscon ++ symbols) (nw diagnoseTitle : nw mass : nw inValue : [nw program] ++
-    map nw doccon ++ map nw doccon' ++ map nw physicalcon ++ map nw physicCon ++ map nw physicCon' ++
-    map nw mathcon ++ map nw fundamentals ++ map nw derived ++ map nw tMCC ++ map nw unitless) (map cw defSymbols ++ srsDomains)
-  (siUnits) (dataDefs) ([] :: [InstanceModel])
+    map nw doccon ++ map nw doccon' ++ map nw physicalcon ++ map nw physicCon ++ map nw physicCon'++ map nw acronyms ++
+    map nw mathcon ++ map nw fundamentals ++ map nw derived ++ map nw tMCC) (map cw defSymbols ++ srsDomains)
+  (siUnits) (dataDefs) (iMods)
   (genDefns) (tMods) (concIns)
   ([] :: [Section]) ([] :: [LabelledContent])
+  
+-- add ++ map nw unitless in second arg if there is unitlessconstants
  
 usedDB :: ChunkDB
-usedDB = cdb ([] :: [QuantityDict]) ( map nw physicalcon ++ map nw tMCC) ([] :: [ConceptChunk])
-  ([] :: [UnitDefn]) ([] :: [DataDefinition]) ([] :: [InstanceModel])
+usedDB = cdb ([] :: [QuantityDict]) ( map nw physicalcon ++ map nw tMCC ++ map nw acronyms ++ map nw symbols) 
+  ([] :: [ConceptChunk]) ([] :: [UnitDefn]) ([] :: [DataDefinition]) ([] :: [InstanceModel])
   ([] :: [GenDefn]) ([] :: [TheoryModel]) ([] :: [ConceptInstance])
   ([] :: [Section]) ([] :: [LabelledContent])
   

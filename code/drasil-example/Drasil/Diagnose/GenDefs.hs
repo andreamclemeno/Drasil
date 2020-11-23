@@ -1,7 +1,6 @@
-module Drasil.Diagnose.GenDefs (genDefns) where
---module Drasil.Diagnose.GenDefs (genDefns, rateElimGD) where
+module Drasil.Diagnose.GenDefs (genDefns, vLoadtGD) where
 
-import Prelude hiding (cos, sin)
+import Prelude hiding (exp)
 import Language.Drasil
 import Theory.Drasil (GenDefn, TheoryModel, gd, gdNoRefs)
 import Utils.Drasil
@@ -13,50 +12,83 @@ import Data.Drasil.Concepts.Math (cartesian, equation, vector)
 import Data.Drasil.Concepts.Physics (oneD, rectilinear, twoD)
 
 import Data.Drasil.Quantities.Physics (acceleration, constAccelV, iPos, iSpeed,
-  iVel, ixPos, ixVel, iyPos, iyVel, position, scalarAccel, scalarPos, speed,
-  time, velocity, xAccel, xConstAccel, xPos, xVel, yAccel, yConstAccel, yPos, yVel)
+  iVel, ixPos, ixVel, iyPos, iyVel, position, scalarAccel, scalarPos, speed, velocity, xAccel, 
+  xConstAccel, xPos, xVel, yAccel, yConstAccel, yPos, yVel)
 import qualified Data.Drasil.Quantities.Physics as QP (constAccel)
 
 ---
 
 import Drasil.Diagnose.Assumptions 
-import Drasil.Diagnose.References (hibbeler2004) -- ref?
-import Drasil.Diagnose.TMods
+import Drasil.Diagnose.References (hibbeler2004) 
+import Drasil.Diagnose.TMods (expElimTM)
+
+import Drasil.Diagnose.Unitals 
 
 genDefns :: [GenDefn]
-genDefns = []
---genDefns = [rateElimGD]
+genDefns = [vLoadtGD]
 
 ----------
---rateElimGD :: GenDefn
---rateElimGD = gd rateElimRC (getUnit speed) (Just rateElimDeriv)
---  [makeCiteInfo hibbeler2004 $ Page [8]] "rateElim" [{-Notes-}]
-  
---rateElimGD = gd rateElimRC (units) (derivation)
---  [reference] "rateElim" [{-Notes-}]
+vLoadtGD :: GenDefn
+vLoadtGD = gd vLoadtRC (getUnit vLoad) (Just vLoadtDeriv)
+  [makeCiteInfo hibbeler2004 $ Page [8]] "vLoadt" [{-Notes-}]
 
---rateElimRC :: RelationConcept
---rateElimRC = makeRC "rateElimRC" (nounPhraseSent $ foldlSent_ 
---            [ S "Rate of ELimination "])
---            EmptyS rateElimRel
 
---rateElimRel :: Relation -- 
---rateElimRel = sy speed $= sy iSpeed + sy QP.constAccel * sy time
+vLoadtRC :: RelationConcept
+vLoadtRC = makeRC "vLoadtRC" (nounPhraseSent $ foldlSent_ 
+            [S "VLoadt as a function" `sOf` phrase time, S "for constant decay rate"])
+            EmptyS $ sy vLoadt $= sy vLoado * exp (negate(sy elimConst * sy time))
 
---rateElimDeriv :: Derivation
---rateElimDeriv = mkDerivName (phrase rectilinear +:+ phrase velocity)
---               (weave [rateElimDerivSents, map E rateElimDerivEqns])
+vLoadtDeriv :: Derivation
+vLoadtDeriv = mkDerivName (phrase vLoadt) (weave [vLoadtDerivSents, map E vLoadtDerivEqns])
 
---rateElimDerivSents :: [Sentence]
---rateElimDerivSents = [rectDeriv velocity acceleration motSent iVel accelerationTM, rearrAndIntSent, performIntSent]
---  where
---    motSent = foldlSent [S "The motion" `sIn` makeRef2S accelerationTM `sIs` S "now", phrase oneD,
---                         S "with a", phrase QP.constAccel `sC` S "represented by", E (sy QP.constAccel)]
+vLoadtDerivSents :: [Sentence]
+vLoadtDerivSents = [vLoadtDerivSent1, vLoadtDerivSent2, vLoadtDerivSent3]
+                             
+vLoadtDerivSent1, vLoadtDerivSent2, vLoadtDerivSent3 :: Sentence
 
---rateElimDerivEqns :: [Expr]
---rateElimDerivEqns = [rateElimDerivEqn1, rateElimDerivEqn2, rateElimRel]
+vLoadtDerivSent1 = foldlSentCol [S "Using the First-Order rate Law" `sIn` makeRef2S expElimTM `sC`
+                                 S "we have" ]
+                                 
+ 
+vLoadtDerivSent2 = foldlSentCol [S "Where", ch vLoadt +:+ S "denotes the", phrase vLoadt `sC`
+                                    ch vLoado +:+ S "denotes the", phrase vLoado `sAnd` ch elimConst +:+ 
+                                    S "denotes the", phrase elimConst +:+ 
+                                    S ". When rearranging for integration" `sC` S " we have"]
+                 
+                 
 
---rateElimDerivEqn1, rateElimDerivEqn2 :: Expr
---rateElimDerivEqn1 = sy QP.constAccel $= deriv (sy speed) time
---rateElimDerivEqn2 = defint (eqSymb speed) (sy iSpeed) (sy speed) 1 $=
---                   defint (eqSymb time) 0 (sy time) (sy QP.constAccel)
+vLoadtDerivSent3 = foldlSentCol [S "Performing the integration" `sC` S "we have the required equation"]
+
+
+
+                                    
+ 
+
+vLoadtDerivEqns :: [Expr]
+vLoadtDerivEqns = [vLoadtDerivEqn1, vLoadtDerivEqn2, vLoadtDerivEqn3]
+
+vLoadtDerivEqn1, vLoadtDerivEqn2, vLoadtDerivEqn3 :: Expr
+vLoadtDerivEqn1 = deriv (sy vLoad) time $= negate(sy elimConst * sy vLoado)
+vLoadtDerivEqn2 = defint (eqSymb vLoadt) (sy vLoado) (sy vLoadt) 1 $= 
+                  negate (defint (eqSymb time) 0 (sy time) (sy elimConst))
+vLoadtDerivEqn3 = sy vLoadt $= sy vLoado * exp (negate(sy elimConst * sy time))
+                  
+
+
+
+--rearrAndIntSent, performIntSent :: Sentence
+--rearrAndIntSent   = foldlSent [S "Rearranging and integrating"]
+--performIntSent    = foldlSent [S "Performing the integration"]
+                   
+
+
+           
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   

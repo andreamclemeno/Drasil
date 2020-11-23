@@ -16,7 +16,7 @@ import Drasil.Diagnose.Unitals
 ----- DATA DEFINITION
 
 dataDefs :: [DataDefinition]
-dataDefs = [viralLoadDD, rateElimDD]
+dataDefs = [viralLoadDD]
 
 ----- Viral Load
 
@@ -24,7 +24,7 @@ viralLoadDD :: DataDefinition
 viralLoadDD = ddNoRefs viralLoadQD Nothing "viralLoad" [viralLoadDesc] 
 
 viralLoadQD :: QDefinition
-viralLoadQD = mkQuantDef vLoadt viralLoadEqn
+viralLoadQD = mkQuantDef vLoad viralLoadEqn
 
 viralLoadEqn :: Expr
 viralLoadEqn = sy numberV / sy vol

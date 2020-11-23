@@ -1,4 +1,4 @@
-module Drasil.Diagnose.TMods (tMods) where
+module Drasil.Diagnose.TMods (tMods, expElimTM) where
 
 import Language.Drasil
 import Language.Drasil.ShortHands
@@ -11,8 +11,7 @@ import Drasil.Diagnose.Unitals
 import Drasil.Diagnose.References (accelerationWiki, velocityWiki, hibbeler2004)
 
 tMods :: [TheoryModel]
-tMods = [rateTM]
---tMods = [accelerationTM, velocityTM]
+tMods = [expElimTM]
 
 rateTM :: TheoryModel
 rateTM = tm (cw rateRC)
@@ -29,26 +28,26 @@ rateRel = sy vRate $= deriv (sy vLoadt) time
 
 expElimTM :: TheoryModel
 expElimTM = tm (cw expElimRC)
-  [qw vLoadt, qw elimConst, qw vLoado, qw time] ([] :: [ConceptChunk]) [] [expElimRel] []
+  [qw vRate, qw vLoado, qw elimConst, qw vLoad, qw time] ([] :: [ConceptChunk]) [] [expElimRel] []
   [makeCite accelerationWiki, makeCiteInfo hibbeler2004 $ Page [7]] "expElim" []
 
 expElimRC :: RelationConcept
-expElimRC = makeRC "expElimRC" (cn' "vLoadt") EmptyS expElimRel
+expElimRC = makeRC "expElimRC" (cn' "vLoad") EmptyS expElimRel
 
 expElimRel :: Relation
-expElimRel = sy vLoadt * sy elimConst $= deriv (sy vLoado) time
+expElimRel = sy vRate $= deriv (sy vLoad) time $= negate (sy elimConst * sy vLoado) 
 
 ----------
 
 viralelimTM :: TheoryModel
 viralelimTM = tm (cw viralelimRC)
-  [qw concentration, qw numberV, qw vol] ([] :: [ConceptChunk]) [] [viralelimRel] []
+  [qw vLoad, qw numberV, qw vol] ([] :: [ConceptChunk]) [] [viralelimRel] []
   [makeCite accelerationWiki, makeCiteInfo hibbeler2004 $ Page [7]] "viralelim" []
 
 viralelimRC :: RelationConcept
 viralelimRC = makeRC "viralelimRC" (cn' "concentration") EmptyS viralelimRel
 
 viralelimRel :: Relation
-viralelimRel = sy concentration $= sy numberV / sy vol
+viralelimRel = sy vLoad $= sy numberV / sy vol
 
 ----------

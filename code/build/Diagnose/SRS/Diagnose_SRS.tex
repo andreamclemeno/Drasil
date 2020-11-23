@@ -43,9 +43,9 @@ The unit system used throughout is SI (Système International d'Unités). In add
 \\
 \midrule
 \endhead
-${\text{L}}$ & volume & litre
+${\text{copies}}$ & number of units & copies
 \\
-${\text{mol}}$ & amount of substance & mole
+${\text{mL}}$ & volume & millilitre
 \\
 ${\text{s}}$ & time & second
 \\
@@ -65,19 +65,23 @@ The symbols used in this document are summarized in \hyperref[Table:ToS]{Tab: To
 \endhead
 $\mathbf{a}$ & Acceleration & $\frac{\text{m}}{\text{s}^{2}}$
 \\
-$C$ & Concentration & $\frac{\text{mol}}{\text{L}}$
+$N$ & VLoad & $\frac{\text{copies}}{\text{mL}}$
 \\
-$k$ & Dimensionless constant & --
+${N_{\text{o}}}$ & Initial viral load & $\frac{\text{copies}}{\text{mL}}$
 \\
-$n$ & NumberV & ${\text{mol}}$
+${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{copies}}{\text{mL}}$
 \\
-$r$ & VRate & $\frac{\text{mol}}{\text{L}\text{s}}$
+$n$ & NumberV & ${\text{copies}}$
+\\
+$r$ & VRate & $\frac{\text{copies}}{\text{mL}\text{s}}$
 \\
 $t$ & Time & ${\text{s}}$
 \\
-$V$ & Vol & ${\text{L}}$
+$V$ & Vol & ${\text{mL}}$
 \\
 $\mathbf{v}$ & Velocity & $\frac{\text{m}}{\text{s}}$
+\\
+$λ$ & ElimConst & $\text{s}^{-1}$
 \\
 \bottomrule
 \caption{Table of Symbols}
@@ -91,6 +95,26 @@ $\mathbf{v}$ & Velocity & $\frac{\text{m}}{\text{s}}$
 \\
 \midrule
 \endhead
+A & Assumption
+\\
+DD & Data Definition
+\\
+GD & General Definition
+\\
+GS & Goal Statement
+\\
+IM & Instance Model
+\\
+PS & Physical System Description
+\\
+R & Requirement
+\\
+SRS & Software Requirements Specification
+\\
+TM & Theoretical Model
+\\
+Uncert. & Typical Uncertainty
+\\
 \bottomrule
 \caption{Abbreviations and Acronyms}
 \label{Table:TAbbAcc}
@@ -179,34 +203,87 @@ This section focuses on the general equations and laws that Diagnose is based on
 \noindent
 \begin{minipage}{\textwidth}
 \begin{tabular}{>{\raggedright}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.82\textwidth}}
-\toprule \textbf{Refname} & \textbf{TM:rate-elimination}
+\toprule \textbf{Refname} & \textbf{TM:expElim}
 \phantomsection 
-\label{TM:rate-elimination}
+\label{TM:expElim}
 \\ \midrule \\
-Label &  Average rate of elimination
+Label & VLoad
         
 \\ \midrule \\
 Equation & \begin{displaymath}
-           r=\frac{\,dA}{\,dt}
+           r=\frac{\,dN}{\,dt}=-λ {N_{\text{o}}}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$r$ is the vRate ($\frac{\text{mol}}{\text{L}\text{s}}$)}
+              \item{$r$ is the vRate ($\frac{\text{copies}}{\text{mL}\text{s}}$)}
               \item{$t$ is the time (${\text{s}}$)}
-              \item{$A$ is the concentration ($\frac{\text{mol}}{\text{L}}$)}
+              \item{$N$ is the vLoad ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{$λ$ is the elimConst ($\text{s}^{-1}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Source & \cite{accelerationWiki} and \cite[(pg. 7)]{hibbeler2004}
          
 \\ \midrule \\
-RefBy & 
+RefBy & \hyperref[GD:vLoadt]{GD: vLoadt}
+        
 \\ \bottomrule
 \end{tabular}
 \end{minipage}
 \subsubsection{General Definitions}
 \label{Sec:GDs}
-There are no general definitions.
+This section collects the laws and equations that will be used to build the instance models.
 
+\vspace{\baselineskip}
+\noindent
+\begin{minipage}{\textwidth}
+\begin{tabular}{>{\raggedright}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.82\textwidth}}
+\toprule \textbf{Refname} & \textbf{GD:vLoadt}
+\phantomsection 
+\label{GD:vLoadt}
+\\ \midrule \\
+Label & VLoadt as a function of time for constant decay rate
+        
+\\ \midrule \\
+Units & $\frac{\text{copies}}{\text{mL}}$
+        
+\\ \midrule \\
+Equation & \begin{displaymath}
+           {N_{\text{t}}}={N_{\text{o}}} e^{-λ t}
+           \end{displaymath}
+\\ \midrule \\
+Description & \begin{symbDescription}
+              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{$λ$ is the elimConst ($\text{s}^{-1}$)}
+              \item{$t$ is the time (${\text{s}}$)}
+              \end{symbDescription}
+\\ \midrule \\
+Source & \cite[(pg. 8)]{hibbeler2004}
+         
+\\ \midrule \\
+RefBy & \hyperref[IM:calofElimConst]{IM: calofElimConst}
+        
+\\ \bottomrule
+\end{tabular}
+\end{minipage}
+\paragraph{Detailed derivation of viral load at time t:}
+\label{GD:vLoadtDeriv}
+Using the First-Order rate Law in \hyperref[TM:expElim]{TM: expElim}, we have:
+
+\begin{displaymath}
+\frac{\,dN}{\,dt}=-λ {N_{\text{o}}}
+\end{displaymath}
+Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimConst . When rearranging for integration,  we have:
+
+\begin{displaymath}
+\int_{{N_{\text{o}}}}^{{N_{\text{t}}}}{1}\,d{N_{\text{t}}}=-\int_{0}^{t}{λ}\,dt
+\end{displaymath}
+Performing the integration, we have the required equation:
+
+\begin{displaymath}
+{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}
+\end{displaymath}
 \subsubsection{Data Definitions}
 \label{Sec:DDs}
 This section collects and defines all the data needed to build the instance models.
@@ -219,23 +296,23 @@ This section collects and defines all the data needed to build the instance mode
 \phantomsection 
 \label{DD:viralLoad}
 \\ \midrule \\
-Label & Concentration
+Label & VLoad
         
 \\ \midrule \\
-Symbol & $A$
+Symbol & $N$
          
 \\ \midrule \\
-Units & $\frac{\text{mol}}{\text{L}}$
+Units & $\frac{\text{copies}}{\text{mL}}$
         
 \\ \midrule \\
 Equation & \begin{displaymath}
-           A=\frac{n}{V}
+           N=\frac{n}{V}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$A$ is the concentration ($\frac{\text{mol}}{\text{L}}$)}
-              \item{$n$ is the numberV (${\text{mol}}$)}
-              \item{$V$ is the vol (${\text{L}}$)}
+              \item{$N$ is the vLoad ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{$n$ is the numberV (${\text{copies}}$)}
+              \item{$V$ is the vol (${\text{mL}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Notes & The viral load describes the concentration of  a virus within the body at a certain time.
@@ -248,36 +325,51 @@ RefBy &
 \\ \bottomrule
 \end{tabular}
 \end{minipage}
+
+\subsubsection{Instance Models}
+\label{Sec:IMs}
+This section transforms the problem defined in \hyperref[Sec:ProbDesc]{Section: Problem Description} into one which is expressed in mathematical terms. It uses concrete symbols defined in \hyperref[Sec:DDs]{Section: Data Definitions} to replace the abstract symbols in the models identified in \hyperref[Sec:TMs]{Section: Theoretical Models} and \hyperref[Sec:GDs]{Section: General Definitions}.
 
 \vspace{\baselineskip}
 \noindent
 \begin{minipage}{\textwidth}
 \begin{tabular}{>{\raggedright}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.82\textwidth}}
-\toprule \textbf{Refname} & \textbf{DD:rateElim}
+\toprule \textbf{Refname} & \textbf{IM:calofElimConst}
 \phantomsection 
-\label{DD:rateElim}
+\label{IM:calofElimConst}
 \\ \midrule \\
-Label & VRate
+Label & Calculation of elimination rate
         
 \\ \midrule \\
-Symbol & $r$
+Input & ${N_{\text{t}}}$, $t$
+        
+\\ \midrule \\
+Output & $λ$
          
 \\ \midrule \\
-Units & $\frac{\text{mol}}{\text{L}\text{s}}$
-        
+Input Constraints & \begin{displaymath}
+                    0\lt{}{N_{\text{t}}}\lt{}{N_{\text{o}}}
+                    \end{displaymath}
+                    \begin{displaymath}
+                    t\gt{}0
+                    \end{displaymath}
+\\ \midrule \\
+Output Constraints & \begin{displaymath}
+                     λ\gt{}0
+                     \end{displaymath}
 \\ \midrule \\
 Equation & \begin{displaymath}
-           r=\frac{n}{V t}
+           λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{t}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$r$ is the vRate ($\frac{\text{mol}}{\text{L}\text{s}}$)}
-              \item{$n$ is the numberV (${\text{mol}}$)}
-              \item{$V$ is the vol (${\text{L}}$)}
+              \item{$λ$ is the elimConst ($\text{s}^{-1}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{copies}}{\text{mL}}$)}
               \item{$t$ is the time (${\text{s}}$)}
               \end{symbDescription}
 \\ \midrule \\
-Notes & The viral load describes the concentration of  a virus within the body at a certain time.
+Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is required for the nature of the problem. Due to the input constraint,  the $λ\gt{}0$ is established.
         
 \\ \midrule \\
 Source & --
@@ -287,7 +379,62 @@ RefBy &
 \\ \bottomrule
 \end{tabular}
 \end{minipage}
+\paragraph{Detailed derivation of elimConst:}
+\label{IM:calofElimConstDeriv}
+Using the relationship for the viral load with respect to time in \hyperref[GD:vLoadt]{GD: vLoadt}, we have:
 
+\begin{displaymath}
+{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}
+\end{displaymath}
+Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimConst . When isolating for the elimination constant ,  we have:
+
+\begin{displaymath}
+\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-λ t}
+\end{displaymath}
+To isolate further, the natural logarithm is applied:
+
+\begin{displaymath}
+\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-λ t
+\end{displaymath}
+After using the logarithmic quotient property, we have the required equation:
+
+\begin{displaymath}
+λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{t}
+\end{displaymath}
+\subsubsection{Data Constraints}
+\label{Sec:DataConstraints}
+\hyperref[Table:InDataConstraints]{Table:InDataConstraints} shows the data constraints on the input variables. The column for physical constraints gives the physical limitations on the range of values that can be taken by the variable. The uncertainty column provides an estimate of the confidence with which the physical quantities can be measured. This information would be part of the input if one were performing an uncertainty quantification exercise. The constraints are conservative, to give the user of the model the flexibility to experiment with unusual situations. The column of typical values is intended to provide a feel for a common scenario.
+
+\begin{longtable}{l l l l}
+\toprule
+\textbf{Var} & \textbf{Physical Constraints} & \textbf{Typical Value} & \textbf{Uncert.}
+\\
+\midrule
+\endhead
+${N_{\text{o}}}$ & ${N_{\text{o}}}\gt{}0$ & $10.0\cdot{}10^{6}$ $\frac{\text{copies}}{\text{mL}}$ & 10$\%$
+\\
+${N_{\text{t}}}$ & ${N_{\text{t}}}\gt{}0$ & $5.0\cdot{}10^{6}$ $\frac{\text{copies}}{\text{mL}}$ & 10$\%$
+\\
+\bottomrule
+\caption{Input Data Constraints}
+\label{Table:InDataConstraints}
+\end{longtable}
+\subsubsection{Properties of a Correct Solution}
+\label{Sec:CorSolProps}
+\hyperref[Table:OutDataConstraints]{Table:OutDataConstraints} shows the data constraints on the output variables. The column for physical constraints gives the physical limitations on the range of values that can be taken by the variable.
+
+\begin{longtable}{l l}
+\toprule
+\textbf{Var} & \textbf{Physical Constraints}
+\\
+\midrule
+\endhead
+$λ$ & $λ\gt{}0$
+\\
+\bottomrule
+\caption{Output Data Constraints}
+\label{Table:OutDataConstraints}
+\end{longtable}
 \section{Requirements}
 \label{Sec:Requirements}
 This section provides the functional requirements, the tasks and behaviours that the software is expected to complete, and the non-functional requirements, the qualities that the software is expected to exhibit.
@@ -310,6 +457,10 @@ This section provides the functional requirements, the tasks and behaviours that
 \\
 \midrule
 \endhead
+${N_{\text{o}}}$ & Initial viral load & $\frac{\text{copies}}{\text{mL}}$
+\\
+${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{copies}}{\text{mL}}$
+\\
 \bottomrule
 \caption{Required Inputs following \hyperref[inputValues]{FR: Input-Values}}
 \label{Table:ReqInputs}

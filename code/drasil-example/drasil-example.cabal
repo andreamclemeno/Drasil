@@ -327,6 +327,7 @@ executable diagnose
     , Drasil.Diagnose.Assumptions
     , Drasil.Diagnose.References
     , Drasil.Diagnose.TMods
+    , Drasil.Diagnose.IMods
     , Drasil.Diagnose.Requirements
     , Drasil.Diagnose.GenDefs
     , Drasil.Diagnose.DataDefs
