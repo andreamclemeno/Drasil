@@ -14,7 +14,8 @@ import Data.Drasil.Concepts.Documentation (body, component, constant, material_,
 
 import Drasil.Diagnose.Assumptions(allProductive, proportional)
 import Drasil.Diagnose.Unitals
-import Drasil.Diagnose.References (accelerationWiki, velocityWiki, hibbeler2004)
+import Drasil.Diagnose.References
+
 
 tMods :: [TheoryModel]
 tMods = [expElimTM]
@@ -24,7 +25,7 @@ tMods = [expElimTM]
 expElimTM :: TheoryModel
 expElimTM = tm (cw expElimRC)
   [qw vRate, qw vLoado, qw elimConst, qw vLoad, qw time] ([] :: [ConceptChunk]) [] [expElimRel] []
-  [makeCite accelerationWiki, makeCiteInfo hibbeler2004 $ Page [7]] "expElim" []
+  [makeCite libretexts2020] "expElim" []
 
 expElimRC :: RelationConcept
 expElimRC = makeRC "expElimRC" (cn' "vLoad") EmptyS expElimRel

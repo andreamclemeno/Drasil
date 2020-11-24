@@ -4,7 +4,6 @@ import Prelude hiding (exp)
 
 import Language.Drasil
 import Theory.Drasil (InstanceModel, imNoRefs, qwC) 
---imNoDerivNoRefs, )
 import Utils.Drasil
 
 import Drasil.Diagnose.Assumptions
@@ -14,6 +13,7 @@ import Data.Drasil.Concepts.Math (constraint)
 import Drasil.Diagnose.DataDefs
 import Drasil.Diagnose.Goals
 import Drasil.Diagnose.Requirements
+import Drasil.Diagnose.References 
 
 
 iMods :: [InstanceModel]

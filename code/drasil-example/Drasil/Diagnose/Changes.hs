@@ -1,6 +1,5 @@
 module Drasil.Diagnose.Changes (likelyChgs, unlikelyChgs) where
 
---A list of likely and unlikely changes for GlassBR
 
 import Language.Drasil
 import Utils.Drasil
@@ -11,8 +10,7 @@ import Data.Drasil.Concepts.Math (calculation)
 import Data.Drasil.Concepts.PhysicalProperties (flexure)
 
 import Drasil.Diagnose.Assumptions
---import Drasil.GlassBR.Concepts (blastRisk, glaSlab, glass)
---import Drasil.GlassBR.Unitals (explosion, lite)
+
 
 {--LIKELY CHANGES--}
 

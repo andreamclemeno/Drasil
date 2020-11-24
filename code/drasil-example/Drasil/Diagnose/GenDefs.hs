@@ -19,10 +19,10 @@ import qualified Data.Drasil.Quantities.Physics as QP (constAccel)
 ---
 
 import Drasil.Diagnose.Assumptions 
-import Drasil.Diagnose.References (hibbeler2004) 
 import Drasil.Diagnose.TMods (expElimTM)
 
 import Drasil.Diagnose.Unitals 
+import Drasil.Diagnose.References
 
 genDefns :: [GenDefn]
 genDefns = [vLoadtGD]
@@ -30,7 +30,7 @@ genDefns = [vLoadtGD]
 ----------
 vLoadtGD :: GenDefn
 vLoadtGD = gd vLoadtRC (getUnit vLoad) (Just vLoadtDeriv)
-  [makeCiteInfo hibbeler2004 $ Page [8]] "vLoadt" [{-Notes-}]
+  [makeCite hobbie1970] "vLoadt" [{-Notes-}]
 
 
 vLoadtRC :: RelationConcept
