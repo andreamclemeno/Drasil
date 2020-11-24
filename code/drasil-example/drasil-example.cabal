@@ -332,7 +332,6 @@ executable diagnose
     , Drasil.Diagnose.GenDefs
     , Drasil.Diagnose.DataDefs
     , Drasil.Diagnose.Unitals
-    , Drasil.Diagnose.Symbols
     , Drasil.Diagnose.Changes
     
   Build-Depends:
