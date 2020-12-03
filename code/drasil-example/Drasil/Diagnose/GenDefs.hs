@@ -5,22 +5,8 @@ import Language.Drasil
 import Theory.Drasil (GenDefn, TheoryModel, gd, gdNoRefs)
 import Utils.Drasil
 
----------------- temp
-
-import Data.Drasil.Concepts.Documentation (coordinate, symbol_)
-import Data.Drasil.Concepts.Math (cartesian, equation, vector)
-import Data.Drasil.Concepts.Physics (oneD, rectilinear, twoD)
-
-import Data.Drasil.Quantities.Physics (acceleration, constAccelV, iPos, iSpeed,
-  iVel, ixPos, ixVel, iyPos, iyVel, position, scalarAccel, scalarPos, speed, velocity, xAccel, 
-  xConstAccel, xPos, xVel, yAccel, yConstAccel, yPos, yVel)
-import qualified Data.Drasil.Quantities.Physics as QP (constAccel)
-
----
-
 import Drasil.Diagnose.Assumptions 
 import Drasil.Diagnose.TMods (expElimTM)
-
 import Drasil.Diagnose.Unitals 
 import Drasil.Diagnose.References
 
@@ -49,20 +35,13 @@ vLoadtDerivSent1, vLoadtDerivSent2, vLoadtDerivSent3 :: Sentence
 vLoadtDerivSent1 = foldlSentCol [S "Using the First-Order rate Law" `sIn` makeRef2S expElimTM `sC`
                                  S "we have" ]
                                  
- 
 vLoadtDerivSent2 = foldlSentCol [S "Where", ch vLoadt +:+ S "denotes the", phrase vLoadt `sC`
                                     ch vLoado +:+ S "denotes the", phrase vLoado `sAnd` ch elimConst +:+ 
                                     S "denotes the", phrase elimConst +:+ 
                                     S ". When rearranging for integration" `sC` S " we have"]
                  
-                 
-
 vLoadtDerivSent3 = foldlSentCol [S "Performing the integration" `sC` S "we have the required equation"]
-
-
-
-                                    
- 
+                                
 
 vLoadtDerivEqns :: [Expr]
 vLoadtDerivEqns = [vLoadtDerivEqn1, vLoadtDerivEqn2, vLoadtDerivEqn3]
@@ -74,12 +53,6 @@ vLoadtDerivEqn2 = defint (eqSymb vLoadt) (sy vLoado) (sy vLoadt) 1 $=
 vLoadtDerivEqn3 = sy vLoadt $= sy vLoado * exp (negate(sy elimConst * sy time))
                   
 
-
-
---rearrAndIntSent, performIntSent :: Sentence
---rearrAndIntSent   = foldlSent [S "Rearranging and integrating"]
---performIntSent    = foldlSent [S "Performing the integration"]
-                   
 
 
            

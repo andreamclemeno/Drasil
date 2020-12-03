@@ -5,7 +5,7 @@ import Language.Drasil.Code (relToQD)
 import Language.Drasil.Printers (PrintingInformation(..), defaultConfiguration)
 import Database.Drasil (Block, ChunkDB, ReferenceDB, SystemInformation(SI),
   cdb, rdb, refdb, _authors, _purpose, _concepts, _constants, _constraints, 
-  _datadefs, _configFiles, _definitions, _defSequence, _inputs, _kind, 
+  _datadefs, _definitions, _configFiles, _defSequence, _inputs, _kind, 
   _outputs, _quants, _sys, _sysinfodb, _usedinfodb)
 import Theory.Drasil (DataDefinition, GenDefn, InstanceModel, TheoryModel)
 import Utils.Drasil
@@ -28,7 +28,7 @@ import Drasil.Diagnose.Assumptions (assumptions)
 import Drasil.Diagnose.TMods 
 import Drasil.Diagnose.IMods 
 import Drasil.Diagnose.Unitals
-import Drasil.Diagnose.References (citations)
+import Drasil.Diagnose.References
 import Drasil.Diagnose.Requirements (funcReqs, nonfuncReqs)
 import Drasil.Diagnose.GenDefs (genDefns)
 import Drasil.Diagnose.DataDefs (dataDefs)

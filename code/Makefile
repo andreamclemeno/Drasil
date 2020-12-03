@@ -19,7 +19,7 @@ PACKAGE_GEN_TARGET = BUILD DOC GRAPH
 #####
 
 # Current list of examples
-SRC_EXAMPLES = glassbr nopcm projectile
+SRC_EXAMPLES = glassbr nopcm projectile 
 EXAMPLES = $(SRC_EXAMPLES) hghc swhs ssp gamephysics template dblpendulum diagnose
 GOOLTEST = gooltest
 
