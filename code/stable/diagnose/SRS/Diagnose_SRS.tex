@@ -43,9 +43,9 @@ The unit system used throughout is SI (Système International d'Unités). In add
 \\
 \midrule
 \endhead
-${\text{copies}}$ & number of biological units & copies
-\\
 ${\text{mL}}$ & volume & millilitre
+\\
+${\text{mol}}$ & amount of substance & mole
 \\
 ${\text{s}}$ & time & second
 \\
@@ -63,17 +63,17 @@ The symbols used in this document are summarized in \hyperref[Table:ToS]{Tab: To
 \\
 \midrule
 \endhead
-$N$ & Viral load & $\frac{\text{copies}}{\text{mL}}$
+$N$ & Viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{o}}}$ & Initial viral load & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{o}}}$ & Initial viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{p}}}$ & Predicted viral load after 30 days & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{p}}}$ & Predicted viral load after 30 days & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{mol}}{\text{mL}}$
 \\
-$n$ & Number of virions & ${\text{copies}}$
+$n$ & Number of virions & ${\text{mol}}$
 \\
-$r$ & Rate of change of the viral load & $\frac{\text{copies}}{\text{mL}\text{s}}$
+$r$ & Rate of change of the viral load & $\frac{\text{mol}}{\text{mL}\text{s}}$
 \\
 $t$ & Time & ${\text{s}}$
 \\
@@ -183,15 +183,15 @@ The instance models that govern Diagnose are presented in \hyperref[Sec:IMs]{Sec
 This section simplifies the original problem and helps in developing the theoretical models by filling in the missing information for the physical system. The assumptions refine the scope by providing more detail.
 
 \begin{itemize}
-\item[initialInf:\phantomsection\label{initialInf}]{Initial infection of an HIV patient assumed. (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[alwaysElim]{A: alwaysElim}.)}
-\item[constGrowth:\phantomsection\label{constGrowth}]{The virions will invade uninfected cells at a constant rate.}
-\item[constVolume:\phantomsection\label{constVolume}]{The dimensions of the location associated with the infection remains constant. (RefBy: \hyperref[DD:viralLoad]{DD: viralLoad}.)}
-\item[constConditions:\phantomsection\label{constConditions}]{Temperature of the location associated with the infection remains constant. (RefBy: \hyperref[neglectSick]{A: neglectSick}.)}
-\item[allProductive:\phantomsection\label{allProductive}]{All infected cells are infect other cells productively. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
-\item[alwaysElim:\phantomsection\label{alwaysElim}]{In accordance with \hyperref[initialInf]{A: initialInf}, after viremia peak, no significant upward trends occur.. (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
-\item[neglectDrugs:\phantomsection\label{neglectDrugs}]{The effect of antibiotic drugs or therapy on the elimination rate will be not be considered.. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
-\item[neglectSick:\phantomsection\label{neglectSick}]{With reference to \hyperref[constConditions]{A: constConditions}, the effect of other infections on the elimination rate will be not be considered.. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
-\item[proportional:\phantomsection\label{proportional}]{The elimination of the virus is assumed to be proportional to the amount of viruses present. (RefBy: \hyperref[incTimeFrame]{LC: Increase-time-frame} and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
+\item[initialInf:\phantomsection\label{initialInf}]{Initial infection of an HIV patient assumed (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[alwaysElim]{A: alwaysElim}.)}
+\item[constGrowth:\phantomsection\label{constGrowth}]{The virions will invade uninfected cells at a constant rate}
+\item[constVolume:\phantomsection\label{constVolume}]{The dimensions of the location associated with the infection remains constant (RefBy: \hyperref[DD:viralLoad]{DD: viralLoad}.)}
+\item[constConditions:\phantomsection\label{constConditions}]{Temperature of the location associated with the infection remains constant (RefBy: \hyperref[neglectSick]{A: neglectSick}.)}
+\item[allProductive:\phantomsection\label{allProductive}]{All infected cells are infect other cells productively (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
+\item[alwaysElim:\phantomsection\label{alwaysElim}]{In accordance with \hyperref[initialInf]{A: initialInf}, after viremia peak, no significant upward trends occur. (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
+\item[neglectDrugs:\phantomsection\label{neglectDrugs}]{The effect of antibiotic drugs or therapy on the elimination rate will be not be considered. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
+\item[neglectSick:\phantomsection\label{neglectSick}]{With reference to \hyperref[constConditions]{A: constConditions}, the effect of other infections on the elimination rate will be not be considered. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
+\item[proportional:\phantomsection\label{proportional}]{The elimination of the virus is assumed to be proportional to the amount of viruses present (RefBy: \hyperref[incTimeFrame]{LC: Increase-time-frame} and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
 \end{itemize}
 \subsubsection{Theoretical Models}
 \label{Sec:TMs}
@@ -213,11 +213,11 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$r$ is the rate of change of the viral load ($\frac{\text{copies}}{\text{mL}\text{s}}$)}
+              \item{$r$ is the rate of change of the viral load ($\frac{\text{mol}}{\text{mL}\text{s}}$)}
               \item{$t$ is the time (${\text{s}}$)}
-              \item{$N$ is the viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{$N$ is the viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
-              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Source & \cite{libretexts2020}
@@ -243,7 +243,7 @@ This section collects the laws and equations that will be used to build the inst
 Label & VLoadt as a function of time for constant decay rate
         
 \\ \midrule \\
-Units & $\frac{\text{copies}}{\text{mL}}$
+Units & $\frac{\text{mol}}{\text{mL}}$
         
 \\ \midrule \\
 Equation & \begin{displaymath}
@@ -251,8 +251,8 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{copies}}{\text{mL}}$)}
-              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
               \item{$t$ is the time (${\text{s}}$)}
               \end{symbDescription}
@@ -300,7 +300,7 @@ Label & Viral load
 Symbol & $N$
          
 \\ \midrule \\
-Units & $\frac{\text{copies}}{\text{mL}}$
+Units & $\frac{\text{mol}}{\text{mL}}$
         
 \\ \midrule \\
 Equation & \begin{displaymath}
@@ -308,8 +308,8 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$N$ is the viral load ($\frac{\text{copies}}{\text{mL}}$)}
-              \item{$n$ is the number of virions (${\text{copies}}$)}
+              \item{$N$ is the viral load ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{$n$ is the number of virions (${\text{mol}}$)}
               \item{$V$ is the volume (${\text{mL}}$)}
               \end{symbDescription}
 \\ \midrule \\
@@ -363,8 +363,8 @@ Equation & \begin{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
-              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
-              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$t$ is the time (${\text{s}}$)}
               \end{symbDescription}
 \\ \midrule \\
@@ -434,8 +434,8 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{${N_{\text{p}}}$ is the predicted viral load after 30 days ($\frac{\text{copies}}{\text{mL}}$)}
-              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{p}}}$ is the predicted viral load after 30 days ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
               \item{$t$ is the time (${\text{s}}$)}
               \end{symbDescription}
@@ -472,9 +472,9 @@ Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denote
 \\
 \midrule
 \endhead
-${N_{\text{o}}}$ & ${N_{\text{o}}}\gt{}0$ & $10.0\cdot{}10^{6}$ $\frac{\text{copies}}{\text{mL}}$ & 10$\%$
+${N_{\text{o}}}$ & ${N_{\text{o}}}\gt{}0$ & $10.0\cdot{}10^{6}$ $\frac{\text{mol}}{\text{mL}}$ & 10$\%$
 \\
-${N_{\text{t}}}$ & ${N_{\text{t}}}\gt{}0$ & $5.0\cdot{}10^{6}$ $\frac{\text{copies}}{\text{mL}}$ & 10$\%$
+${N_{\text{t}}}$ & ${N_{\text{t}}}\gt{}0$ & $5.0\cdot{}10^{6}$ $\frac{\text{mol}}{\text{mL}}$ & 10$\%$
 \\
 \bottomrule
 \caption{Input Data Constraints}
@@ -519,9 +519,9 @@ This section provides the functional requirements, the tasks and behaviours that
 \\
 \midrule
 \endhead
-${N_{\text{o}}}$ & Initial viral load & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{o}}}$ & Initial viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{mol}}{\text{mL}}$
 \\
 \bottomrule
 \caption{Required Inputs following \hyperref[inputValues]{FR: Input-Values}}

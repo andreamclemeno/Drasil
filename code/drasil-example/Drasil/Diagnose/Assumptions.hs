@@ -34,31 +34,31 @@ neglectSick        = cic "neglectSick"       neglectSickDesc        "neglectSick
 proportional       = cic "proportional"      proportionalDesc       "proportional"     assumpDom
 
 initialInfDesc :: Sentence
-initialInfDesc = S "Initial infection of an HIV patient assumed."
+initialInfDesc = S "Initial infection of an HIV patient assumed"
 
 constGrowthDesc :: Sentence
 constGrowthDesc = S "The virions will invade uninfected cells at a constant rate."
 
 constVolumeDesc :: Sentence
-constVolumeDesc = S "The dimensions of the location associated with the infection remains constant."
+constVolumeDesc = S "The dimensions of the location associated with the infection remains constant"
 
 constConditionsDesc :: Sentence
-constConditionsDesc = S "Temperature of the location associated with the infection remains constant."
+constConditionsDesc = S "Temperature of the location associated with the infection remains constant"
 
 allProductiveDesc :: Sentence
-allProductiveDesc = S "All infected cells are infect other cells productively."
+allProductiveDesc = S "All infected cells are infect other cells productively"
 
 alwaysElimDesc :: Sentence
-alwaysElimDesc = foldlSent[S "In accordance with", makeRef2S initialInf `sC` S "after viremia peak, no significant upward trends occur."]
+alwaysElimDesc = foldlSent[S "In accordance with", makeRef2S initialInf `sC` S "after viremia peak, no significant upward trends occur"]
 
 neglectDrugsDesc :: Sentence
-neglectDrugsDesc = foldlSent [S "The effect of antibiotic drugs or therapy on the elimination rate will be not be considered."]
+neglectDrugsDesc = foldlSent [S "The effect of antibiotic drugs or therapy on the elimination rate will be not be considered"]
 
 neglectSickDesc :: Sentence
-neglectSickDesc = foldlSent [S "With reference to", makeRef2S constConditions `sC` S "the effect of other infections on the elimination rate will be not be considered."]
+neglectSickDesc = foldlSent [S "With reference to", makeRef2S constConditions `sC` S "the effect of other infections on the elimination rate will be not be considered"]
 
 proportionalDesc :: Sentence
-proportionalDesc = S "The elimination of the virus is assumed to be proportional to the amount of viruses present."
+proportionalDesc = S "The elimination of the virus is assumed to be proportional to the amount of viruses present"
 
 
 

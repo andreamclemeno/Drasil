@@ -31,14 +31,14 @@
                   <th>SI Name</th>
                 </tr>
                 <tr>
-                  <td><em>copies</em></td>
-                  <td>number of biological units</td>
-                  <td>copies</td>
-                </tr>
-                <tr>
                   <td><em>mL</em></td>
                   <td>volume</td>
                   <td>millilitre</td>
+                </tr>
+                <tr>
+                  <td><em>mol</em></td>
+                  <td>amount of substance</td>
+                  <td>mole</td>
                 </tr>
                 <tr>
                   <td><em>s</em></td>
@@ -66,32 +66,32 @@
                 <tr>
                   <td><em>N</em></td>
                   <td>Viral load</td>
-                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
+                  <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>N<sub>o</sub></em></td>
                   <td>Initial viral load</td>
-                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
+                  <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>N<sub>p</sub></em></td>
                   <td>Predicted viral load after 30 days</td>
-                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
+                  <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>N<sub>t</sub></em></td>
                   <td>Viral load at time t</td>
-                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
+                  <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>n</em></td>
                   <td>Number of virions</td>
-                  <td><em>copies</em></td>
+                  <td><em>mol</em></td>
                 </tr>
                 <tr>
                   <td><em>r</em></td>
                   <td>Rate of change of the viral load</td>
-                  <td><em>\(\frac{\text{copies}}{\text{mL}\text{s}}\)</em></td>
+                  <td><em>\(\frac{\text{mol}}{\text{mL}\text{s}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>t</em></td>
@@ -289,47 +289,47 @@
                 <div class="list">
                   <p>
                     <div id="initialInf">
-                      initialInf: Initial infection of an HIV patient assumed. (RefBy: <a href=#verifyOutput>FR: Verify-Output</a>, <a href=#verifyInput>FR: Verify-Input-Values</a>, <a href=#IM:calofPredictedVL>IM: calofPredictedVL</a>, and <a href=#alwaysElim>A: alwaysElim</a>.)
+                      initialInf: Initial infection of an HIV patient assumed (RefBy: <a href=#verifyOutput>FR: Verify-Output</a>, <a href=#verifyInput>FR: Verify-Input-Values</a>, <a href=#IM:calofPredictedVL>IM: calofPredictedVL</a>, and <a href=#alwaysElim>A: alwaysElim</a>.)
                     </div>
                   </p>
                   <p>
                     <div id="constGrowth">
-                      constGrowth: The virions will invade uninfected cells at a constant rate.
+                      constGrowth: The virions will invade uninfected cells at a constant rate
                     </div>
                   </p>
                   <p>
                     <div id="constVolume">
-                      constVolume: The dimensions of the location associated with the infection remains constant. (RefBy: <a href=#DD:viralLoad>DD: viralLoad</a>.)
+                      constVolume: The dimensions of the location associated with the infection remains constant (RefBy: <a href=#DD:viralLoad>DD: viralLoad</a>.)
                     </div>
                   </p>
                   <p>
                     <div id="constConditions">
-                      constConditions: Temperature of the location associated with the infection remains constant. (RefBy: <a href=#neglectSick>A: neglectSick</a>.)
+                      constConditions: Temperature of the location associated with the infection remains constant (RefBy: <a href=#neglectSick>A: neglectSick</a>.)
                     </div>
                   </p>
                   <p>
                     <div id="allProductive">
-                      allProductive: All infected cells are infect other cells productively. (RefBy: <a href=#moreInputs>LC: More-Inputs</a>.)
+                      allProductive: All infected cells are infect other cells productively (RefBy: <a href=#moreInputs>LC: More-Inputs</a>.)
                     </div>
                   </p>
                   <p>
                     <div id="alwaysElim">
-                      alwaysElim: In accordance with <a href=#initialInf>A: initialInf</a>, after viremia peak, no significant upward trends occur.. (RefBy: <a href=#verifyOutput>FR: Verify-Output</a>, <a href=#verifyInput>FR: Verify-Input-Values</a>, <a href=#IM:calofPredictedVL>IM: calofPredictedVL</a>, and <a href=#IM:calofElimConst>IM: calofElimConst</a>.)
+                      alwaysElim: In accordance with <a href=#initialInf>A: initialInf</a>, after viremia peak, no significant upward trends occur. (RefBy: <a href=#verifyOutput>FR: Verify-Output</a>, <a href=#verifyInput>FR: Verify-Input-Values</a>, <a href=#IM:calofPredictedVL>IM: calofPredictedVL</a>, and <a href=#IM:calofElimConst>IM: calofElimConst</a>.)
                     </div>
                   </p>
                   <p>
                     <div id="neglectDrugs">
-                      neglectDrugs: The effect of antibiotic drugs or therapy on the elimination rate will be not be considered.. (RefBy: <a href=#moreInputs>LC: More-Inputs</a>.)
+                      neglectDrugs: The effect of antibiotic drugs or therapy on the elimination rate will be not be considered. (RefBy: <a href=#moreInputs>LC: More-Inputs</a>.)
                     </div>
                   </p>
                   <p>
                     <div id="neglectSick">
-                      neglectSick: With reference to <a href=#constConditions>A: constConditions</a>, the effect of other infections on the elimination rate will be not be considered.. (RefBy: <a href=#moreInputs>LC: More-Inputs</a>.)
+                      neglectSick: With reference to <a href=#constConditions>A: constConditions</a>, the effect of other infections on the elimination rate will be not be considered. (RefBy: <a href=#moreInputs>LC: More-Inputs</a>.)
                     </div>
                   </p>
                   <p>
                     <div id="proportional">
-                      proportional: The elimination of the virus is assumed to be proportional to the amount of viruses present. (RefBy: <a href=#incTimeFrame>LC: Increase-time-frame</a> and <a href=#IM:calofElimConst>IM: calofElimConst</a>.)
+                      proportional: The elimination of the virus is assumed to be proportional to the amount of viruses present (RefBy: <a href=#incTimeFrame>LC: Increase-time-frame</a> and <a href=#IM:calofElimConst>IM: calofElimConst</a>.)
                     </div>
                   </p>
                 </div>
@@ -360,17 +360,17 @@
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>r</em> is the rate of change of the viral load (<em>\(\frac{\text{copies}}{\text{mL}\text{s}}\)</em>)
+                            <em>r</em> is the rate of change of the viral load (<em>\(\frac{\text{mol}}{\text{mL}\text{s}}\)</em>)
                           </li>
                           <li><em>t</em> is the time (<em>s</em>)</li>
                           <li>
-                            <em>N</em> is the viral load (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                            <em>N</em> is the viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
                             <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
                           </li>
                           <li>
-                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                         </ul>
                       </td>
@@ -412,9 +412,7 @@
                     <tr>
                       <th>Units</th>
                       <td>
-                        <p class="paragraph">
-                          <em>\(\frac{\text{copies}}{\text{mL}}\)</em>
-                        </p>
+                        <p class="paragraph"><em>\(\frac{\text{mol}}{\text{mL}}\)</em></p>
                       </td>
                     </tr>
                     <tr>
@@ -426,10 +424,10 @@
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
                             <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
@@ -496,9 +494,7 @@
                     <tr>
                       <th>Units</th>
                       <td>
-                        <p class="paragraph">
-                          <em>\(\frac{\text{copies}}{\text{mL}}\)</em>
-                        </p>
+                        <p class="paragraph"><em>\(\frac{\text{mol}}{\text{mL}}\)</em></p>
                       </td>
                     </tr>
                     <tr>
@@ -510,9 +506,9 @@
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>N</em> is the viral load (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                            <em>N</em> is the viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
-                          <li><em>n</em> is the number of virions (<em>copies</em>)</li>
+                          <li><em>n</em> is the number of virions (<em>mol</em>)</li>
                           <li><em>V</em> is the volume (<em>mL</em>)</li>
                         </ul>
                       </td>
@@ -593,10 +589,10 @@
                             <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
                           </li>
                           <li>
-                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li><em>t</em> is the time (<em>s</em>)</li>
                         </ul>
@@ -685,10 +681,10 @@
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>N<sub>p</sub></em> is the predicted viral load after 30 days (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                            <em>N<sub>p</sub></em> is the predicted viral load after 30 days (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{copies}}{\text{mL}}\)</em>)
+                            <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
                             <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
@@ -748,7 +744,7 @@
                       <td><em>N<sub>o</sub></em></td>
                       <td><em>N<sub>o</sub>&thinsp;&gt;&thinsp;0</em></td>
                       <td>
-                        <em>10.0&sdot;10<sup>6</sup></em> <em>\(\frac{\text{copies}}{\text{mL}}\)</em>
+                        <em>10.0&sdot;10<sup>6</sup></em> <em>\(\frac{\text{mol}}{\text{mL}}\)</em>
                       </td>
                       <td>10<em>%</em></td>
                     </tr>
@@ -756,7 +752,7 @@
                       <td><em>N<sub>t</sub></em></td>
                       <td><em>N<sub>t</sub>&thinsp;&gt;&thinsp;0</em></td>
                       <td>
-                        <em>5.0&sdot;10<sup>6</sup></em> <em>\(\frac{\text{copies}}{\text{mL}}\)</em>
+                        <em>5.0&sdot;10<sup>6</sup></em> <em>\(\frac{\text{mol}}{\text{mL}}\)</em>
                       </td>
                       <td>10<em>%</em></td>
                     </tr>
@@ -843,12 +839,12 @@
                 <tr>
                   <td><em>N<sub>o</sub></em></td>
                   <td>Initial viral load</td>
-                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
+                  <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>N<sub>t</sub></em></td>
                   <td>Viral load at time t</td>
-                  <td><em>\(\frac{\text{copies}}{\text{mL}}\)</em></td>
+                  <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
               </table>
               <p class="caption">

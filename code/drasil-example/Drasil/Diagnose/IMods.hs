@@ -45,8 +45,8 @@ elimConstDerivSent1 = foldlSentCol [S "Using the relationship for the viral load
                                  
 elimConstDerivSent2 = foldlSentCol [S "Where", ch vLoadt +:+ S "denotes the", phrase vLoadt `sC`
                                     ch vLoado +:+ S "denotes the", phrase vLoado `sAnd` ch elimConst +:+ 
-                                    S "denotes the", phrase elimConst +:+ 
-                                    S ". When isolating for the elimination constant " `sC` S " we have"]
+                                    S "denotes the", phrase elimConst :+:
+                                    S ". When isolating for the elimination constant" `sC` S " we have"]
                                     
 elimConstDerivSent3 = foldlSentCol [S "To isolate further, the natural logarithm is applied"]
 elimConstDerivSent4 = foldlSentCol [S "After using the logarithmic quotient property" `sC` S "we have the required equation"]
@@ -86,8 +86,8 @@ predictedVLDerivSent1 = foldlSentCol [S "Using the relationship for the viral lo
                                  S "we have" ]
                                  
 predictedVLDerivSent2 = foldlSentCol [S "Where", ch vLoadt +:+ S "denotes the", phrase vLoadt `sC`
-                                    ch vLoado +:+ S "denotes the", phrase vLoado `sAnd` ch elimConst +:+ 
-                                    S "denotes the", phrase elimConst +:+ 
+                                    ch vLoado +:+ S "denotes the", phrase vLoado `sAnd` ch elimConst +:+
+                                    S "denotes the", phrase elimConst :+: 
                                     S ". When predicting the viral load after 30 days, the", phrase elimConst +:+ S " found" `sIn` makeRef2S elimConstIM `sC`
                                  S " is used instead of", ch vLoadt +:+ S " therefore we have"]
                                     
@@ -104,12 +104,12 @@ predictedVLDerivEqn2 =  sy predictedVL $= sy vLoado * exp (negate(sy elimConst *
 
 elimConstraintNote :: Sentence
 elimConstraintNote = foldlSent [S "The" +:+ phrase constraint +:+
-     E ( sy vLoado $> sy vLoadt $> 0) `sIs` S "required for the nature of the problem with respect to"+:+ makeRef2S proportional +:+ S ". Due to the input constraint" `sC` S " the" +:+ E ( sy elimConst $> 0) `sIs` S "established due to"  +:+ makeRef2S alwaysElim +:+ S ". Using this instance model, the goal of the software in " +:+ makeRef2S detElimrate +:+ S " can be achieved. In addition, this constraint is used to achieve a functional requirement seen in " +:+ makeRef2S verifyOutput]
+     E ( sy vLoado $> sy vLoadt $> 0) `sIs` S "required for the nature of the problem with respect to"+:+ makeRef2S proportional :+: S ". Due to the input constraint" `sC` S " the" +:+ E ( sy elimConst $> 0) `sIs` S "established due to"  +:+ makeRef2S alwaysElim :+: S ". Using this instance model, the goal of the software in " +:+ makeRef2S detElimrate +:+ S " can be achieved. In addition, this constraint is used to achieve a functional requirement seen in " +:+ makeRef2S verifyOutput]
      
 predictedVLConstraintNote :: Sentence
 
 predictedVLConstraintNote = foldlSent [S "The" +:+ phrase constraint +:+
-     E ( sy vLoado $> sy vLoadt $> 0) `sIs` S " applies when determining future values from the in initial infection with respect to"+:+ makeRef2S initialInf  +:+ S "as well as " +:+ makeRef2S alwaysElim +:+ S ". Using this instance model, the goal of the software in " +:+ makeRef2S predictVL30 +:+ S " can be achieved. In addition, this constraint is used to achieve a functional requirement seen in " +:+ makeRef2S verifyOutput]
+     E ( sy vLoado $> sy vLoadt $> 0) `sIs` S " applies when determining future values from the in initial infection with respect to"+:+ makeRef2S initialInf  +:+ S "as well as " +:+ makeRef2S alwaysElim :+: S ". Using this instance model, the goal of the software in " +:+ makeRef2S predictVL30 +:+ S " can be achieved. In addition, this constraint is used to achieve a functional requirement seen in " +:+ makeRef2S verifyOutput]
      
 
   

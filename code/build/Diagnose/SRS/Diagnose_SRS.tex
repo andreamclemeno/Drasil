@@ -43,9 +43,9 @@ The unit system used throughout is SI (Système International d'Unités). In add
 \\
 \midrule
 \endhead
-${\text{copies}}$ & number of biological units & copies
-\\
 ${\text{mL}}$ & volume & millilitre
+\\
+${\text{mol}}$ & amount of substance & mole
 \\
 ${\text{s}}$ & time & second
 \\
@@ -63,17 +63,17 @@ The symbols used in this document are summarized in \hyperref[Table:ToS]{Tab: To
 \\
 \midrule
 \endhead
-$N$ & Viral load & $\frac{\text{copies}}{\text{mL}}$
+$N$ & Viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{o}}}$ & Initial viral load & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{o}}}$ & Initial viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{p}}}$ & Predicted viral load after 30 days & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{p}}}$ & Predicted viral load after 30 days & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{mol}}{\text{mL}}$
 \\
-$n$ & Number of virions & ${\text{copies}}$
+$n$ & Number of virions & ${\text{mol}}$
 \\
-$r$ & Rate of change of the viral load & $\frac{\text{copies}}{\text{mL}\text{s}}$
+$r$ & Rate of change of the viral load & $\frac{\text{mol}}{\text{mL}\text{s}}$
 \\
 $t$ & Time & ${\text{s}}$
 \\
@@ -183,15 +183,15 @@ The instance models that govern Diagnose are presented in \hyperref[Sec:IMs]{Sec
 This section simplifies the original problem and helps in developing the theoretical models by filling in the missing information for the physical system. The assumptions refine the scope by providing more detail.
 
 \begin{itemize}
-\item[initialInf:\phantomsection\label{initialInf}]{Initial infection of an HIV patient assumed. (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[alwaysElim]{A: alwaysElim}.)}
+\item[initialInf:\phantomsection\label{initialInf}]{Initial infection of an HIV patient assumed (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[alwaysElim]{A: alwaysElim}.)}
 \item[constGrowth:\phantomsection\label{constGrowth}]{The virions will invade uninfected cells at a constant rate.}
-\item[constVolume:\phantomsection\label{constVolume}]{The dimensions of the location associated with the infection remains constant. (RefBy: \hyperref[DD:viralLoad]{DD: viralLoad}.)}
-\item[constConditions:\phantomsection\label{constConditions}]{Temperature of the location associated with the infection remains constant. (RefBy: \hyperref[neglectSick]{A: neglectSick}.)}
-\item[allProductive:\phantomsection\label{allProductive}]{All infected cells are infect other cells productively. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
-\item[alwaysElim:\phantomsection\label{alwaysElim}]{In accordance with \hyperref[initialInf]{A: initialInf}, after viremia peak, no significant upward trends occur.. (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
-\item[neglectDrugs:\phantomsection\label{neglectDrugs}]{The effect of antibiotic drugs or therapy on the elimination rate will be not be considered.. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
-\item[neglectSick:\phantomsection\label{neglectSick}]{With reference to \hyperref[constConditions]{A: constConditions}, the effect of other infections on the elimination rate will be not be considered.. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
-\item[proportional:\phantomsection\label{proportional}]{The elimination of the virus is assumed to be proportional to the amount of viruses present. (RefBy: \hyperref[incTimeFrame]{LC: Increase-time-frame} and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
+\item[constVolume:\phantomsection\label{constVolume}]{The dimensions of the location associated with the infection remains constant (RefBy: \hyperref[DD:viralLoad]{DD: viralLoad}.)}
+\item[constConditions:\phantomsection\label{constConditions}]{Temperature of the location associated with the infection remains constant (RefBy: \hyperref[neglectSick]{A: neglectSick}.)}
+\item[allProductive:\phantomsection\label{allProductive}]{All infected cells are infect other cells productively (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
+\item[alwaysElim:\phantomsection\label{alwaysElim}]{In accordance with \hyperref[initialInf]{A: initialInf}, after viremia peak, no significant upward trends occur. (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
+\item[neglectDrugs:\phantomsection\label{neglectDrugs}]{The effect of antibiotic drugs or therapy on the elimination rate will be not be considered. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
+\item[neglectSick:\phantomsection\label{neglectSick}]{With reference to \hyperref[constConditions]{A: constConditions}, the effect of other infections on the elimination rate will be not be considered. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
+\item[proportional:\phantomsection\label{proportional}]{The elimination of the virus is assumed to be proportional to the amount of viruses present (RefBy: \hyperref[incTimeFrame]{LC: Increase-time-frame} and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
 \end{itemize}
 \subsubsection{Theoretical Models}
 \label{Sec:TMs}
@@ -213,11 +213,11 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$r$ is the rate of change of the viral load ($\frac{\text{copies}}{\text{mL}\text{s}}$)}
+              \item{$r$ is the rate of change of the viral load ($\frac{\text{mol}}{\text{mL}\text{s}}$)}
               \item{$t$ is the time (${\text{s}}$)}
-              \item{$N$ is the viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{$N$ is the viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
-              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Source & \cite{libretexts2020}
@@ -243,7 +243,7 @@ This section collects the laws and equations that will be used to build the inst
 Label & VLoadt as a function of time for constant decay rate
         
 \\ \midrule \\
-Units & $\frac{\text{copies}}{\text{mL}}$
+Units & $\frac{\text{mol}}{\text{mL}}$
         
 \\ \midrule \\
 Equation & \begin{displaymath}
@@ -251,8 +251,8 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{copies}}{\text{mL}}$)}
-              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
               \item{$t$ is the time (${\text{s}}$)}
               \end{symbDescription}
@@ -272,7 +272,7 @@ Using the First-Order rate Law in \hyperref[TM:expElim]{TM: expElim}, we have:
 \begin{displaymath}
 \frac{\,dN}{\,dt}=-λ {N_{\text{o}}}
 \end{displaymath}
-Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant . When rearranging for integration,  we have:
+Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant. When rearranging for integration,  we have:
 
 \begin{displaymath}
 \int_{{N_{\text{o}}}}^{{N_{\text{t}}}}{1}\,d{N_{\text{t}}}=-\int_{0}^{t}{λ}\,dt
@@ -300,7 +300,7 @@ Label & Viral load
 Symbol & $N$
          
 \\ \midrule \\
-Units & $\frac{\text{copies}}{\text{mL}}$
+Units & $\frac{\text{mol}}{\text{mL}}$
         
 \\ \midrule \\
 Equation & \begin{displaymath}
@@ -308,8 +308,8 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$N$ is the viral load ($\frac{\text{copies}}{\text{mL}}$)}
-              \item{$n$ is the number of virions (${\text{copies}}$)}
+              \item{$N$ is the viral load ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{$n$ is the number of virions (${\text{mol}}$)}
               \item{$V$ is the volume (${\text{mL}}$)}
               \end{symbDescription}
 \\ \midrule \\
@@ -363,12 +363,12 @@ Equation & \begin{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
-              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
-              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$t$ is the time (${\text{s}}$)}
               \end{symbDescription}
 \\ \midrule \\
-Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is required for the nature of the problem with respect to \hyperref[proportional]{A: proportional} . Due to the input constraint,  the $λ\gt{}0$ is established due to \hyperref[alwaysElim]{A: alwaysElim} . Using this instance model, the goal of the software in  \hyperref[detElimrate]{GS: detElimrate}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
+Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is required for the nature of the problem with respect to \hyperref[proportional]{A: proportional}. Due to the input constraint,  the $λ\gt{}0$ is established due to \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[detElimrate]{GS: detElimrate}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
         
 \\ \midrule \\
 Source & --
@@ -386,7 +386,7 @@ Using the relationship for the viral load seen in \hyperref[DD:viralLoad]{DD: vi
 \begin{displaymath}
 {N_{\text{t}}}={N_{\text{o}}} e^{-λ t}
 \end{displaymath}
-Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant . When isolating for the elimination constant ,  we have:
+Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant. When isolating for the elimination constant,  we have:
 
 \begin{displaymath}
 \frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-λ t}
@@ -434,13 +434,13 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{${N_{\text{p}}}$ is the predicted viral load after 30 days ($\frac{\text{copies}}{\text{mL}}$)}
-              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{copies}}{\text{mL}}$)}
+              \item{${N_{\text{p}}}$ is the predicted viral load after 30 days ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
               \item{$t$ is the time (${\text{s}}$)}
               \end{symbDescription}
 \\ \midrule \\
-Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is  applies when determining future values from the in initial infection with respect to \hyperref[initialInf]{A: initialInf} as well as  \hyperref[alwaysElim]{A: alwaysElim} . Using this instance model, the goal of the software in  \hyperref[predictVL30]{GS: predictVL30}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
+Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is  applies when determining future values from the in initial infection with respect to \hyperref[initialInf]{A: initialInf} as well as  \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[predictVL30]{GS: predictVL30}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
         
 \\ \midrule \\
 Source & --
@@ -457,7 +457,7 @@ Using the relationship for the viral load seen in \hyperref[DD:viralLoad]{DD: vi
 \begin{displaymath}
 {N_{\text{t}}}={N_{\text{o}}} e^{-λ t}
 \end{displaymath}
-Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant . When predicting the viral load after 30 days, the elimination constant  found in \hyperref[IM:calofElimConst]{IM: calofElimConst},  is used instead of ${N_{\text{t}}}$  therefore we have:
+Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in \hyperref[IM:calofElimConst]{IM: calofElimConst},  is used instead of ${N_{\text{t}}}$  therefore we have:
 
 \begin{displaymath}
 {N_{\text{p}}}={N_{\text{o}}} e^{-λ t}
@@ -472,9 +472,11 @@ Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denote
 \\
 \midrule
 \endhead
-${N_{\text{o}}}$ & ${N_{\text{o}}}\gt{}0$ & $10.0\cdot{}10^{6}$ $\frac{\text{copies}}{\text{mL}}$ & 10$\%$
+${N_{\text{o}}}$ & ${N_{\text{o}}}\gt{}0$ & $10.0\cdot{}10^{6}$ $\frac{\text{mol}}{\text{mL}}$ & 10$\%$
 \\
-${N_{\text{t}}}$ & ${N_{\text{t}}}\gt{}0$ & $5.0\cdot{}10^{6}$ $\frac{\text{copies}}{\text{mL}}$ & 10$\%$
+${N_{\text{t}}}$ & ${N_{\text{t}}}\gt{}0$ & $5.0\cdot{}10^{6}$ $\frac{\text{mol}}{\text{mL}}$ & 10$\%$
+\\
+$t$ & $t\gt{}0$ & $2.592\cdot{}10^{6}$ ${\text{s}}$ & 10$\%$
 \\
 \bottomrule
 \caption{Input Data Constraints}
@@ -508,10 +510,10 @@ This section provides the functional requirements, the tasks and behaviours that
 
 \begin{itemize}
 \item[Input-Values:\phantomsection\label{inputValues}]{Input the values from \hyperref[Table:ReqInputs]{Table:ReqInputs}.}
-\item[Verify-Input-Values:\phantomsection\label{verifyInput}]{The software will ensure that the inputs are not   out of bounds and in accordance with the data constraints especially regarding the \hyperref[initialInf]{A: initialInf} and furthermore, \hyperref[alwaysElim]{A: alwaysElim} . If any inputs are out of bounds, an error message is displayed.}
+\item[Verify-Input-Values:\phantomsection\label{verifyInput}]{The software will ensure that the inputs are not   out of bounds and in accordance with the data constraints especially regarding the \hyperref[initialInf]{A: initialInf} and furthermore, \hyperref[alwaysElim]{A: alwaysElim}. If any inputs are out of bounds, an error message is displayed.}
 \item[Calculate-Values:\phantomsection\label{calcValues}]{Software calculates the viral load at 30 days and  the probability of progression to AIDs after 3 years.}
 \item[Verify-Output:\phantomsection\label{verifyOutput}]{The output values will be cross referenced with  the result constraints, related to the assumptions: \hyperref[initialInf]{A: initialInf} and \hyperref[alwaysElim]{A: alwaysElim}.}
-\item[Output-Values:\phantomsection\label{outputValues}]{Output related requirements .}
+\item[Output-Values:\phantomsection\label{outputValues}]{Output related requirements including elimination rate and 30 day viral load.}
 \end{itemize}
 \begin{longtable}{l l l}
 \toprule
@@ -519,9 +521,11 @@ This section provides the functional requirements, the tasks and behaviours that
 \\
 \midrule
 \endhead
-${N_{\text{o}}}$ & Initial viral load & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{o}}}$ & Initial viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{copies}}{\text{mL}}$
+${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{mol}}{\text{mL}}$
+\\
+$t$ & Time & ${\text{s}}$
 \\
 \bottomrule
 \caption{Required Inputs following \hyperref[inputValues]{FR: Input-Values}}

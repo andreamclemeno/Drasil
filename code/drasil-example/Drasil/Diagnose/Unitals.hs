@@ -9,7 +9,7 @@ import Utils.Drasil
 import Data.Drasil.Concepts.Documentation (assumption, goalStmt, physSyst,
   requirement, srs, typUnc)
 
-import Data.Drasil.SI_Units (copies, metre, s_2,m_3, second, mole, millilitre)
+import Data.Drasil.SI_Units (metre, s_2,m_3, second, mole, millilitre)
 import Data.Drasil.Concepts.Math
 import Control.Lens ((^.))
 import Data.Drasil.Constraints (gtZeroConstr)
@@ -23,7 +23,7 @@ symbols =  map qw [time, vLoad, vol, numberV, vLoado,vLoadt,vRate, elimConst, pr
 --add if using (map qw unitless)
 
 inputs :: [QuantityDict]  
-inputs =  map qw [vLoado, vLoadt] 
+inputs =  map qw [vLoado, vLoadt, time] 
 
 outputs :: [QuantityDict]  
 outputs =  map qw [elimConst, predictedVL] 
@@ -41,12 +41,12 @@ constants = []
 ----------
 vLoadU, vLoadtU, vLoadoU, vRateU, elimConstU, predictedVLU:: UnitDefn
 
-vLoadU           = newUnit "viral load"                $ copies /: millilitre
-vLoadtU         = newUnit "viral load at t"           $ copies /: millilitre 
-vLoadoU         = newUnit "initial viral load"        $ copies /: millilitre 
-vRateU          = newUnit "rate of change of viral load" $ copies /$ (millilitre *: second)
+vLoadU           = newUnit "viral load"                $ mole /: millilitre
+vLoadtU         = newUnit "viral load at t"           $ mole /: millilitre 
+vLoadoU         = newUnit "initial viral load"        $ mole /: millilitre 
+vRateU          = newUnit "rate of change of viral load" $ mole /$ (millilitre *: second)
 elimConstU      = newUnit "first-order rate constant"    $ second ^: (-1)
-predictedVLU    = newUnit "predicted viral load after 30 days" $ copies /: millilitre
+predictedVLU    = newUnit "predicted viral load after 30 days" $ mole /: millilitre
 
 ----------
 
@@ -72,17 +72,17 @@ elimConstc = dcc "elimConst" (cn' "elimination constant")
 ----- variants of viral load
 
 vLoadtc = dccWDS "vLoadt" (cn "viral load at time t")
-  (S "the amount of copies in a volumetric area at time t")
+  (S "the amount of copies (in mol) in a volumetric area at time t")
   
 
 vLoadoc = dccWDS "vLoado" (cn "initial viral load")
-  (S "the initial amount of copies in a volumetric area")
+  (S "the initial amount of copies (in mol) in a volumetric area")
   
 vRatec = dccWDS "vRate" (cn' "rate of change of the viral load")
   (S "the rate of change of the viral load")
   
 predictedVLc = dccWDS "predictedVL" (cn "predicted viral load after 30 days")
-  (S "the amount of copies in a volumetric area after 30 days")
+  (S "the amount of copies (in mol) in a volumetric area after 30 days")
   
 
 
@@ -96,7 +96,7 @@ time, vol, vLoad, numberV, vLoado, vLoadt, vRate, elimConst, predictedVL :: Unit
 
 time                 = uc timec lT second
 vol                  = uc volc cV millilitre
-numberV              = uc numberVc lN  copies
+numberV              = uc numberVc lN  mole
 vLoad                = uc vLoadc cN  vLoadU
 vLoadt               = uc vLoadtc (sub (cN) (Label "t"))  vLoadtU
 vLoado               = uc vLoadoc (sub (cN) (Label "o"))  vLoadoU
@@ -114,7 +114,7 @@ vLoadtCons, vLoadoCons, elimConstCons, predictedVLCons :: ConstrConcept
 
 inConstraints :: [UncertQ]
 inConstraints = map (`uq` defaultUncrt)
-  [vLoadtCons, vLoadoCons]
+  [vLoadtCons, vLoadoCons, tCons]
 
 outConstraints :: [UncertQ]
 outConstraints = map (`uq` defaultUncrt) 
@@ -123,6 +123,7 @@ outConstraints = map (`uq` defaultUncrt)
 
 vLoadtCons      = constrained' vLoadt      [gtZeroConstr] (dbl 5000000)
 vLoadoCons      = constrained' vLoado      [gtZeroConstr] (dbl 10000000)
+tCons           = constrained' time        [gtZeroConstr] (dbl 2592000)
 elimConstCons   = constrained' elimConst   [gtZeroConstr] (dbl 0.02)
 predictedVLCons = constrained' predictedVL [gtZeroConstr] (dbl 200000)
 

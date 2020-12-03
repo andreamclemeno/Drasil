@@ -17,6 +17,7 @@ import Data.Drasil.IdeaDicts (dataDefn, genDefn, inModel, thModel)
 
 import Drasil.Diagnose.Assumptions
 
+
 {--Functional Requirements--}
 
 funcReqs :: [ConceptInstance]
@@ -36,7 +37,7 @@ outputValues = cic "outputValues" outputValuesDesc "Output-Values"       funcReq
   
 verifyInputDesc :: Sentence
 verifyInputDesc = foldlSent [S "The software will ensure that the inputs are not  ",
-  S "out of bounds and in accordance with the data constraints especially regarding the" +:+ makeRef2S initialInf +:+ S "and furthermore," +:+ makeRef2S alwaysElim +:+ S ". If any inputs are",
+  S "out of bounds and in accordance with the data constraints especially regarding the" +:+ makeRef2S initialInf +:+ S "and furthermore," +:+ makeRef2S alwaysElim :+: S ". If any inputs are",
   S "out of bounds, an error message is displayed"]
    
 calcValuesDesc :: Sentence
@@ -48,9 +49,7 @@ verifyOutputDesc = foldlSent [S "The output values will be cross referenced with
   S "the result constraints, related to the assumptions:" +:+ makeRef2S initialInf +:+ S "and",makeRef2S alwaysElim]
   
 outputValuesDesc :: Sentence
-outputValuesDesc = foldlSent [S "Output related requirements "]
-
-
+outputValuesDesc = foldlSent [S "Output related requirements including elimination rate and 30 day viral load"]
   
 {--Nonfunctional Requirements--}
 

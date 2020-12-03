@@ -37,7 +37,7 @@ vLoadtDerivSent1 = foldlSentCol [S "Using the First-Order rate Law" `sIn` makeRe
                                  
 vLoadtDerivSent2 = foldlSentCol [S "Where", ch vLoadt +:+ S "denotes the", phrase vLoadt `sC`
                                     ch vLoado +:+ S "denotes the", phrase vLoado `sAnd` ch elimConst +:+ 
-                                    S "denotes the", phrase elimConst +:+ 
+                                    S "denotes the", phrase elimConst :+: 
                                     S ". When rearranging for integration" `sC` S " we have"]
                  
 vLoadtDerivSent3 = foldlSentCol [S "Performing the integration" `sC` S "we have the required equation"]
