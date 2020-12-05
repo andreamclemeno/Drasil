@@ -77,6 +77,10 @@ $r$ & Rate of change of the viral load & $\frac{\text{mol}}{\text{mL}\text{s}}$
 \\
 $t$ & Time & ${\text{s}}$
 \\
+${t_{\text{p}}}$ & Chosen prediction period & ${\text{s}}$
+\\
+${t_{\text{t}}}$ & Time at second test & ${\text{s}}$
+\\
 $V$ & Volume & ${\text{mL}}$
 \\
 $λ$ & Elimination constant & $\text{s}^{-1}$
@@ -340,7 +344,7 @@ This section transforms the problem defined in \hyperref[Sec:ProbDesc]{Section: 
 Label & Calculation of elimination rate
         
 \\ \midrule \\
-Input & ${N_{\text{t}}}$, ${N_{\text{o}}}$, $t$
+Input & ${N_{\text{t}}}$, ${N_{\text{o}}}$, ${t_{\text{t}}}$
         
 \\ \midrule \\
 Output & $λ$
@@ -353,7 +357,7 @@ Input Constraints & \begin{displaymath}
                     {N_{\text{o}}}\gt{}0
                     \end{displaymath}
                     \begin{displaymath}
-                    t\gt{}0
+                    {t_{\text{t}}}\gt{}0
                     \end{displaymath}
 \\ \midrule \\
 Output Constraints & \begin{displaymath}
@@ -361,14 +365,14 @@ Output Constraints & \begin{displaymath}
                      \end{displaymath}
 \\ \midrule \\
 Equation & \begin{displaymath}
-           λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{t}
+           λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{$t$ is the time (${\text{s}}$)}
+              \item{${t_{\text{t}}}$ is the time at second test (${\text{s}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is required for the nature of the problem with respect to \hyperref[proportional]{A: proportional}. Due to the input constraint,  the $λ\gt{}0$ is established due to \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[detElimrate]{GS: detElimrate}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
@@ -387,22 +391,22 @@ RefBy & \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}
 Using the relationship for the viral load seen in \hyperref[DD:viralLoad]{DD: viralLoad} with respect to time in \hyperref[GD:vLoadt]{GD: vLoadt}, we have:
 
 \begin{displaymath}
-{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}
+{N_{\text{t}}}={N_{\text{o}}} e^{-λ {t_{\text{t}}}}
 \end{displaymath}
 Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant. When isolating for the elimination constant,  we have:
 
 \begin{displaymath}
-\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-λ t}
+\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-λ {t_{\text{t}}}}
 \end{displaymath}
 To isolate further, the natural logarithm is applied:
 
 \begin{displaymath}
-\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-λ t
+\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-λ {t_{\text{t}}}
 \end{displaymath}
 After using the logarithmic quotient property, we have the required equation:
 
 \begin{displaymath}
-λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{t}
+λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}
 \end{displaymath}
 \vspace{\baselineskip}
 \noindent
@@ -415,7 +419,7 @@ After using the logarithmic quotient property, we have the required equation:
 Label & Calculation of elimination rate
         
 \\ \midrule \\
-Input & ${N_{\text{o}}}$, $λ$, $t$
+Input & ${N_{\text{o}}}$, $λ$, ${t_{\text{p}}}$
         
 \\ \midrule \\
 Output & ${N_{\text{p}}}$
@@ -428,7 +432,7 @@ Input Constraints & \begin{displaymath}
                     λ\gt{}0
                     \end{displaymath}
                     \begin{displaymath}
-                    t\gt{}0
+                    {t_{\text{p}}}\gt{}0
                     \end{displaymath}
 \\ \midrule \\
 Output Constraints & \begin{displaymath}
@@ -436,14 +440,14 @@ Output Constraints & \begin{displaymath}
                      \end{displaymath}
 \\ \midrule \\
 Equation & \begin{displaymath}
-           {N_{\text{p}}}={N_{\text{o}}} e^{-λ t}
+           {N_{\text{p}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
               \item{${N_{\text{p}}}$ is the predicted viral load after 30 days ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
-              \item{$t$ is the time (${\text{s}}$)}
+              \item{${t_{\text{p}}}$ is the chosen prediction period (${\text{s}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is  applies when determining future values from the in initial infection with respect to \hyperref[initialInf]{A: initialInf} as well as  \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[predictVL30]{GS: predictVL30}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
@@ -461,12 +465,12 @@ RefBy &
 Using the relationship for the viral load seen in \hyperref[DD:viralLoad]{DD: viralLoad} with respect to time in \hyperref[GD:vLoadt]{GD: vLoadt}, we have:
 
 \begin{displaymath}
-{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}
+{N_{\text{t}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}
 \end{displaymath}
 Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in \hyperref[IM:calofElimConst]{IM: calofElimConst},  is used instead of ${N_{\text{t}}}$  therefore we have:
 
 \begin{displaymath}
-{N_{\text{p}}}={N_{\text{o}}} e^{-λ t}
+{N_{\text{p}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}
 \end{displaymath}
 \subsubsection{Data Constraints}
 \label{Sec:DataConstraints}
@@ -482,7 +486,9 @@ ${N_{\text{o}}}$ & ${N_{\text{o}}}\gt{}0$ & $10.0\cdot{}10^{6}$ $\frac{\text{mol
 \\
 ${N_{\text{t}}}$ & ${N_{\text{t}}}\gt{}0$ & $5.0\cdot{}10^{6}$ $\frac{\text{mol}}{\text{mL}}$ & 10$\%$
 \\
-$t$ & $t\gt{}0$ & $2.592\cdot{}10^{6}$ ${\text{s}}$ & 10$\%$
+${t_{\text{p}}}$ & ${t_{\text{p}}}\gt{}0$ & $2.592\cdot{}10^{6}$ ${\text{s}}$ & 10$\%$
+\\
+${t_{\text{t}}}$ & ${t_{\text{t}}}\gt{}0$ & $86.4\cdot{}10^{3}$ ${\text{s}}$ & 10$\%$
 \\
 \bottomrule
 \caption{Input Data Constraints}
@@ -531,7 +537,9 @@ ${N_{\text{o}}}$ & Initial viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
 ${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{mol}}{\text{mL}}$
 \\
-$t$ & Time & ${\text{s}}$
+${t_{\text{p}}}$ & Chosen prediction period & ${\text{s}}$
+\\
+${t_{\text{t}}}$ & Time at second test & ${\text{s}}$
 \\
 \bottomrule
 \caption{Required Inputs following \hyperref[inputValues]{FR: Input-Values}}

@@ -27,9 +27,17 @@ def input_constraints(inParams):
         print(0, end="")
         print(".")
         raise Exception("InputError")
-    if (not(inParams.t > 0)) :
-        print("t has value ", end="")
-        print(inParams.t, end="")
+    if (not(inParams.t_t > 0)) :
+        print("t_t has value ", end="")
+        print(inParams.t_t, end="")
+        print(", but is expected to be ", end="")
+        print("above ", end="")
+        print(0, end="")
+        print(".")
+        raise Exception("InputError")
+    if (not(inParams.t_p > 0)) :
+        print("t_p has value ", end="")
+        print(inParams.t_p, end="")
         print(", but is expected to be ", end="")
         print("above ", end="")
         print(0, end="")

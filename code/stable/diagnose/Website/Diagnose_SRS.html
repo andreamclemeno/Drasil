@@ -99,6 +99,16 @@
                   <td><em>s</em></td>
                 </tr>
                 <tr>
+                  <td><em>t<sub>p</sub></em></td>
+                  <td>Chosen prediction period</td>
+                  <td><em>s</em></td>
+                </tr>
+                <tr>
+                  <td><em>t<sub>t</sub></em></td>
+                  <td>Time at second test</td>
+                  <td><em>s</em></td>
+                </tr>
+                <tr>
                   <td><em>V</em></td>
                   <td>Volume</td>
                   <td><em>mL</em></td>
@@ -558,7 +568,7 @@
                       <th>Input</th>
                       <td>
                         <p class="paragraph">
-                          <em>N<sub>t</sub></em>, <em>N<sub>o</sub></em>, <em>t</em>
+                          <em>N<sub>t</sub></em>, <em>N<sub>o</sub></em>, <em>t<sub>t</sub></em>
                         </p>
                       </td>
                     </tr>
@@ -571,7 +581,7 @@
                       <td>
                         \[0\lt{}{N_{\text{t}}}\lt{}{N_{\text{o}}}\]
                         \[{N_{\text{o}}}\gt{}0\]
-                        \[t\gt{}0\]
+                        \[{t_{\text{t}}}\gt{}0\]
                       </td>
                     </tr>
                     <tr>
@@ -581,7 +591,7 @@
                     <tr>
                       <th>Equation</th>
                       <td>
-                        \[λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{t}\]
+                        \[λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}\]
                       </td>
                     </tr>
                     <tr>
@@ -597,7 +607,9 @@
                           <li>
                             <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
-                          <li><em>t</em> is the time (<em>s</em>)</li>
+                          <li>
+                            <em>t<sub>t</sub></em> is the time at second test (<em>s</em>)
+                          </li>
                         </ul>
                       </td>
                     </tr>
@@ -629,19 +641,19 @@
                     <p class="paragraph">
                       Using the relationship for the viral load seen in <a href=#DD:viralLoad>DD: viralLoad</a> with respect to time in <a href=#GD:vLoadt>GD: vLoadt</a>, we have:
                     </p>
-                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}\]
+                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-λ {t_{\text{t}}}}\]
                     <p class="paragraph">
                       Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>λ</em> denotes the elimination constant. When isolating for the elimination constant,  we have:
                     </p>
-                    \[\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-λ t}\]
+                    \[\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-λ {t_{\text{t}}}}\]
                     <p class="paragraph">
                       To isolate further, the natural logarithm is applied:
                     </p>
-                    \[\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-λ t\]
+                    \[\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-λ {t_{\text{t}}}\]
                     <p class="paragraph">
                       After using the logarithmic quotient property, we have the required equation:
                     </p>
-                    \[λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{t}\]
+                    \[λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}\]
                   </div>
                 </div>
                 <div id="IM:calofPredictedVL">
@@ -658,7 +670,7 @@
                       <th>Input</th>
                       <td>
                         <p class="paragraph">
-                          <em>N<sub>o</sub></em>, <em>λ</em>, <em>t</em>
+                          <em>N<sub>o</sub></em>, <em>λ</em>, <em>t<sub>p</sub></em>
                         </p>
                       </td>
                     </tr>
@@ -671,7 +683,7 @@
                       <td>
                         \[{N_{\text{o}}}\gt{}0\]
                         \[λ\gt{}0\]
-                        \[t\gt{}0\]
+                        \[{t_{\text{p}}}\gt{}0\]
                       </td>
                     </tr>
                     <tr>
@@ -680,7 +692,7 @@
                     </tr>
                     <tr>
                       <th>Equation</th>
-                      <td>\[{N_{\text{p}}}={N_{\text{o}}} e^{-λ t}\]</td>
+                      <td>\[{N_{\text{p}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}\]</td>
                     </tr>
                     <tr>
                       <th>Description</th>
@@ -695,7 +707,9 @@
                           <li>
                             <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
                           </li>
-                          <li><em>t</em> is the time (<em>s</em>)</li>
+                          <li>
+                            <em>t<sub>p</sub></em> is the chosen prediction period (<em>s</em>)
+                          </li>
                         </ul>
                       </td>
                     </tr>
@@ -723,11 +737,11 @@
                     <p class="paragraph">
                       Using the relationship for the viral load seen in <a href=#DD:viralLoad>DD: viralLoad</a> with respect to time in <a href=#GD:vLoadt>GD: vLoadt</a>, we have:
                     </p>
-                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}\]
+                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}\]
                     <p class="paragraph">
                       Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>λ</em> denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in <a href=#IM:calofElimConst>IM: calofElimConst</a>,  is used instead of <em>N<sub>t</sub></em>  therefore we have:
                     </p>
-                    \[{N_{\text{p}}}={N_{\text{o}}} e^{-λ t}\]
+                    \[{N_{\text{p}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}\]
                   </div>
                 </div>
               </div>
@@ -763,9 +777,15 @@
                       <td>10<em>%</em></td>
                     </tr>
                     <tr>
-                      <td><em>t</em></td>
-                      <td><em>t&thinsp;&gt;&thinsp;0</em></td>
+                      <td><em>t<sub>p</sub></em></td>
+                      <td><em>t<sub>p</sub>&thinsp;&gt;&thinsp;0</em></td>
                       <td><em>2.592&sdot;10<sup>6</sup></em> <em>s</em></td>
+                      <td>10<em>%</em></td>
+                    </tr>
+                    <tr>
+                      <td><em>t<sub>t</sub></em></td>
+                      <td><em>t<sub>t</sub>&thinsp;&gt;&thinsp;0</em></td>
+                      <td><em>86.4&sdot;10<sup>3</sup></em> <em>s</em></td>
                       <td>10<em>%</em></td>
                     </tr>
                   </table>
@@ -859,8 +879,13 @@
                   <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
-                  <td><em>t</em></td>
-                  <td>Time</td>
+                  <td><em>t<sub>p</sub></em></td>
+                  <td>Chosen prediction period</td>
+                  <td><em>s</em></td>
+                </tr>
+                <tr>
+                  <td><em>t<sub>t</sub></em></td>
+                  <td>Time at second test</td>
                   <td><em>s</em></td>
                 </tr>
               </table>

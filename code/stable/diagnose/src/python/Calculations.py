@@ -14,7 +14,7 @@ def func_λ(inParams):
     print("  }", file=outfile)
     outfile.close()
     
-    return (math.log(inParams.N_o) - math.log(inParams.N_t)) / inParams.t
+    return (math.log(inParams.N_o) - math.log(inParams.N_t)) / inParams.t_t
 
 ## \brief Calculates predicted viral load after 30 days (mol/mL)
 # \param inParams structure holding the input values
@@ -31,4 +31,4 @@ def func_N_p(inParams, λ):
     print("  }", file=outfile)
     outfile.close()
     
-    return inParams.N_o * math.exp(-λ * inParams.t)
+    return inParams.N_o * math.exp(-λ * inParams.t_p)

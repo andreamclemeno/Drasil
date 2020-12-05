@@ -19,11 +19,11 @@ acronyms = [assumption, dataDefn, genDefn, goalStmt, inModel,
   physSyst, requirement, srs, thModel, typUnc]
   
 symbols :: [QuantityDict]  
-symbols =  map qw [time, vLoad, vol, numberV, vLoado,vLoadt,vRate, elimConst, predictedVL]  
+symbols =  map qw [time, ttesting, tpredict, vLoad, vol, numberV, vLoado,vLoadt,vRate, elimConst, predictedVL]  
 --add if using (map qw unitless)
 
 inputs :: [QuantityDict]  
-inputs =  map qw [vLoado, vLoadt, time] 
+inputs =  map qw [vLoado, vLoadt, ttesting, tpredict] 
 
 outputs :: [QuantityDict]  
 outputs =  map qw [elimConst, predictedVL] 
@@ -37,25 +37,33 @@ unitsymbs = map ucw tMUC
 constants :: [QDefinition]
 constants = []
 
-
+--ttestingU, tpredictU,
 ----------
 vLoadU, vLoadtU, vLoadoU, vRateU, elimConstU, predictedVLU:: UnitDefn
 
-vLoadU           = newUnit "viral load"                $ mole /: millilitre
-vLoadtU         = newUnit "viral load at t"           $ mole /: millilitre 
+--ttestingU       = newUnit "time between initial viral load test and second viral load test" $ second
+--tpredictU    = newUnit "time between initial viral load test and chosen prediction" $ second
+vLoadU           = newUnit "viral load"                 $ mole /: millilitre
+vLoadtU         = newUnit "second viral load at t test" $ mole /: millilitre 
 vLoadoU         = newUnit "initial viral load"        $ mole /: millilitre 
 vRateU          = newUnit "rate of change of viral load" $ mole /$ (millilitre *: second)
 elimConstU      = newUnit "first-order rate constant"    $ second ^: (-1)
-predictedVLU    = newUnit "predicted viral load after 30 days" $ mole /: millilitre
+predictedVLU    = newUnit "predicted viral load after chosen prediction period" $ mole /: millilitre
 
 ----------
 
 tMCC :: [ConceptChunk]
-tMCC = [timec, vLoadc, numberVc, volc, vLoadtc, vLoadoc, vRatec, elimConstc, predictedVLc]
+tMCC = [timec, ttestingc, tpredictc, vLoadc, numberVc, volc, vLoadtc, vLoadoc, vRatec, elimConstc, predictedVLc]
 
 
 timec = dcc "time" (cn' "time")
   "the indefinite continued progress of existence and events in the past, present, and future regarded as a whole"
+  
+ttestingc = dcc "timeTest" (cn' "time at second test")
+  "the indefinite continued progress of existence and events in the past, present, and future regarded as a whole"
+
+tpredictc = dcc "timePredict" (cn' "chosen prediction period")
+  "the amount of time between the events of the initial time and time of viral load prediction"
   
 vLoadc = dccWDS "vLoad" (cn' "viral load")
   (S "the amount of virions in a volumetric area")
@@ -89,12 +97,14 @@ predictedVLc = dccWDS "predictedVL" (cn "predicted viral load after 30 days")
 ----------
 
 tMUC :: [UnitalChunk]
-tMUC = [time, vLoad, vol, numberV, vLoado, vLoadt, vRate]
+tMUC = [time, ttesting, tpredict, vLoad, vol, numberV, vLoado, vLoadt, vRate]
 
-time, vol, vLoad, numberV, vLoado, vLoadt, vRate, elimConst, predictedVL :: UnitalChunk
+time, ttesting, tpredict, vol, vLoad, numberV, vLoado, vLoadt, vRate, elimConst, predictedVL :: UnitalChunk
 
 
 time                 = uc timec lT second
+ttesting             = uc ttestingc (sub (lT) (Label "t"))  second
+tpredict             = uc tpredictc (sub (lT) (Label "p")) second
 vol                  = uc volc cV millilitre
 numberV              = uc numberVc lN  mole
 vLoad                = uc vLoadc cN  vLoadU
@@ -110,11 +120,11 @@ predictedVL          = uc predictedVLc (sub (cN) (Label "p"))  predictedVLU
 -- CONSTRAINT CHUNKS --
 -----------------------
 
-vLoadtCons, vLoadoCons, elimConstCons, predictedVLCons :: ConstrConcept
+vLoadtCons, vLoadoCons, ttestingCons, tpredictCons, elimConstCons, predictedVLCons :: ConstrConcept
 
 inConstraints :: [UncertQ]
 inConstraints = map (`uq` defaultUncrt)
-  [vLoadtCons, vLoadoCons, tCons]
+  [vLoadtCons, vLoadoCons, ttestingCons, tpredictCons]
 
 outConstraints :: [UncertQ]
 outConstraints = map (`uq` defaultUncrt) 
@@ -123,7 +133,9 @@ outConstraints = map (`uq` defaultUncrt)
 
 vLoadtCons      = constrained' vLoadt      [gtZeroConstr] (dbl 5000000)
 vLoadoCons      = constrained' vLoado      [gtZeroConstr] (dbl 10000000)
-tCons           = constrained' time        [gtZeroConstr] (dbl 2592000)
+ttestingCons    = constrained' ttesting    [gtZeroConstr] (dbl 86400)
+tpredictCons    = constrained' tpredict    [gtZeroConstr] (dbl 2592000)
+
 elimConstCons   = constrained' elimConst   [gtZeroConstr] (dbl 0.02)
 predictedVLCons = constrained' predictedVL [gtZeroConstr] (dbl 200000)
 

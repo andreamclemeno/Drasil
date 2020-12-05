@@ -23,13 +23,13 @@ elimConstIM :: InstanceModel
 elimConstIM = imNoRefs elimConstRC 
   [qwC vLoadt $ Bounded (Exc, 0) (Exc, sy vLoado)
   ,qwC vLoado $ UpFrom (Exc, 0)
-  ,qwC time $ UpFrom (Exc, 0)]
+  ,qwC ttesting $ UpFrom (Exc, 0)]
   (qw elimConst) [UpFrom (Exc, 0)]
   (Just elimConstDeriv) "calofElimConst" [elimConstraintNote]
 
 elimConstRC :: RelationConcept
 elimConstRC = makeRC "elimConstRC" (nounPhraseSP "calculation of elimination rate")
-  EmptyS $ sy elimConst $= (ln(sy vLoado) - ln(sy vLoadt)) / sy time
+  EmptyS $ sy elimConst $= (ln(sy vLoado) - ln(sy vLoadt)) / sy ttesting
   
 elimConstDeriv :: Derivation
 elimConstDeriv = mkDerivName (phrase elimConst) (weave [elimConstDerivSents, map E elimConstDerivEqns])
@@ -57,23 +57,23 @@ elimConstDerivEqns :: [Expr]
 elimConstDerivEqns = [elimConstDerivEqn1, elimConstDerivEqn2, elimConstDerivEqn3, elimConstDerivEqn4]
 
 elimConstDerivEqn1, elimConstDerivEqn2, elimConstDerivEqn3, elimConstDerivEqn4 :: Expr
-elimConstDerivEqn1 =  sy vLoadt $= sy vLoado * exp (negate(sy elimConst * sy time))
-elimConstDerivEqn2 =  sy vLoadt / sy vLoado $= exp (negate(sy elimConst * sy time))
-elimConstDerivEqn3 =  ln (sy vLoadt / sy vLoado) $= (negate(sy elimConst * sy time))
-elimConstDerivEqn4 =  sy elimConst $= (ln(sy vLoado) - ln(sy vLoadt)) / sy time
+elimConstDerivEqn1 =  sy vLoadt $= sy vLoado * exp (negate(sy elimConst * sy ttesting))
+elimConstDerivEqn2 =  sy vLoadt / sy vLoado $= exp (negate(sy elimConst * sy ttesting))
+elimConstDerivEqn3 =  ln (sy vLoadt / sy vLoado) $= (negate(sy elimConst * sy ttesting))
+elimConstDerivEqn4 =  sy elimConst $= (ln(sy vLoado) - ln(sy vLoadt)) / sy ttesting
 
    
 predictedVLIM :: InstanceModel 
 predictedVLIM = imNoRefs predictedVLRC 
   [qwC vLoado $ UpFrom (Exc, 0)
   ,qwC elimConst $ UpFrom (Exc, 0)
-  ,qwC time $ UpFrom (Exc, 0)]
+  ,qwC tpredict $ UpFrom (Exc, 0)]
   (qw predictedVL) [Bounded (Exc, 0) (Exc, sy vLoado)]
   (Just predictedVLDeriv) "calofPredictedVL" [predictedVLConstraintNote]
 
 predictedVLRC :: RelationConcept
 predictedVLRC = makeRC "predictedVLRC" (nounPhraseSP "calculation of elimination rate")
-  EmptyS $ sy predictedVL $= sy vLoado * exp (negate(sy elimConst * sy time))
+  EmptyS $ sy predictedVL $= sy vLoado * exp (negate(sy elimConst * sy tpredict))
   
 predictedVLDeriv :: Derivation
 predictedVLDeriv = mkDerivName (phrase predictedVL) (weave [predictedVLDerivSents, map E predictedVLDerivEqns])
@@ -98,8 +98,8 @@ predictedVLDerivEqns :: [Expr]
 predictedVLDerivEqns = [predictedVLDerivEqn1, predictedVLDerivEqn2]
 
 predictedVLDerivEqn1, predictedVLDerivEqn2 :: Expr
-predictedVLDerivEqn1 =  sy vLoadt $= sy vLoado * exp (negate(sy elimConst * sy time))
-predictedVLDerivEqn2 =  sy predictedVL $= sy vLoado * exp (negate(sy elimConst * sy time))
+predictedVLDerivEqn1 =  sy vLoadt $= sy vLoado * exp (negate(sy elimConst * sy tpredict))
+predictedVLDerivEqn2 =  sy predictedVL $= sy vLoado * exp (negate(sy elimConst * sy tpredict))
 
 
 ---- NOTES
