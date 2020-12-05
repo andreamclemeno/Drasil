@@ -2,7 +2,7 @@
 -- when 'name' and 'nameCT' both appear, 'name' is the Haskell function and
 -- 'nameCT' is the "Code Template" that 'name' builds.
 
-module Drasil.Diagnose.ModuleDefs (allMods, implVars, interpY, interpZ) where
+module Drasil.Diagnose.ModuleDefs (allMods, implVars) where
 
 import Language.Drasil
 import Language.Drasil.ShortHands
@@ -11,7 +11,7 @@ import Language.Drasil.Code (($:=), Func, FuncStmt(..), Mod,
   multiLine, packmod, repeated, singleLine)
 
 allMods :: [Mod]
-allMods = [readTableMod, interpMod]
+allMods = []
 
 -- It's a bit odd that this has to be explicitly built here...
 implVars :: [QuantityDict]

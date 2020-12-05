@@ -102,7 +102,7 @@ vLoadt               = uc vLoadtc (sub (cN) (Label "t"))  vLoadtU
 vLoado               = uc vLoadoc (sub (cN) (Label "o"))  vLoadoU
 vRate                = uc vRatec lR vRateU
 elimConst	     = uc elimConstc lLambda elimConstU
-predictedVL          = uc predictedVLc (sub (cN) (Label "p"))  vLoadoU
+predictedVL          = uc predictedVLc (sub (cN) (Label "p"))  predictedVLU
 
 
 

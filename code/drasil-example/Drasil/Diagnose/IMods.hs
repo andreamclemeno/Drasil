@@ -22,6 +22,7 @@ iMods = [elimConstIM, predictedVLIM]
 elimConstIM :: InstanceModel 
 elimConstIM = imNoRefs elimConstRC 
   [qwC vLoadt $ Bounded (Exc, 0) (Exc, sy vLoado)
+  ,qwC vLoado $ UpFrom (Exc, 0)
   ,qwC time $ UpFrom (Exc, 0)]
   (qw elimConst) [UpFrom (Exc, 0)]
   (Just elimConstDeriv) "calofElimConst" [elimConstraintNote]
@@ -65,6 +66,7 @@ elimConstDerivEqn4 =  sy elimConst $= (ln(sy vLoado) - ln(sy vLoadt)) / sy time
 predictedVLIM :: InstanceModel 
 predictedVLIM = imNoRefs predictedVLRC 
   [qwC vLoado $ UpFrom (Exc, 0)
+  ,qwC elimConst $ UpFrom (Exc, 0)
   ,qwC time $ UpFrom (Exc, 0)]
   (qw predictedVL) [Bounded (Exc, 0) (Exc, sy vLoado)]
   (Just predictedVLDeriv) "calofPredictedVL" [predictedVLConstraintNote]

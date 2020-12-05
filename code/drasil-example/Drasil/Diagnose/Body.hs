@@ -7,6 +7,7 @@ import Database.Drasil (Block, ChunkDB, ReferenceDB, SystemInformation(SI),
   cdb, rdb, refdb, _authors, _purpose, _concepts, _constants, _constraints, 
   _datadefs, _definitions, _configFiles, _defSequence, _inputs, _kind, 
   _outputs, _quants, _sys, _sysinfodb, _usedinfodb)
+  
 import Theory.Drasil (DataDefinition, GenDefn, InstanceModel, TheoryModel)
 import Utils.Drasil
 
@@ -39,6 +40,9 @@ import Data.Drasil.Concepts.Physics (constAccel, gravity, physicCon, physicCon',
   rectilinear, twoD)
 import Data.Drasil.Concepts.Computation (inValue)
 import Data.Drasil.Concepts.PhysicalProperties (mass, dimension, concent, physicalcon, materialProprty)
+
+import Control.Lens ((^.))
+import Theory.Drasil (Theory(defined_fun, defined_quant))
 
 
 import Drasil.DocLang (AuxConstntSec(AuxConsProg),
@@ -114,7 +118,9 @@ si = SI {
   _purpose     = [],
   _quants      = symbols, -- [QuantityDict],
   _concepts    = [] :: [DefinedQuantityDict],
-  _definitions = [] :: [QDefinition],
+  _definitions = map (relToQD symbMap) iMods ++ 
+                 concatMap (^. defined_quant) tMods ++
+                 concatMap (^. defined_fun) tMods, --[] :: [QDefinition],
   _datadefs    = dataDefs,
   _configFiles = [],
   _inputs      = inputs, --[QuantityDict],

@@ -34,21 +34,6 @@ viralLoadDesc :: Sentence
 viralLoadDesc = foldlSent [S "The viral load describes the concentration of ", 
   S "a virus within the body at a certain time. It assumes that the volume of blood is constant with respect to", makeRef2S constVolume]
 
----
-
-rateElimDD :: DataDefinition
-rateElimDD = ddNoRefs rateElimQD Nothing "rateElim" [rateElimDesc]
-
-rateElimQD :: QDefinition
-rateElimQD = mkQuantDef vRate rateElimEqn
-
-rateElimEqn :: Expr
-rateElimEqn = sy numberV / (sy vol * sy time) 
-
-rateElimDesc :: Sentence
-rateElimDesc = foldlSent [S "The viral load describes the concentration of ", 
-  S "a virus within the body at a certain time"]
-  
   
 
 

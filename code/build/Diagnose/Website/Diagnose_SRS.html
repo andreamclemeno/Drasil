@@ -349,11 +349,11 @@
                     </tr>
                     <tr>
                       <th>Label</th>
-                      <td><p class="paragraph">VLoad</p></td>
+                      <td><p class="paragraph">VLoadt</p></td>
                     </tr>
                     <tr>
                       <th>Equation</th>
-                      <td>\[r=\frac{\,dN}{\,dt}=-λ {N_{\text{o}}}\]</td>
+                      <td>\[r=\frac{\,d{N_{\text{t}}}}{\,dt}=-λ {N_{\text{o}}}\]</td>
                     </tr>
                     <tr>
                       <th>Description</th>
@@ -364,7 +364,7 @@
                           </li>
                           <li><em>t</em> is the time (<em>s</em>)</li>
                           <li>
-                            <em>N</em> is the viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
+                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
                             <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
@@ -557,7 +557,9 @@
                     <tr>
                       <th>Input</th>
                       <td>
-                        <p class="paragraph"><em>N<sub>t</sub></em>, <em>t</em></p>
+                        <p class="paragraph">
+                          <em>N<sub>t</sub></em>, <em>N<sub>o</sub></em>, <em>t</em>
+                        </p>
                       </td>
                     </tr>
                     <tr>
@@ -568,6 +570,7 @@
                       <th>Input Constraints</th>
                       <td>
                         \[0\lt{}{N_{\text{t}}}\lt{}{N_{\text{o}}}\]
+                        \[{N_{\text{o}}}\gt{}0\]
                         \[t\gt{}0\]
                       </td>
                     </tr>
@@ -654,7 +657,9 @@
                     <tr>
                       <th>Input</th>
                       <td>
-                        <p class="paragraph"><em>N<sub>o</sub></em>, <em>t</em></p>
+                        <p class="paragraph">
+                          <em>N<sub>o</sub></em>, <em>λ</em>, <em>t</em>
+                        </p>
                       </td>
                     </tr>
                     <tr>
@@ -665,6 +670,7 @@
                       <th>Input Constraints</th>
                       <td>
                         \[{N_{\text{o}}}\gt{}0\]
+                        \[λ\gt{}0\]
                         \[t\gt{}0\]
                       </td>
                     </tr>

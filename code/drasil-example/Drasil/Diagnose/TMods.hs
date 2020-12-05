@@ -24,14 +24,14 @@ tMods = [expElimTM]
 
 expElimTM :: TheoryModel
 expElimTM = tm (cw expElimRC)
-  [qw vRate, qw vLoado, qw elimConst, qw vLoad, qw time] ([] :: [ConceptChunk]) [] [expElimRel] []
+  [qw vRate, qw vLoado, qw elimConst, qw vLoadt, qw time] ([] :: [ConceptChunk]) [] [expElimRel] []
   [makeCite libretexts2020] "expElim" []
 
 expElimRC :: RelationConcept
-expElimRC = makeRC "expElimRC" (cn' "vLoad") EmptyS expElimRel
+expElimRC = makeRC "expElimRC" (cn' "vLoadt") EmptyS expElimRel
 
 expElimRel :: Relation
-expElimRel = sy vRate $= deriv (sy vLoad) time $= negate (sy elimConst * sy vLoado) 
+expElimRel = sy vRate $= deriv (sy vLoadt) time $= negate (sy elimConst * sy vLoado) 
 
 ----------
 

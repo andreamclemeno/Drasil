@@ -333,7 +333,7 @@ executable diagnose
     , Drasil.Diagnose.DataDefs
     , Drasil.Diagnose.Unitals
     , Drasil.Diagnose.Changes
---    , Drasil.Diagnose.ModuleDefs
+    , Drasil.Diagnose.ModuleDefs
   Build-Depends:
     base >= 4.7,
     lens >= 4.12,
