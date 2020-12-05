@@ -1,0 +1,6 @@
+# initial viral load (mol/mL)
+1000.0
+# viral load at time t (mol/mL)
+500.0
+# time (s)
+2.0
