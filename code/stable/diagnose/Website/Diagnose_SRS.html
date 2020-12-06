@@ -31,6 +31,11 @@
                   <th>SI Name</th>
                 </tr>
                 <tr>
+                  <td><em>d</em></td>
+                  <td>time</td>
+                  <td>day</td>
+                </tr>
+                <tr>
                   <td><em>mL</em></td>
                   <td>volume</td>
                   <td>millilitre</td>
@@ -39,11 +44,6 @@
                   <td><em>mol</em></td>
                   <td>amount of substance</td>
                   <td>mole</td>
-                </tr>
-                <tr>
-                  <td><em>s</em></td>
-                  <td>time</td>
-                  <td>second</td>
                 </tr>
               </table>
               <p class="caption">Table of Units</p>
@@ -91,22 +91,22 @@
                 <tr>
                   <td><em>r</em></td>
                   <td>Rate of change of the viral load</td>
-                  <td><em>\(\frac{\text{mol}}{\text{mL}\text{s}}\)</em></td>
+                  <td><em>\(\frac{\text{mol}}{\text{mL}\text{d}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>t</em></td>
                   <td>Time</td>
-                  <td><em>s</em></td>
+                  <td><em>d</em></td>
                 </tr>
                 <tr>
                   <td><em>t<sub>p</sub></em></td>
                   <td>Chosen prediction period</td>
-                  <td><em>s</em></td>
+                  <td><em>d</em></td>
                 </tr>
                 <tr>
                   <td><em>t<sub>t</sub></em></td>
-                  <td>Time at second test</td>
-                  <td><em>s</em></td>
+                  <td>Time at secondary test</td>
+                  <td><em>d</em></td>
                 </tr>
                 <tr>
                   <td><em>V</em></td>
@@ -116,7 +116,7 @@
                 <tr>
                   <td><em>λ</em></td>
                   <td>Elimination constant</td>
-                  <td><em>s<sup>-1</sup></em></td>
+                  <td><em>d<sup>-1</sup></em></td>
                 </tr>
               </table>
               <p class="caption">Table of Symbols</p>
@@ -370,14 +370,14 @@
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>r</em> is the rate of change of the viral load (<em>\(\frac{\text{mol}}{\text{mL}\text{s}}\)</em>)
+                            <em>r</em> is the rate of change of the viral load (<em>\(\frac{\text{mol}}{\text{mL}\text{d}}\)</em>)
                           </li>
-                          <li><em>t</em> is the time (<em>s</em>)</li>
+                          <li><em>t</em> is the time (<em>d</em>)</li>
                           <li>
                             <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
+                            <em>λ</em> is the elimination constant (<em>d<sup>-1</sup></em>)
                           </li>
                           <li>
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
@@ -440,9 +440,9 @@
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
+                            <em>λ</em> is the elimination constant (<em>d<sup>-1</sup></em>)
                           </li>
-                          <li><em>t</em> is the time (<em>s</em>)</li>
+                          <li><em>t</em> is the time (<em>d</em>)</li>
                         </ul>
                       </td>
                     </tr>
@@ -599,7 +599,7 @@
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
+                            <em>λ</em> is the elimination constant (<em>d<sup>-1</sup></em>)
                           </li>
                           <li>
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
@@ -608,7 +608,7 @@
                             <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>t<sub>t</sub></em> is the time at second test (<em>s</em>)
+                            <em>t<sub>t</sub></em> is the time at secondary test (<em>d</em>)
                           </li>
                         </ul>
                       </td>
@@ -705,10 +705,10 @@
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>λ</em> is the elimination constant (<em>s<sup>-1</sup></em>)
+                            <em>λ</em> is the elimination constant (<em>d<sup>-1</sup></em>)
                           </li>
                           <li>
-                            <em>t<sub>p</sub></em> is the chosen prediction period (<em>s</em>)
+                            <em>t<sub>p</sub></em> is the chosen prediction period (<em>d</em>)
                           </li>
                         </ul>
                       </td>
@@ -779,13 +779,13 @@
                     <tr>
                       <td><em>t<sub>p</sub></em></td>
                       <td><em>t<sub>p</sub>&thinsp;&gt;&thinsp;0</em></td>
-                      <td><em>2.592&sdot;10<sup>6</sup></em> <em>s</em></td>
+                      <td><em>30.0</em> <em>d</em></td>
                       <td>10<em>%</em></td>
                     </tr>
                     <tr>
                       <td><em>t<sub>t</sub></em></td>
                       <td><em>t<sub>t</sub>&thinsp;&gt;&thinsp;0</em></td>
-                      <td><em>86.4&sdot;10<sup>3</sup></em> <em>s</em></td>
+                      <td><em>1.0</em> <em>d</em></td>
                       <td>10<em>%</em></td>
                     </tr>
                   </table>
@@ -881,12 +881,12 @@
                 <tr>
                   <td><em>t<sub>p</sub></em></td>
                   <td>Chosen prediction period</td>
-                  <td><em>s</em></td>
+                  <td><em>d</em></td>
                 </tr>
                 <tr>
                   <td><em>t<sub>t</sub></em></td>
-                  <td>Time at second test</td>
-                  <td><em>s</em></td>
+                  <td>Time at secondary test</td>
+                  <td><em>d</em></td>
                 </tr>
               </table>
               <p class="caption">

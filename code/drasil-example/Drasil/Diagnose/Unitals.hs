@@ -9,7 +9,7 @@ import Utils.Drasil
 import Data.Drasil.Concepts.Documentation (assumption, goalStmt, physSyst,
   requirement, srs, typUnc)
 
-import Data.Drasil.SI_Units (metre, s_2,m_3, second, mole, millilitre)
+import Data.Drasil.SI_Units (metre, s_2,m_3, second, day, mole, millilitre)
 import Data.Drasil.Concepts.Math
 import Control.Lens ((^.))
 import Data.Drasil.Constraints (gtZeroConstr)
@@ -41,13 +41,13 @@ constants = []
 ----------
 vLoadU, vLoadtU, vLoadoU, vRateU, elimConstU, predictedVLU:: UnitDefn
 
---ttestingU       = newUnit "time between initial viral load test and second viral load test" $ second
---tpredictU    = newUnit "time between initial viral load test and chosen prediction" $ second
+--ttestingU       = newUnit "time between primary viral load test and secondary viral load test" $ day
+--tpredictU    = newUnit "time between initial viral load test and chosen prediction" $ day
 vLoadU           = newUnit "viral load"                 $ mole /: millilitre
-vLoadtU         = newUnit "second viral load at t test" $ mole /: millilitre 
+vLoadtU         = newUnit "secondary viral load at t test" $ mole /: millilitre 
 vLoadoU         = newUnit "initial viral load"        $ mole /: millilitre 
-vRateU          = newUnit "rate of change of viral load" $ mole /$ (millilitre *: second)
-elimConstU      = newUnit "first-order rate constant"    $ second ^: (-1)
+vRateU          = newUnit "rate of change of viral load" $ mole /$ (millilitre *: day)
+elimConstU      = newUnit "first-order rate constant"    $ day ^: (-1)
 predictedVLU    = newUnit "predicted viral load after chosen prediction period" $ mole /: millilitre
 
 ----------
@@ -59,7 +59,7 @@ tMCC = [timec, ttestingc, tpredictc, vLoadc, numberVc, volc, vLoadtc, vLoadoc, v
 timec = dcc "time" (cn' "time")
   "the indefinite continued progress of existence and events in the past, present, and future regarded as a whole"
   
-ttestingc = dcc "timeTest" (cn' "time at second test")
+ttestingc = dcc "timeTest" (cn' "time at secondary test")
   "the indefinite continued progress of existence and events in the past, present, and future regarded as a whole"
 
 tpredictc = dcc "timePredict" (cn' "chosen prediction period")
@@ -102,9 +102,9 @@ tMUC = [time, ttesting, tpredict, vLoad, vol, numberV, vLoado, vLoadt, vRate]
 time, ttesting, tpredict, vol, vLoad, numberV, vLoado, vLoadt, vRate, elimConst, predictedVL :: UnitalChunk
 
 
-time                 = uc timec lT second
-ttesting             = uc ttestingc (sub (lT) (Label "t"))  second
-tpredict             = uc tpredictc (sub (lT) (Label "p")) second
+time                 = uc timec lT day
+ttesting             = uc ttestingc (sub (lT) (Label "t"))  day
+tpredict             = uc tpredictc (sub (lT) (Label "p")) day
 vol                  = uc volc cV millilitre
 numberV              = uc numberVc lN  mole
 vLoad                = uc vLoadc cN  vLoadU
@@ -133,8 +133,8 @@ outConstraints = map (`uq` defaultUncrt)
 
 vLoadtCons      = constrained' vLoadt      [gtZeroConstr] (dbl 5000000)
 vLoadoCons      = constrained' vLoado      [gtZeroConstr] (dbl 10000000)
-ttestingCons    = constrained' ttesting    [gtZeroConstr] (dbl 86400)
-tpredictCons    = constrained' tpredict    [gtZeroConstr] (dbl 2592000)
+ttestingCons    = constrained' ttesting    [gtZeroConstr] (dbl 1)
+tpredictCons    = constrained' tpredict    [gtZeroConstr] (dbl 30)
 
 elimConstCons   = constrained' elimConst   [gtZeroConstr] (dbl 0.02)
 predictedVLCons = constrained' predictedVL [gtZeroConstr] (dbl 200000)

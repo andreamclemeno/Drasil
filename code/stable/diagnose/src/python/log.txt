@@ -1,0 +1,75 @@
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 1000.0 in module InputFormat
+var 'inParams.N_t' assigned 500.0 in module InputFormat
+var 'inParams.t_t' assigned 4.0 in module InputFormat
+var 'inParams.t_p' assigned 2.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.17328679513998635 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.17328679513998635
+  }
+var 'N_p' assigned 707.1067811865474 in module Control
+function write_output called with inputs: {
+  λ = 0.17328679513998635, 
+  N_p = 707.1067811865474
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 500000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 2.995732273553992 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 2.995732273553992
+  }
+var 'N_p' assigned 9.31322574615442e-33 in module Control
+function write_output called with inputs: {
+  λ = 2.995732273553992, 
+  N_p = 9.31322574615442e-33
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 500000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 2.995732273553992 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 2.995732273553992
+  }
+var 'N_p' assigned 9.31322574615442e-33 in module Control
+function write_output called with inputs: {
+  λ = 2.995732273553992, 
+  N_p = 9.31322574615442e-33
+  }

@@ -4,10 +4,10 @@ import Language.Drasil
 import Language.Drasil.ShortHands (cOmega)
 
 fundamentals :: [UnitDefn]
-fundamentals = [metre, kilogram, second, kelvin, mole, ampere, candela, copies]
+fundamentals = [metre, kilogram, second, kelvin, mole, ampere, candela]
 
 derived :: [UnitDefn]
-derived = [becquerel, calorie, centigrade, coulomb, farad, gray, henry, hertz, joule,
+derived = [becquerel, calorie, centigrade, coulomb, day, farad, gray, henry, hertz, joule,
   katal, kilopascal, kilowatt, litre, lumen, lux, millilitre, millimetre, newton, ohm,
   pascal, radian, siemens, sievert, steradian, tesla, volt, watt, weber]
 
@@ -16,7 +16,7 @@ siUnits = map unitWrapper fundamentals ++ map unitWrapper derived
 
 ------------- Fundamental SI Units ---------------------------------------------
 
-metre, kilogram, second, kelvin, mole, ampere, candela, copies :: UnitDefn
+metre, kilogram, second, kelvin, mole, ampere, candela :: UnitDefn
 metre    = fund "metre"    "length"               "m"
 kilogram = fund "kilogram" "mass"                 "kg"
 second   = fund "second"   "time"                 "s"
@@ -24,7 +24,7 @@ kelvin   = fund "kelvin"   "temperature"          "K"
 mole     = fund "mole"     "amount of substance"  "mol"
 ampere   = fund "ampere"   "electric current"     "A"
 candela  = fund "candela"  "luminous intensity"   "cd"
-copies   = fund "copies"   "number of biological units"      "copies"
+
 
 ------------- Commonly defined units -------------------------------------------
 
@@ -43,7 +43,7 @@ m_3 = newUnit "cubic metres"    $ metre ^: 3
 
 -- And now for the ones with 'common' names
 
-becquerel, calorie, centigrade, coulomb, farad, gray, henry, hertz, joule,
+becquerel, calorie, centigrade, coulomb, day, farad, gray, henry, hertz, joule,
   katal, kilopascal, kilowatt, litre, lumen, lux, millilitre, millimetre, newton, ohm,
   pascal, radian, siemens, sievert, steradian, tesla, volt, watt, weber :: UnitDefn
 
@@ -60,6 +60,9 @@ centigrade = derUC "centigrade"
 
 coulomb = derCUC' "coulomb" 
   "coulomb" "electric charge" (Label "C") (ampere *: second)
+
+day = derUC' "day"
+  "day" "time" (Label "d") (scale 86400 second)
 
 farad = derCUC' "farad" 
   "farad" "capacitance" (Label "F") (coulomb /: volt)

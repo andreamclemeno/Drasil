@@ -3,9 +3,9 @@
 # \brief Provides functions for calculating the outputs
 import math
 
-## \brief Calculates elimination constant (s^-1)
+## \brief Calculates elimination constant (d^-1)
 # \param inParams structure holding the input values
-# \return elimination constant (s^-1)
+# \return elimination constant (d^-1)
 def func_λ(inParams):
     outfile = open("log.txt", "a")
     print("function func_λ called with inputs: {", file=outfile)
@@ -18,7 +18,7 @@ def func_λ(inParams):
 
 ## \brief Calculates predicted viral load after 30 days (mol/mL)
 # \param inParams structure holding the input values
-# \param λ elimination constant (s^-1)
+# \param λ elimination constant (d^-1)
 # \return predicted viral load after 30 days (mol/mL)
 def func_N_p(inParams, λ):
     outfile = open("log.txt", "a")

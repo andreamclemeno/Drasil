@@ -43,11 +43,11 @@ The unit system used throughout is SI (Système International d'Unités). In add
 \\
 \midrule
 \endhead
+${\text{d}}$ & time & day
+\\
 ${\text{mL}}$ & volume & millilitre
 \\
 ${\text{mol}}$ & amount of substance & mole
-\\
-${\text{s}}$ & time & second
 \\
 \bottomrule
 \caption{Table of Units}
@@ -73,17 +73,17 @@ ${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{mol}}{\text{mL}}$
 \\
 $n$ & Number of virions & ${\text{mol}}$
 \\
-$r$ & Rate of change of the viral load & $\frac{\text{mol}}{\text{mL}\text{s}}$
+$r$ & Rate of change of the viral load & $\frac{\text{mol}}{\text{mL}\text{d}}$
 \\
-$t$ & Time & ${\text{s}}$
+$t$ & Time & ${\text{d}}$
 \\
-${t_{\text{p}}}$ & Chosen prediction period & ${\text{s}}$
+${t_{\text{p}}}$ & Chosen prediction period & ${\text{d}}$
 \\
-${t_{\text{t}}}$ & Time at second test & ${\text{s}}$
+${t_{\text{t}}}$ & Time at secondary test & ${\text{d}}$
 \\
 $V$ & Volume & ${\text{mL}}$
 \\
-$λ$ & Elimination constant & $\text{s}^{-1}$
+$λ$ & Elimination constant & $\text{d}^{-1}$
 \\
 \bottomrule
 \caption{Table of Symbols}
@@ -217,10 +217,10 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$r$ is the rate of change of the viral load ($\frac{\text{mol}}{\text{mL}\text{s}}$)}
-              \item{$t$ is the time (${\text{s}}$)}
+              \item{$r$ is the rate of change of the viral load ($\frac{\text{mol}}{\text{mL}\text{d}}$)}
+              \item{$t$ is the time (${\text{d}}$)}
               \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
+              \item{$λ$ is the elimination constant ($\text{d}^{-1}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \end{symbDescription}
 \\ \midrule \\
@@ -257,8 +257,8 @@ Equation & \begin{displaymath}
 Description & \begin{symbDescription}
               \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
-              \item{$t$ is the time (${\text{s}}$)}
+              \item{$λ$ is the elimination constant ($\text{d}^{-1}$)}
+              \item{$t$ is the time (${\text{d}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Source & \cite{hobbie1970}
@@ -369,10 +369,10 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
+              \item{$λ$ is the elimination constant ($\text{d}^{-1}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{${t_{\text{t}}}$ is the time at second test (${\text{s}}$)}
+              \item{${t_{\text{t}}}$ is the time at secondary test (${\text{d}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is required for the nature of the problem with respect to \hyperref[proportional]{A: proportional}. Due to the input constraint,  the $λ\gt{}0$ is established due to \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[detElimrate]{GS: detElimrate}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
@@ -446,8 +446,8 @@ Equation & \begin{displaymath}
 Description & \begin{symbDescription}
               \item{${N_{\text{p}}}$ is the predicted viral load after 30 days ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{$λ$ is the elimination constant ($\text{s}^{-1}$)}
-              \item{${t_{\text{p}}}$ is the chosen prediction period (${\text{s}}$)}
+              \item{$λ$ is the elimination constant ($\text{d}^{-1}$)}
+              \item{${t_{\text{p}}}$ is the chosen prediction period (${\text{d}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is  applies when determining future values from the in initial infection with respect to \hyperref[initialInf]{A: initialInf} as well as  \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[predictVL30]{GS: predictVL30}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
@@ -486,9 +486,9 @@ ${N_{\text{o}}}$ & ${N_{\text{o}}}\gt{}0$ & $10.0\cdot{}10^{6}$ $\frac{\text{mol
 \\
 ${N_{\text{t}}}$ & ${N_{\text{t}}}\gt{}0$ & $5.0\cdot{}10^{6}$ $\frac{\text{mol}}{\text{mL}}$ & 10$\%$
 \\
-${t_{\text{p}}}$ & ${t_{\text{p}}}\gt{}0$ & $2.592\cdot{}10^{6}$ ${\text{s}}$ & 10$\%$
+${t_{\text{p}}}$ & ${t_{\text{p}}}\gt{}0$ & $30.0$ ${\text{d}}$ & 10$\%$
 \\
-${t_{\text{t}}}$ & ${t_{\text{t}}}\gt{}0$ & $86.4\cdot{}10^{3}$ ${\text{s}}$ & 10$\%$
+${t_{\text{t}}}$ & ${t_{\text{t}}}\gt{}0$ & $1.0$ ${\text{d}}$ & 10$\%$
 \\
 \bottomrule
 \caption{Input Data Constraints}
@@ -537,9 +537,9 @@ ${N_{\text{o}}}$ & Initial viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
 ${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{mol}}{\text{mL}}$
 \\
-${t_{\text{p}}}$ & Chosen prediction period & ${\text{s}}$
+${t_{\text{p}}}$ & Chosen prediction period & ${\text{d}}$
 \\
-${t_{\text{t}}}$ & Time at second test & ${\text{s}}$
+${t_{\text{t}}}$ & Time at secondary test & ${\text{d}}$
 \\
 \bottomrule
 \caption{Required Inputs following \hyperref[inputValues]{FR: Input-Values}}

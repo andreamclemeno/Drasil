@@ -2,7 +2,7 @@
 # \author Andrea Clemeno
 # \brief Provides the function for writing outputs
 ## \brief Writes the output values to output.txt
-# \param λ elimination constant (s^-1)
+# \param λ elimination constant (d^-1)
 # \param N_p predicted viral load after 30 days (mol/mL)
 def write_output(λ, N_p):
     outfile = open("log.txt", "a")

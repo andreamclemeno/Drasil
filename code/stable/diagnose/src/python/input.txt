@@ -2,7 +2,7 @@
 1000.0
 # viral load at time t (mol/mL)
 500.0
-# time at second test (s)
+# time at secondary test (d)
 4.0
-# chosen prediction period (s)
+# chosen prediction period (d)
 2.0
