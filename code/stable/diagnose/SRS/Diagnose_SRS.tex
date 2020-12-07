@@ -63,6 +63,8 @@ The symbols used in this document are summarized in \hyperref[Table:ToS]{Tab: To
 \\
 \midrule
 \endhead
+$k$ & Elimination constant & $\text{d}^{-1}$
+\\
 $N$ & Viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
 ${N_{\text{o}}}$ & Initial viral load & $\frac{\text{mol}}{\text{mL}}$
@@ -82,8 +84,6 @@ ${t_{\text{p}}}$ & Chosen prediction period & ${\text{d}}$
 ${t_{\text{t}}}$ & Time at secondary test & ${\text{d}}$
 \\
 $V$ & Volume & ${\text{mL}}$
-\\
-$λ$ & Elimination constant & $\text{d}^{-1}$
 \\
 \bottomrule
 \caption{Table of Symbols}
@@ -213,14 +213,14 @@ Label & VLoadt
         
 \\ \midrule \\
 Equation & \begin{displaymath}
-           r=\frac{\,d{N_{\text{t}}}}{\,dt}=-λ {N_{\text{o}}}
+           r=\frac{\,d{N_{\text{t}}}}{\,dt}=-k {N_{\text{o}}}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
               \item{$r$ is the rate of change of the viral load ($\frac{\text{mol}}{\text{mL}\text{d}}$)}
               \item{$t$ is the time (${\text{d}}$)}
               \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{$λ$ is the elimination constant ($\text{d}^{-1}$)}
+              \item{$k$ is the elimination constant ($\text{d}^{-1}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \end{symbDescription}
 \\ \midrule \\
@@ -251,13 +251,13 @@ Units & $\frac{\text{mol}}{\text{mL}}$
         
 \\ \midrule \\
 Equation & \begin{displaymath}
-           {N_{\text{t}}}={N_{\text{o}}} e^{-λ t}
+           {N_{\text{t}}}={N_{\text{o}}} e^{-k t}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
               \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{$λ$ is the elimination constant ($\text{d}^{-1}$)}
+              \item{$k$ is the elimination constant ($\text{d}^{-1}$)}
               \item{$t$ is the time (${\text{d}}$)}
               \end{symbDescription}
 \\ \midrule \\
@@ -274,17 +274,17 @@ RefBy & \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL} and \hyperref[IM:ca
 Using the First-Order rate Law in \hyperref[TM:expElim]{TM: expElim}, we have:
 
 \begin{displaymath}
-\frac{\,dN}{\,dt}=-λ {N_{\text{o}}}
+\frac{\,dN}{\,dt}=-k {N_{\text{o}}}
 \end{displaymath}
-Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant. When rearranging for integration,  we have:
+Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $k$ denotes the elimination constant. When rearranging for integration,  we have:
 
 \begin{displaymath}
-\int_{{N_{\text{o}}}}^{{N_{\text{t}}}}{1}\,d{N_{\text{t}}}=-\int_{0}^{t}{λ}\,dt
+\int_{{N_{\text{o}}}}^{{N_{\text{t}}}}{1}\,d{N_{\text{t}}}=-\int_{0}^{t}{k}\,dt
 \end{displaymath}
 Performing the integration, we have the required equation:
 
 \begin{displaymath}
-{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}
+{N_{\text{t}}}={N_{\text{o}}} e^{-k t}
 \end{displaymath}
 \subsubsection{Data Definitions}
 \label{Sec:DDs}
@@ -347,7 +347,7 @@ Label & Calculation of elimination rate
 Input & ${N_{\text{t}}}$, ${N_{\text{o}}}$, ${t_{\text{t}}}$
         
 \\ \midrule \\
-Output & $λ$
+Output & $k$
          
 \\ \midrule \\
 Input Constraints & \begin{displaymath}
@@ -361,21 +361,21 @@ Input Constraints & \begin{displaymath}
                     \end{displaymath}
 \\ \midrule \\
 Output Constraints & \begin{displaymath}
-                     λ\gt{}0
+                     k\gt{}0
                      \end{displaymath}
 \\ \midrule \\
 Equation & \begin{displaymath}
-           λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}
+           k=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{$λ$ is the elimination constant ($\text{d}^{-1}$)}
+              \item{$k$ is the elimination constant ($\text{d}^{-1}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${t_{\text{t}}}$ is the time at secondary test (${\text{d}}$)}
               \end{symbDescription}
 \\ \midrule \\
-Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is required for the nature of the problem with respect to \hyperref[proportional]{A: proportional}. Due to the input constraint,  the $λ\gt{}0$ is established due to \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[detElimrate]{GS: detElimrate}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
+Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is required for the nature of the problem with respect to \hyperref[proportional]{A: proportional}. Due to the input constraint,  the $k\gt{}0$ is established due to \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[detElimrate]{GS: detElimrate}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
         
 \\ \midrule \\
 Source & --
@@ -391,22 +391,22 @@ RefBy & \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}
 Using the relationship for the viral load seen in \hyperref[DD:viralLoad]{DD: viralLoad} with respect to time in \hyperref[GD:vLoadt]{GD: vLoadt}, we have:
 
 \begin{displaymath}
-{N_{\text{t}}}={N_{\text{o}}} e^{-λ {t_{\text{t}}}}
+{N_{\text{t}}}={N_{\text{o}}} e^{-k {t_{\text{t}}}}
 \end{displaymath}
-Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant. When isolating for the elimination constant,  we have:
+Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $k$ denotes the elimination constant. When isolating for the elimination constant,  we have:
 
 \begin{displaymath}
-\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-λ {t_{\text{t}}}}
+\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-k {t_{\text{t}}}}
 \end{displaymath}
 To isolate further, the natural logarithm is applied:
 
 \begin{displaymath}
-\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-λ {t_{\text{t}}}
+\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-k {t_{\text{t}}}
 \end{displaymath}
 After using the logarithmic quotient property, we have the required equation:
 
 \begin{displaymath}
-λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}
+k=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}
 \end{displaymath}
 \vspace{\baselineskip}
 \noindent
@@ -419,7 +419,7 @@ After using the logarithmic quotient property, we have the required equation:
 Label & Calculation of elimination rate
         
 \\ \midrule \\
-Input & ${N_{\text{o}}}$, $λ$, ${t_{\text{p}}}$
+Input & ${N_{\text{o}}}$, $k$, ${t_{\text{p}}}$
         
 \\ \midrule \\
 Output & ${N_{\text{p}}}$
@@ -429,7 +429,7 @@ Input Constraints & \begin{displaymath}
                     {N_{\text{o}}}\gt{}0
                     \end{displaymath}
                     \begin{displaymath}
-                    λ\gt{}0
+                    k\gt{}0
                     \end{displaymath}
                     \begin{displaymath}
                     {t_{\text{p}}}\gt{}0
@@ -440,13 +440,13 @@ Output Constraints & \begin{displaymath}
                      \end{displaymath}
 \\ \midrule \\
 Equation & \begin{displaymath}
-           {N_{\text{p}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}
+           {N_{\text{p}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
               \item{${N_{\text{p}}}$ is the predicted viral load after 30 days ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{$λ$ is the elimination constant ($\text{d}^{-1}$)}
+              \item{$k$ is the elimination constant ($\text{d}^{-1}$)}
               \item{${t_{\text{p}}}$ is the chosen prediction period (${\text{d}}$)}
               \end{symbDescription}
 \\ \midrule \\
@@ -465,12 +465,12 @@ RefBy &
 Using the relationship for the viral load seen in \hyperref[DD:viralLoad]{DD: viralLoad} with respect to time in \hyperref[GD:vLoadt]{GD: vLoadt}, we have:
 
 \begin{displaymath}
-{N_{\text{t}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}
+{N_{\text{t}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}
 \end{displaymath}
-Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $λ$ denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in \hyperref[IM:calofElimConst]{IM: calofElimConst},  is used instead of ${N_{\text{t}}}$  therefore we have:
+Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $k$ denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in \hyperref[IM:calofElimConst]{IM: calofElimConst},  is used instead of ${N_{\text{t}}}$  therefore we have:
 
 \begin{displaymath}
-{N_{\text{p}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}
+{N_{\text{p}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}
 \end{displaymath}
 \subsubsection{Data Constraints}
 \label{Sec:DataConstraints}
@@ -484,11 +484,11 @@ Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denote
 \endhead
 ${N_{\text{o}}}$ & ${N_{\text{o}}}\gt{}0$ & $10.0\cdot{}10^{6}$ $\frac{\text{mol}}{\text{mL}}$ & 10$\%$
 \\
-${N_{\text{t}}}$ & ${N_{\text{t}}}\gt{}0$ & $5.0\cdot{}10^{6}$ $\frac{\text{mol}}{\text{mL}}$ & 10$\%$
+${N_{\text{t}}}$ & $0\lt{}{N_{\text{t}}}\lt{}{N_{\text{o}}}$ & $5.0\cdot{}10^{6}$ $\frac{\text{mol}}{\text{mL}}$ & 10$\%$
 \\
 ${t_{\text{p}}}$ & ${t_{\text{p}}}\gt{}0$ & $30.0$ ${\text{d}}$ & 10$\%$
 \\
-${t_{\text{t}}}$ & ${t_{\text{t}}}\gt{}0$ & $1.0$ ${\text{d}}$ & 10$\%$
+${t_{\text{t}}}$ & $0\lt{}{t_{\text{t}}}\lt{}{t_{\text{p}}}$ & $1.0$ ${\text{d}}$ & 10$\%$
 \\
 \bottomrule
 \caption{Input Data Constraints}
@@ -504,7 +504,7 @@ ${t_{\text{t}}}$ & ${t_{\text{t}}}\gt{}0$ & $1.0$ ${\text{d}}$ & 10$\%$
 \\
 \midrule
 \endhead
-$λ$ & $λ\gt{}0$
+$k$ & $k\gt{}0$
 \\
 ${N_{\text{p}}}$ & ${N_{\text{p}}}\gt{}0$
 \\

@@ -64,6 +64,11 @@
                   <th>Units</th>
                 </tr>
                 <tr>
+                  <td><em>k</em></td>
+                  <td>Elimination constant</td>
+                  <td><em>d<sup>-1</sup></em></td>
+                </tr>
+                <tr>
                   <td><em>N</em></td>
                   <td>Viral load</td>
                   <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
@@ -112,11 +117,6 @@
                   <td><em>V</em></td>
                   <td>Volume</td>
                   <td><em>mL</em></td>
-                </tr>
-                <tr>
-                  <td><em>λ</em></td>
-                  <td>Elimination constant</td>
-                  <td><em>d<sup>-1</sup></em></td>
                 </tr>
               </table>
               <p class="caption">Table of Symbols</p>
@@ -363,7 +363,7 @@
                     </tr>
                     <tr>
                       <th>Equation</th>
-                      <td>\[r=\frac{\,d{N_{\text{t}}}}{\,dt}=-λ {N_{\text{o}}}\]</td>
+                      <td>\[r=\frac{\,d{N_{\text{t}}}}{\,dt}=-k {N_{\text{o}}}\]</td>
                     </tr>
                     <tr>
                       <th>Description</th>
@@ -377,7 +377,7 @@
                             <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>λ</em> is the elimination constant (<em>d<sup>-1</sup></em>)
+                            <em>k</em> is the elimination constant (<em>d<sup>-1</sup></em>)
                           </li>
                           <li>
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
@@ -427,7 +427,7 @@
                     </tr>
                     <tr>
                       <th>Equation</th>
-                      <td>\[{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}\]</td>
+                      <td>\[{N_{\text{t}}}={N_{\text{o}}} e^{-k t}\]</td>
                     </tr>
                     <tr>
                       <th>Description</th>
@@ -440,7 +440,7 @@
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>λ</em> is the elimination constant (<em>d<sup>-1</sup></em>)
+                            <em>k</em> is the elimination constant (<em>d<sup>-1</sup></em>)
                           </li>
                           <li><em>t</em> is the time (<em>d</em>)</li>
                         </ul>
@@ -468,15 +468,15 @@
                     <p class="paragraph">
                       Using the First-Order rate Law in <a href=#TM:expElim>TM: expElim</a>, we have:
                     </p>
-                    \[\frac{\,dN}{\,dt}=-λ {N_{\text{o}}}\]
+                    \[\frac{\,dN}{\,dt}=-k {N_{\text{o}}}\]
                     <p class="paragraph">
-                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>λ</em> denotes the elimination constant. When rearranging for integration,  we have:
+                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>k</em> denotes the elimination constant. When rearranging for integration,  we have:
                     </p>
-                    \[\int_{{N_{\text{o}}}}^{{N_{\text{t}}}}{1}\,d{N_{\text{t}}}=-\int_{0}^{t}{λ}\,dt\]
+                    \[\int_{{N_{\text{o}}}}^{{N_{\text{t}}}}{1}\,d{N_{\text{t}}}=-\int_{0}^{t}{k}\,dt\]
                     <p class="paragraph">
                       Performing the integration, we have the required equation:
                     </p>
-                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-λ t}\]
+                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-k t}\]
                   </div>
                 </div>
               </div>
@@ -574,7 +574,7 @@
                     </tr>
                     <tr>
                       <th>Output</th>
-                      <td><p class="paragraph"><em>λ</em></p></td>
+                      <td><p class="paragraph"><em>k</em></p></td>
                     </tr>
                     <tr>
                       <th>Input Constraints</th>
@@ -586,12 +586,12 @@
                     </tr>
                     <tr>
                       <th>Output Constraints</th>
-                      <td>\[λ\gt{}0\]</td>
+                      <td>\[k\gt{}0\]</td>
                     </tr>
                     <tr>
                       <th>Equation</th>
                       <td>
-                        \[λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}\]
+                        \[k=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}\]
                       </td>
                     </tr>
                     <tr>
@@ -599,7 +599,7 @@
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>λ</em> is the elimination constant (<em>d<sup>-1</sup></em>)
+                            <em>k</em> is the elimination constant (<em>d<sup>-1</sup></em>)
                           </li>
                           <li>
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
@@ -617,7 +617,7 @@
                       <th>Notes</th>
                       <td>
                         <p class="paragraph">
-                          The constraint <em>N<sub>o</sub>&thinsp;&gt;&thinsp;N<sub>t</sub>&thinsp;&gt;&thinsp;0</em> is required for the nature of the problem with respect to <a href=#proportional>A: proportional</a>. Due to the input constraint,  the <em>λ&thinsp;&gt;&thinsp;0</em> is established due to <a href=#alwaysElim>A: alwaysElim</a>. Using this instance model, the goal of the software in  <a href=#detElimrate>GS: detElimrate</a>  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  <a href=#verifyOutput>FR: Verify-Output</a>.
+                          The constraint <em>N<sub>o</sub>&thinsp;&gt;&thinsp;N<sub>t</sub>&thinsp;&gt;&thinsp;0</em> is required for the nature of the problem with respect to <a href=#proportional>A: proportional</a>. Due to the input constraint,  the <em>k&thinsp;&gt;&thinsp;0</em> is established due to <a href=#alwaysElim>A: alwaysElim</a>. Using this instance model, the goal of the software in  <a href=#detElimrate>GS: detElimrate</a>  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  <a href=#verifyOutput>FR: Verify-Output</a>.
                         </p>
                       </td>
                     </tr>
@@ -641,19 +641,19 @@
                     <p class="paragraph">
                       Using the relationship for the viral load seen in <a href=#DD:viralLoad>DD: viralLoad</a> with respect to time in <a href=#GD:vLoadt>GD: vLoadt</a>, we have:
                     </p>
-                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-λ {t_{\text{t}}}}\]
+                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-k {t_{\text{t}}}}\]
                     <p class="paragraph">
-                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>λ</em> denotes the elimination constant. When isolating for the elimination constant,  we have:
+                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>k</em> denotes the elimination constant. When isolating for the elimination constant,  we have:
                     </p>
-                    \[\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-λ {t_{\text{t}}}}\]
+                    \[\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-k {t_{\text{t}}}}\]
                     <p class="paragraph">
                       To isolate further, the natural logarithm is applied:
                     </p>
-                    \[\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-λ {t_{\text{t}}}\]
+                    \[\ln\left(\frac{{N_{\text{t}}}}{{N_{\text{o}}}}\right)=-k {t_{\text{t}}}\]
                     <p class="paragraph">
                       After using the logarithmic quotient property, we have the required equation:
                     </p>
-                    \[λ=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}\]
+                    \[k=\frac{\ln\left({N_{\text{o}}}\right)-\ln\left({N_{\text{t}}}\right)}{{t_{\text{t}}}}\]
                   </div>
                 </div>
                 <div id="IM:calofPredictedVL">
@@ -670,7 +670,7 @@
                       <th>Input</th>
                       <td>
                         <p class="paragraph">
-                          <em>N<sub>o</sub></em>, <em>λ</em>, <em>t<sub>p</sub></em>
+                          <em>N<sub>o</sub></em>, <em>k</em>, <em>t<sub>p</sub></em>
                         </p>
                       </td>
                     </tr>
@@ -682,7 +682,7 @@
                       <th>Input Constraints</th>
                       <td>
                         \[{N_{\text{o}}}\gt{}0\]
-                        \[λ\gt{}0\]
+                        \[k\gt{}0\]
                         \[{t_{\text{p}}}\gt{}0\]
                       </td>
                     </tr>
@@ -692,7 +692,7 @@
                     </tr>
                     <tr>
                       <th>Equation</th>
-                      <td>\[{N_{\text{p}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}\]</td>
+                      <td>\[{N_{\text{p}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}\]</td>
                     </tr>
                     <tr>
                       <th>Description</th>
@@ -705,7 +705,7 @@
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>λ</em> is the elimination constant (<em>d<sup>-1</sup></em>)
+                            <em>k</em> is the elimination constant (<em>d<sup>-1</sup></em>)
                           </li>
                           <li>
                             <em>t<sub>p</sub></em> is the chosen prediction period (<em>d</em>)
@@ -737,11 +737,11 @@
                     <p class="paragraph">
                       Using the relationship for the viral load seen in <a href=#DD:viralLoad>DD: viralLoad</a> with respect to time in <a href=#GD:vLoadt>GD: vLoadt</a>, we have:
                     </p>
-                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}\]
+                    \[{N_{\text{t}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}\]
                     <p class="paragraph">
-                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>λ</em> denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in <a href=#IM:calofElimConst>IM: calofElimConst</a>,  is used instead of <em>N<sub>t</sub></em>  therefore we have:
+                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>k</em> denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in <a href=#IM:calofElimConst>IM: calofElimConst</a>,  is used instead of <em>N<sub>t</sub></em>  therefore we have:
                     </p>
-                    \[{N_{\text{p}}}={N_{\text{o}}} e^{-λ {t_{\text{p}}}}\]
+                    \[{N_{\text{p}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}\]
                   </div>
                 </div>
               </div>
@@ -770,7 +770,9 @@
                     </tr>
                     <tr>
                       <td><em>N<sub>t</sub></em></td>
-                      <td><em>N<sub>t</sub>&thinsp;&gt;&thinsp;0</em></td>
+                      <td>
+                        <em>0&thinsp;&lt;&thinsp;N<sub>t</sub>&thinsp;&lt;&thinsp;N<sub>o</sub></em>
+                      </td>
                       <td>
                         <em>5.0&sdot;10<sup>6</sup></em> <em>\(\frac{\text{mol}}{\text{mL}}\)</em>
                       </td>
@@ -784,7 +786,9 @@
                     </tr>
                     <tr>
                       <td><em>t<sub>t</sub></em></td>
-                      <td><em>t<sub>t</sub>&thinsp;&gt;&thinsp;0</em></td>
+                      <td>
+                        <em>0&thinsp;&lt;&thinsp;t<sub>t</sub>&thinsp;&lt;&thinsp;t<sub>p</sub></em>
+                      </td>
                       <td><em>1.0</em> <em>d</em></td>
                       <td>10<em>%</em></td>
                     </tr>
@@ -806,8 +810,8 @@
                       <th>Physical Constraints</th>
                     </tr>
                     <tr>
-                      <td><em>λ</em></td>
-                      <td><em>λ&thinsp;&gt;&thinsp;0</em></td>
+                      <td><em>k</em></td>
+                      <td><em>k&thinsp;&gt;&thinsp;0</em></td>
                     </tr>
                     <tr>
                       <td><em>N<sub>p</sub></em></td>

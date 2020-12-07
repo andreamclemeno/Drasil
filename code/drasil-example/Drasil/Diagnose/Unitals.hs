@@ -111,7 +111,7 @@ vLoad                = uc vLoadc cN  vLoadU
 vLoadt               = uc vLoadtc (sub (cN) (Label "t"))  vLoadtU
 vLoado               = uc vLoadoc (sub (cN) (Label "o"))  vLoadoU
 vRate                = uc vRatec lR vRateU
-elimConst	     = uc elimConstc lLambda elimConstU
+elimConst	     = uc elimConstc lK elimConstU
 predictedVL          = uc predictedVLc (sub (cN) (Label "p"))  predictedVLU
 
 
@@ -131,9 +131,9 @@ outConstraints = map (`uq` defaultUncrt)
   [elimConstCons, predictedVLCons]
 
 
-vLoadtCons      = constrained' vLoadt      [gtZeroConstr] (dbl 5000000)
+vLoadtCons      = constrained' vLoadt      [physc $ Bounded (Exc,0) (Exc, sy vLoado)] (dbl 5000000)
 vLoadoCons      = constrained' vLoado      [gtZeroConstr] (dbl 10000000)
-ttestingCons    = constrained' ttesting    [gtZeroConstr] (dbl 1)
+ttestingCons    = constrained' ttesting    [physc $ Bounded (Exc,0) (Exc, sy tpredict)] (dbl 1)
 tpredictCons    = constrained' tpredict    [gtZeroConstr] (dbl 30)
 
 elimConstCons   = constrained' elimConst   [gtZeroConstr] (dbl 0.02)

@@ -6,9 +6,9 @@ import math
 ## \brief Calculates elimination constant (d^-1)
 # \param inParams structure holding the input values
 # \return elimination constant (d^-1)
-def func_λ(inParams):
+def func_k(inParams):
     outfile = open("log.txt", "a")
-    print("function func_λ called with inputs: {", file=outfile)
+    print("function func_k called with inputs: {", file=outfile)
     print("  inParams = ", end="", file=outfile)
     print("Instance of InputParameters object", file=outfile)
     print("  }", file=outfile)
@@ -18,17 +18,17 @@ def func_λ(inParams):
 
 ## \brief Calculates predicted viral load after 30 days (mol/mL)
 # \param inParams structure holding the input values
-# \param λ elimination constant (d^-1)
+# \param k elimination constant (d^-1)
 # \return predicted viral load after 30 days (mol/mL)
-def func_N_p(inParams, λ):
+def func_N_p(inParams, k):
     outfile = open("log.txt", "a")
     print("function func_N_p called with inputs: {", file=outfile)
     print("  inParams = ", end="", file=outfile)
     print("Instance of InputParameters object", end="", file=outfile)
     print(", ", file=outfile)
-    print("  λ = ", end="", file=outfile)
-    print(λ, file=outfile)
+    print("  k = ", end="", file=outfile)
+    print(k, file=outfile)
     print("  }", file=outfile)
     outfile.close()
     
-    return inParams.N_o * math.exp(-λ * inParams.t_p)
+    return inParams.N_o * math.exp(-k * inParams.t_p)

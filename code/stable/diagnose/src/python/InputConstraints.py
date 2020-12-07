@@ -19,20 +19,26 @@ def input_constraints(inParams):
         print(0, end="")
         print(".")
         raise Exception("InputError")
-    if (not(inParams.N_t > 0)) :
+    if (not(0 < inParams.N_t and inParams.N_t < inParams.N_o)) :
         print("N_t has value ", end="")
         print(inParams.N_t, end="")
         print(", but is expected to be ", end="")
-        print("above ", end="")
+        print("between ", end="")
         print(0, end="")
+        print(" and ", end="")
+        print(inParams.N_o, end="")
+        print(" (N_o)", end="")
         print(".")
         raise Exception("InputError")
-    if (not(inParams.t_t > 0)) :
+    if (not(0 < inParams.t_t and inParams.t_t < inParams.t_p)) :
         print("t_t has value ", end="")
         print(inParams.t_t, end="")
         print(", but is expected to be ", end="")
-        print("above ", end="")
+        print("between ", end="")
         print(0, end="")
+        print(" and ", end="")
+        print(inParams.t_p, end="")
+        print(" (t_p)", end="")
         print(".")
         raise Exception("InputError")
     if (not(inParams.t_p > 0)) :

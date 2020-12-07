@@ -73,3 +73,1353 @@ function write_output called with inputs: {
   λ = 2.995732273553992, 
   N_p = 9.31322574615442e-33
   }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 1000.0 in module InputFormat
+var 'inParams.N_t' assigned 500.0 in module InputFormat
+var 'inParams.t_t' assigned 4.0 in module InputFormat
+var 'inParams.t_p' assigned 2.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.17328679513998635 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.17328679513998635
+  }
+var 'N_p' assigned 707.1067811865474 in module Control
+function write_output called with inputs: {
+  λ = 0.17328679513998635, 
+  N_p = 707.1067811865474
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 0.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned -10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 0.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 100000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned -3.9120230054281464 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = -3.9120230054281464
+  }
+var 'N_p' assigned 9.313225746154883e+55 in module Control
+function write_output called with inputs: {
+  λ = -3.9120230054281464, 
+  N_p = 9.313225746154883e+55
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 100000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 100000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_λ called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'λ' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  λ = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  λ = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned test_Calculations.py in module Control
+function get_input called with inputs: {
+  filename = test_Calculations.py, 
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 1000.0 in module InputFormat
+var 'inParams.N_t' assigned 500.0 in module InputFormat
+var 'inParams.t_t' assigned 4.0 in module InputFormat
+var 'inParams.t_p' assigned 2.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 1000.0 in module InputFormat
+var 'inParams.N_t' assigned 500.0 in module InputFormat
+var 'inParams.t_t' assigned 4.0 in module InputFormat
+var 'inParams.t_p' assigned 2.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned test_Calculations.py in module Control
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 1000.0 in module InputFormat
+var 'inParams.N_t' assigned 500.0 in module InputFormat
+var 'inParams.t_t' assigned 4.0 in module InputFormat
+var 'inParams.t_p' assigned 2.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned test_Calculations.py in module Control
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned test_Calculations.py in module Control
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/Control.py in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/Control.py, 
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/Control.py in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/Control.py, 
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/Control.py in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/Control.py, 
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 10000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.6931471805599454 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.6931471805599454
+  }
+var 'N_p' assigned 0.009313225746154761 in module Control
+function write_output called with inputs: {
+  k = 0.6931471805599454, 
+  N_p = 0.009313225746154761
+  }
+var 'filename' assigned input.txt in module Control
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 90000000.0 in module InputFormat
+var 'inParams.N_t' assigned 2000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 3.8066624897703196 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 3.8066624897703196
+  }
+var 'N_p' assigned 2.279644343110537e-42 in module Control
+function write_output called with inputs: {
+  k = 3.8066624897703196, 
+  N_p = 2.279644343110537e-42
+  }
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 90000000.0 in module InputFormat
+var 'inParams.N_t' assigned 2000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function get_input called with inputs: {
+  filename = input.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 90000000.0 in module InputFormat
+var 'inParams.N_t' assigned 2000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 3.8066624897703196
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 3.8066624897703196
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 3.8066624897703196
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
