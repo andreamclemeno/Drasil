@@ -23,7 +23,7 @@ import Data.Drasil.SI_Units
 import Data.Drasil.Concepts.Software (program)
 import Drasil.Diagnose.Concepts
 import Drasil.Diagnose.Figures (figVirusinbody)
-import Drasil.Diagnose.Concepts (diagnoseTitle, virus, viralloaddef, infectedcells, helperTcell, elimination, aids, diagnosis, progression)
+import Drasil.Diagnose.Concepts
 import Drasil.Diagnose.Goals (goals)
 import Drasil.Diagnose.Assumptions (assumptions)
 import Drasil.Diagnose.TMods 
@@ -108,7 +108,7 @@ justification = foldlSent [S "HIV-1 is a virus that attacks cells of the immune 
   phrase program, S "to model these types of" +:+. plural problem,
   S "The", phrase program, S "documented here is called", phrase diagnoseTitle]
 scope :: Sentence
-scope = foldlSent_ [S "the analysis of HIV-1 concentration over time"]
+scope = foldlSent_ [S "the analysis of HIV-1 viral load concentration over time after the viremia peak of the initial infection without the influence of external factors that can affect the efficiency of the immune system"]
 
 si :: SystemInformation
 si = SI {
@@ -167,14 +167,14 @@ concIns = assumptions ++ funcReqs ++ goals ++ nonfuncReqs ++ likelyChgs ++ unlik
 -------------------------
 
 prob :: Sentence
-prob = foldlSent_ [S "assess the risk before substantial immune destruction has occurred."
-  , S "The system will predict viral load at 30 days and the patient's progression"]
+prob = foldlSent_ [S "assess the risk of progression to AIDs before substantial immune destruction has occurred. Diagnose will model the viral load over time for the HIV-1 virus responsible for AIDs."
+  , S "The system will determine the initial elimination rate of the virus and predict viral load at a user-defined time"]
   
 ---------------------------------
 -- Terminology and Definitions --
 ---------------------------------
 terms :: [ConceptChunk]
-terms = [virus, viralloaddef, infectedcells, helperTcell, elimination, aids, diagnosis, progression]
+terms = [virus, viralloaddef, replication, productivity, infectedcells, helperTcell, immuneresponse, elimination, viremiapeak, aids, diagnosis, progression]
 
 
 ---------------------------------
@@ -186,11 +186,12 @@ physSystParts = map foldlSent [
   [S "The HIV Virion"],
   [S "The virus-infected cells"],
   [S "The Helper T cell"],
-  [S "The Human Body"]]
+  [S "The human body"],
+  [S "The skin barrier of the human body"]]
   
 ---------------------------------
 -- Goal Statements --
 ---------------------------------
 
 goalsInputs :: [Sentence]
-goalsInputs = [S "two HIV-1 viral load datum taken on consecutive days"]
+goalsInputs = [S "two HIV-1 viral load test datum, time duration between the tests and the chosen prediction period"]

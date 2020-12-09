@@ -8,30 +8,15 @@ import Data.Drasil.IdeaDicts (physics)
 import Data.Drasil.Concepts.Math (angle)
 import Data.Drasil.Concepts.Physics (position, speed)
 
---concepts :: [IdeaDict]
---concepts = map nw [landingPos, launch, launchAngle, launchSpeed, offset, targetPos]
---  ++ map nw defs
-
 defs :: [ConceptChunk]
-defs = [virus, viralloaddef, infectedcells, helperTcell, elimination, aids, diagnosis, progression]
+defs = [virus, viralloaddef, replication, productivity, infectedcells, helperTcell, immuneresponse, elimination, viremiapeak, aids, diagnosis, progression]
 
 diagnoseTitle :: CI
 diagnoseTitle = commonIdeaWithDict "diagnoseTitle" (pn "Diagnose") "Diagnose" [physics]
 
---duration, flightDur, landingPos, launch, launchAngle, launchSpeed, offset, targetPos :: NamedChunk
---duration   = nc "duration" (nounPhraseSP "duration")
---launch     = nc "launch"   (nounPhraseSP "launch") -- FIXME: Used as adjective
---offset     = nc "offset"   (nounPhraseSent $ S "distance between the" +:+ phrase targetPos `andThe` phrase landingPos)
-
---flightDur   = compoundNC (nc "flight"  (nounPhraseSP "flight" )) duration
---landingPos  = compoundNC (nc "landing" (nounPhraseSP "landing")) position
---launchAngle = compoundNC launch angle
---launchSpeed = compoundNC launch speed
---targetPos   = compoundNC target position
-
 ---
 
-virus, viralloaddef, infectedcells, helperTcell, elimination, aids, diagnosis, progression :: ConceptChunk
+virus, viralloaddef, replication, productivity, infectedcells, helperTcell, immuneresponse, elimination, viremiapeak, aids, diagnosis, progression :: ConceptChunk
 virus          = dcc "virus"          (nounPhraseSP "virus")          "Submicroscopic parasites that infect cells"
 viralloaddef   = dcc "viral load"     (nounPhraseSP "viral load")     ("The concentration of HIV virus at a " ++
                                                                       "point in time")
@@ -47,6 +32,16 @@ aids           = dcc "AIDs"           (nounPhraseSP "AIDs")           ("Acquired
 diagnosis      = dcc "diagnosis"      (nounPhraseSP "diagnosis")      ("The determination of a patient's condition " ++
                                                                       "reached by a healthcare professional")
 progression    = dcc "progression"    (nounPhraseSP "progression")    "The development towards a more advanced stage"
+
+
+replication = dcc "Replication"          (nounPhraseSP "Replication")          "The process where infected cells rapidly reproduce genetic material of the virus rather than its normal process of reproducing itself"
+
+productivity = dcc "Productivity"          (nounPhraseSP "Productivity")          " Cells can be productive and non-productive. Productive means that infection occurs. The HIV-1 virus needs to interact with a cell to be productive and replicate"
+
+immuneresponse = dcc "Immune Response"          (nounPhraseSP "Immune Response")          "The defensive reaction of the human body against harmful substances like the HIV-1 virus"
+
+viremiapeak = dcc "Viremia Peak"          (nounPhraseSP "Viremia Peak")          "The peak of viral load after the virus has entered the blood stream. There is a trend of elimination for viral load due to the body's immune response"
+
 
 
 

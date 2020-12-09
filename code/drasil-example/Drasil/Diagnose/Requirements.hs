@@ -41,46 +41,38 @@ verifyInputDesc = foldlSent [S "The software will ensure that the inputs are not
   S "out of bounds, an error message is displayed"]
    
 calcValuesDesc :: Sentence
-calcValuesDesc = foldlSent [S "Software calculates the viral load at 30 days and ",
-  S "the probability of progression to AIDs after 3 years"]
+calcValuesDesc = foldlSent [S "Software calculates the initial elimination rate of HIV virus and the predicted viral load after the chosen prediction period"]
   
 verifyOutputDesc :: Sentence
 verifyOutputDesc = foldlSent [S "The output values will be cross referenced with ",
-  S "the result constraints, related to the assumptions:" +:+ makeRef2S initialInf +:+ S "and",makeRef2S alwaysElim]
+  S "the result constraints. This requirement is related to the assumptions:" +:+ makeRef2S initialInf +:+ S "and",makeRef2S alwaysElim]
   
 outputValuesDesc :: Sentence
-outputValuesDesc = foldlSent [S "Output related requirements including elimination rate and 30 day viral load"]
+outputValuesDesc = foldlSent [S "Output related requirements including the elimination rate and predicted viral load to satisfy the goals of Diagnose"]
   
 {--Nonfunctional Requirements--}
 
 nonfuncReqs :: [ConceptInstance]
-nonfuncReqs = [correct, verifiable, understandable, reusable, maintainable, portable]
+nonfuncReqs = [verifiable, understandable, reusable, maintainable, portable]
 
-correct :: ConceptInstance
-correct = cic "correctness" (foldlSent [
-  S "The outputs have to adhere to the output properties in the output ",
-  S "constraints"]) "Correctness" nonFuncReqDom
- 
 verifiable :: ConceptInstance
 verifiable = cic "verifiable" (foldlSent [
-  S "The", phrase code, S "is tested with complete verification ",
-  S "and validation plan"]) "Verifiable" nonFuncReqDom
+  S "The Drasil generated python", phrase code, S "is tested using static and dynamic code analysis, linting, unit and system testing and continuous integration methods outlined in the Verification ",
+  S "and Validation plan of Diagnose"]) "Verifiable" nonFuncReqDom
 
 understandable :: ConceptInstance
 understandable = cic "understandable" (foldlSent [
-  S "The", phrase code, S "is modularized with complete",
-  phrase mg `sAnd` phrase mis]) "Understandable" nonFuncReqDom
+  S "The", phrase code, S "will be generated using the Drasil Framework into modules to address each requirement"]) "Understandable" nonFuncReqDom
 
 reusable :: ConceptInstance
 reusable = cic "reusable" (foldlSent [
-  S "The", phrase code, S "is modularized"]) "Reusable" nonFuncReqDom
+  S "The code will be created using Drasil. The framework has data libraries of scientific theories, concepts, quantities and units commonly used in scientific problems. The created knowledge libraries of Diagnose can be reused as required"]) "Reusable" nonFuncReqDom
 
 maintainable :: ConceptInstance
 maintainable = cic "maintainable" (foldlSent [
   S "The traceability between", foldlList Comma List [plural requirement,
   plural assumption, plural thModel, plural genDefn, plural dataDefn, plural inModel,
-  plural likelyChg, plural unlikelyChg, plural module_], S "is completely recorded in",
-  plural traceyMatrix, S "in the", getAcc srs `sAnd` phrase mg]) "Maintainable" nonFuncReqDom
+  plural likelyChg, plural unlikelyChg, plural module_], S "is completely recorded in traceability matrices throughout the documentation of Diagnose to measure maintainability. The traceability will be measured by ensuring the connections are recorded and identifiable"]) "Maintainable" nonFuncReqDom
 
 portable :: ConceptInstance
 portable = cic "portable" (foldlSent [

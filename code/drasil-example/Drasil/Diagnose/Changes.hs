@@ -15,7 +15,7 @@ import Drasil.Diagnose.Assumptions
 {--LIKELY CHANGES--}
 
 likelyChgs :: [ConceptInstance]
-likelyChgs = [incTimeFrame, moreInputs, moreOutputs]
+likelyChgs = [moreInputs, moreOutputs]
 
 incTimeFrame, moreInputs, moreOutputs :: ConceptInstance
 
@@ -35,7 +35,7 @@ moreInputsDesc = foldlSent [(S "The"), phrase software,
   
 moreOutputsDesc = foldlSent [(S "The"), phrase software,
   S "may be expanded to include more outputs",
-  S " like a suggestion for therapy"]
+  S " like assessing the progression to AIDs or a suggestion for therapy"]
 
 
 

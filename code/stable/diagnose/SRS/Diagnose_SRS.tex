@@ -57,7 +57,7 @@ ${\text{mol}}$ & amount of substance & mole
 \label{Sec:ToS}
 The symbols used in this document are summarized in \hyperref[Table:ToS]{Tab: ToS} along with their units. Throughout the document, symbols in bold will represent vectors, and scalars otherwise. The symbols are listed in alphabetical order. For vector quantities, the units shown are for each component of the vector.
 
-\begin{longtable}{l l l}
+\begin{longtabu}{l X[l] l}
 \toprule
 \textbf{Symbol} & \textbf{Description} & \textbf{Units}
 \\
@@ -69,9 +69,9 @@ $N$ & Viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
 ${N_{\text{o}}}$ & Initial viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{p}}}$ & Predicted viral load after 30 days & $\frac{\text{mol}}{\text{mL}}$
+${N_{\text{p}}}$ & Predicted viral load at time t & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{mol}}{\text{mL}}$
+${N_{\text{t}}}$ & Viral load at user-defined time t & $\frac{\text{mol}}{\text{mL}}$
 \\
 $n$ & Number of virions & ${\text{mol}}$
 \\
@@ -79,16 +79,16 @@ $r$ & Rate of change of the viral load & $\frac{\text{mol}}{\text{mL}\text{d}}$
 \\
 $t$ & Time & ${\text{d}}$
 \\
-${t_{\text{p}}}$ & Chosen prediction period & ${\text{d}}$
+${t_{\text{p}}}$ & Time duration of chosen prediction period & ${\text{d}}$
 \\
-${t_{\text{t}}}$ & Time at secondary test & ${\text{d}}$
+${t_{\text{t}}}$ & Time duration between initial and secondary viral load test & ${\text{d}}$
 \\
 $V$ & Volume & ${\text{mL}}$
 \\
 \bottomrule
 \caption{Table of Symbols}
 \label{Table:ToS}
-\end{longtable}
+\end{longtabu}
 \subsection{Abbreviations and Acronyms}
 \label{Sec:TAbbAcc}
 \begin{longtable}{l l}
@@ -129,7 +129,7 @@ The following section provides an overview of the Software Requirements Specific
 
 \subsection{Scope of Requirements}
 \label{Sec:ReqsScope}
-The scope of the requirements includes the analysis of HIV-1 concentration over time.
+The scope of the requirements includes the analysis of HIV-1 viral load concentration over time after the viremia peak of the initial infection without the influence of external factors that can affect the efficiency of the immune system.
 
 \section{Specific System Description}
 \label{Sec:SpecSystDesc}
@@ -137,7 +137,7 @@ This section first presents the problem description, which gives a high-level vi
 
 \subsection{Problem Description}
 \label{Sec:ProbDesc}
-A system is needed to assess the risk before substantial immune destruction has occurred. The system will predict viral load at 30 days and the patient's progression.
+A system is needed to assess the risk of progression to AIDs before substantial immune destruction has occurred. Diagnose will model the viral load over time for the HIV-1 virus responsible for AIDs. The system will determine the initial elimination rate of the virus and predict viral load at a user-defined time.
 
 \subsubsection{Terminology and Definitions}
 \label{Sec:TermDefs}
@@ -146,9 +146,13 @@ This subsection provides a list of terms that are used in the subsequent section
 \begin{itemize}
 \item{Virus: Submicroscopic parasites that infect cells.}
 \item{Viral load: The concentration of HIV virus at a point in time.}
+\item{Replication: The process where infected cells rapidly reproduce genetic material of the virus rather than its normal process of reproducing itself.}
+\item{Productivity:  Cells can be productive and non-productive. Productive means that infection occurs. The HIV-1 virus needs to interact with a cell to be productive and replicate.}
 \item{Infected cells: Cells that interact with the virus replicate into cells altered by the virus.}
 \item{Helper T cell: Cells of the immune system that neutralize infected cells.}
+\item{Immune Response: The defensive reaction of the human body against harmful substances like the HIV-1 virus.}
 \item{Elimination: Physical quantity undergoing a decline in amount.}
+\item{Viremia Peak: The peak of viral load after the virus has entered the blood stream. There is a trend of elimination for viral load due to the body's immune response.}
 \item{AIDs: Acquired Immunodeficiency Syndrome develops from an increase in HIV viral load to the extent where T cell count decreases to under 200 mol/L.}
 \item{Diagnosis: The determination of a patient's condition reached by a healthcare professional.}
 \item{Progression: The development towards a more advanced stage.}
@@ -161,7 +165,8 @@ The physical system of Diagnose, as shown in \hyperref[Figure:Virus]{Fig:Virus},
 \item[PS1:]{The HIV Virion.}
 \item[PS2:]{The virus-infected cells.}
 \item[PS3:]{The Helper T cell.}
-\item[PS4:]{The Human Body.}
+\item[PS4:]{The human body.}
+\item[PS5:]{The skin barrier of the human body.}
 \end{itemize}
 \begin{figure}
 \begin{center}
@@ -172,11 +177,11 @@ The physical system of Diagnose, as shown in \hyperref[Figure:Virus]{Fig:Virus},
 \end{figure}
 \subsubsection{Goal Statements}
 \label{Sec:GoalStmt}
-Given two HIV-1 viral load datum taken on consecutive days, the goal statements are:
+Given two HIV-1 viral load test datum, time duration between the tests and the chosen prediction period, the goal statements are:
 
 \begin{itemize}
-\item[detElimrate:\phantomsection\label{detElimrate}]{Determine the elimination rate of the HIV Virus due to immune response.}
-\item[predictVL30:\phantomsection\label{predictVL30}]{Determine the viral load at 30 days.}
+\item[detElimrate:\phantomsection\label{detElimrate}]{Determine the elimination rate of the HIV virus due to immune response.}
+\item[predictVL30:\phantomsection\label{predictVL30}]{Predict viral load after chosen prediction period.}
 \end{itemize}
 \subsection{Solution Characteristics Specification}
 \label{Sec:SolCharSpec}
@@ -187,15 +192,15 @@ The instance models that govern Diagnose are presented in \hyperref[Sec:IMs]{Sec
 This section simplifies the original problem and helps in developing the theoretical models by filling in the missing information for the physical system. The assumptions refine the scope by providing more detail.
 
 \begin{itemize}
-\item[initialInf:\phantomsection\label{initialInf}]{Initial infection of an HIV patient assumed (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[alwaysElim]{A: alwaysElim}.)}
+\item[initialInf:\phantomsection\label{initialInf}]{Initial infection of HIV for patient is assumed (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[alwaysElim]{A: alwaysElim}.)}
 \item[constGrowth:\phantomsection\label{constGrowth}]{The virions will invade uninfected cells at a constant rate.}
 \item[constVolume:\phantomsection\label{constVolume}]{The dimensions of the location associated with the infection remains constant (RefBy: \hyperref[DD:viralLoad]{DD: viralLoad}.)}
 \item[constConditions:\phantomsection\label{constConditions}]{Temperature of the location associated with the infection remains constant (RefBy: \hyperref[neglectSick]{A: neglectSick}.)}
-\item[allProductive:\phantomsection\label{allProductive}]{All infected cells are infect other cells productively (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
+\item[allProductive:\phantomsection\label{allProductive}]{All viruses within the volume infect cells productively (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
 \item[alwaysElim:\phantomsection\label{alwaysElim}]{In accordance with \hyperref[initialInf]{A: initialInf}, after viremia peak, no significant upward trends occur. (RefBy: \hyperref[verifyOutput]{FR: Verify-Output}, \hyperref[verifyInput]{FR: Verify-Input-Values}, \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}, and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
 \item[neglectDrugs:\phantomsection\label{neglectDrugs}]{The effect of antibiotic drugs or therapy on the elimination rate will be not be considered. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
 \item[neglectSick:\phantomsection\label{neglectSick}]{With reference to \hyperref[constConditions]{A: constConditions}, the effect of other infections on the elimination rate will be not be considered. (RefBy: \hyperref[moreInputs]{LC: More-Inputs}.)}
-\item[proportional:\phantomsection\label{proportional}]{The elimination of the virus is assumed to be proportional to the amount of viruses present (RefBy: \hyperref[incTimeFrame]{LC: Increase-time-frame} and \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
+\item[proportional:\phantomsection\label{proportional}]{The elimination of the virus is assumed to be proportional to the amount of viruses present (RefBy: \hyperref[IM:calofElimConst]{IM: calofElimConst}.)}
 \end{itemize}
 \subsubsection{Theoretical Models}
 \label{Sec:TMs}
@@ -219,7 +224,7 @@ Equation & \begin{displaymath}
 Description & \begin{symbDescription}
               \item{$r$ is the rate of change of the viral load ($\frac{\text{mol}}{\text{mL}\text{d}}$)}
               \item{$t$ is the time (${\text{d}}$)}
-              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${N_{\text{t}}}$ is the viral load at user-defined time t ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$k$ is the elimination constant ($\text{d}^{-1}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \end{symbDescription}
@@ -255,7 +260,7 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${N_{\text{t}}}$ is the viral load at user-defined time t ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$k$ is the elimination constant ($\text{d}^{-1}$)}
               \item{$t$ is the time (${\text{d}}$)}
@@ -269,14 +274,14 @@ RefBy & \hyperref[IM:calofPredictedVL]{IM: calofPredictedVL} and \hyperref[IM:ca
 \\ \bottomrule
 \end{tabular}
 \end{minipage}
-\paragraph{Detailed derivation of viral load at time t:}
+\paragraph{Detailed derivation of viral load at user-defined time t:}
 \label{GD:vLoadtDeriv}
 Using the First-Order rate Law in \hyperref[TM:expElim]{TM: expElim}, we have:
 
 \begin{displaymath}
 \frac{\,dN}{\,dt}=-k {N_{\text{o}}}
 \end{displaymath}
-Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $k$ denotes the elimination constant. When rearranging for integration,  we have:
+Where ${N_{\text{t}}}$ denotes the viral load at user-defined time t, ${N_{\text{o}}}$ denotes the initial viral load and $k$ denotes the elimination constant. When rearranging for integration,  we have:
 
 \begin{displaymath}
 \int_{{N_{\text{o}}}}^{{N_{\text{t}}}}{1}\,d{N_{\text{t}}}=-\int_{0}^{t}{k}\,dt
@@ -371,8 +376,8 @@ Equation & \begin{displaymath}
 Description & \begin{symbDescription}
               \item{$k$ is the elimination constant ($\text{d}^{-1}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{${N_{\text{t}}}$ is the viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
-              \item{${t_{\text{t}}}$ is the time at secondary test (${\text{d}}$)}
+              \item{${N_{\text{t}}}$ is the viral load at user-defined time t ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${t_{\text{t}}}$ is the time duration between initial and secondary viral load test (${\text{d}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is required for the nature of the problem with respect to \hyperref[proportional]{A: proportional}. Due to the input constraint,  the $k\gt{}0$ is established due to \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[detElimrate]{GS: detElimrate}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
@@ -393,7 +398,7 @@ Using the relationship for the viral load seen in \hyperref[DD:viralLoad]{DD: vi
 \begin{displaymath}
 {N_{\text{t}}}={N_{\text{o}}} e^{-k {t_{\text{t}}}}
 \end{displaymath}
-Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $k$ denotes the elimination constant. When isolating for the elimination constant,  we have:
+Where ${N_{\text{t}}}$ denotes the viral load at user-defined time t, ${N_{\text{o}}}$ denotes the initial viral load and $k$ denotes the elimination constant. When isolating for the elimination constant,  we have:
 
 \begin{displaymath}
 \frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-k {t_{\text{t}}}}
@@ -444,10 +449,10 @@ Equation & \begin{displaymath}
            \end{displaymath}
 \\ \midrule \\
 Description & \begin{symbDescription}
-              \item{${N_{\text{p}}}$ is the predicted viral load after 30 days ($\frac{\text{mol}}{\text{mL}}$)}
+              \item{${N_{\text{p}}}$ is the predicted viral load at time t ($\frac{\text{mol}}{\text{mL}}$)}
               \item{${N_{\text{o}}}$ is the initial viral load ($\frac{\text{mol}}{\text{mL}}$)}
               \item{$k$ is the elimination constant ($\text{d}^{-1}$)}
-              \item{${t_{\text{p}}}$ is the chosen prediction period (${\text{d}}$)}
+              \item{${t_{\text{p}}}$ is the time duration of chosen prediction period (${\text{d}}$)}
               \end{symbDescription}
 \\ \midrule \\
 Notes & The constraint ${N_{\text{o}}}\gt{}{N_{\text{t}}}\gt{}0$ is  applies when determining future values from the in initial infection with respect to \hyperref[initialInf]{A: initialInf} as well as  \hyperref[alwaysElim]{A: alwaysElim}. Using this instance model, the goal of the software in  \hyperref[predictVL30]{GS: predictVL30}  can be achieved. In addition, this constraint is used to achieve a functional requirement seen in  \hyperref[verifyOutput]{FR: Verify-Output}.
@@ -460,14 +465,14 @@ RefBy &
 \\ \bottomrule
 \end{tabular}
 \end{minipage}
-\paragraph{Detailed derivation of predicted viral load after 30 days:}
+\paragraph{Detailed derivation of predicted viral load at time t:}
 \label{IM:calofPredictedVLDeriv}
 Using the relationship for the viral load seen in \hyperref[DD:viralLoad]{DD: viralLoad} with respect to time in \hyperref[GD:vLoadt]{GD: vLoadt}, we have:
 
 \begin{displaymath}
 {N_{\text{t}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}
 \end{displaymath}
-Where ${N_{\text{t}}}$ denotes the viral load at time t, ${N_{\text{o}}}$ denotes the initial viral load and $k$ denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in \hyperref[IM:calofElimConst]{IM: calofElimConst},  is used instead of ${N_{\text{t}}}$  therefore we have:
+Where ${N_{\text{t}}}$ denotes the viral load at user-defined time t, ${N_{\text{o}}}$ denotes the initial viral load and $k$ denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in \hyperref[IM:calofElimConst]{IM: calofElimConst},  is used instead of ${N_{\text{t}}}$  therefore we have:
 
 \begin{displaymath}
 {N_{\text{p}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}
@@ -523,11 +528,11 @@ This section provides the functional requirements, the tasks and behaviours that
 \begin{itemize}
 \item[Input-Values:\phantomsection\label{inputValues}]{Input the values from \hyperref[Table:ReqInputs]{Table:ReqInputs}.}
 \item[Verify-Input-Values:\phantomsection\label{verifyInput}]{The software will ensure that the inputs are not   out of bounds and in accordance with the data constraints especially regarding the \hyperref[initialInf]{A: initialInf} and furthermore, \hyperref[alwaysElim]{A: alwaysElim}. If any inputs are out of bounds, an error message is displayed.}
-\item[Calculate-Values:\phantomsection\label{calcValues}]{Software calculates the viral load at 30 days and  the probability of progression to AIDs after 3 years.}
-\item[Verify-Output:\phantomsection\label{verifyOutput}]{The output values will be cross referenced with  the result constraints, related to the assumptions: \hyperref[initialInf]{A: initialInf} and \hyperref[alwaysElim]{A: alwaysElim}.}
-\item[Output-Values:\phantomsection\label{outputValues}]{Output related requirements including elimination rate and 30 day viral load.}
+\item[Calculate-Values:\phantomsection\label{calcValues}]{Software calculates the initial elimination rate of HIV virus and the predicted viral load after the chosen prediction period.}
+\item[Verify-Output:\phantomsection\label{verifyOutput}]{The output values will be cross referenced with  the result constraints. This requirement is related to the assumptions: \hyperref[initialInf]{A: initialInf} and \hyperref[alwaysElim]{A: alwaysElim}.}
+\item[Output-Values:\phantomsection\label{outputValues}]{Output related requirements including the elimination rate and predicted viral load to satisfy the goals of Diagnose.}
 \end{itemize}
-\begin{longtable}{l l l}
+\begin{longtabu}{l X[l] l}
 \toprule
 \textbf{Symbol} & \textbf{Description} & \textbf{Units}
 \\
@@ -535,26 +540,25 @@ This section provides the functional requirements, the tasks and behaviours that
 \endhead
 ${N_{\text{o}}}$ & Initial viral load & $\frac{\text{mol}}{\text{mL}}$
 \\
-${N_{\text{t}}}$ & Viral load at time t & $\frac{\text{mol}}{\text{mL}}$
+${N_{\text{t}}}$ & Viral load at user-defined time t & $\frac{\text{mol}}{\text{mL}}$
 \\
-${t_{\text{p}}}$ & Chosen prediction period & ${\text{d}}$
+${t_{\text{p}}}$ & Time duration of chosen prediction period & ${\text{d}}$
 \\
-${t_{\text{t}}}$ & Time at secondary test & ${\text{d}}$
+${t_{\text{t}}}$ & Time duration between initial and secondary viral load test & ${\text{d}}$
 \\
 \bottomrule
 \caption{Required Inputs following \hyperref[inputValues]{FR: Input-Values}}
 \label{Table:ReqInputs}
-\end{longtable}
+\end{longtabu}
 \subsection{Non-Functional Requirements}
 \label{Sec:NFRs}
 This section provides the non-functional requirements, the qualities that the software is expected to exhibit.
 
 \begin{itemize}
-\item[Correctness:\phantomsection\label{correctness}]{The outputs have to adhere to the output properties in the output  constraints.}
-\item[Verifiable:\phantomsection\label{verifiable}]{The code is tested with complete verification  and validation plan.}
-\item[Understandable:\phantomsection\label{understandable}]{The code is modularized with complete module guide and module interface specification.}
-\item[Reusable:\phantomsection\label{reusable}]{The code is modularized.}
-\item[Maintainable:\phantomsection\label{maintainable}]{The traceability between requirements, assumptions, theoretical models, general definitions, data definitions, instance models, likely changes, unlikely changes, and modules is completely recorded in traceability matrices in the SRS and module guide.}
+\item[Verifiable:\phantomsection\label{verifiable}]{The Drasil generated python code is tested using static and dynamic code analysis, linting, unit and system testing and continuous integration methods outlined in the Verification  and Validation plan of Diagnose.}
+\item[Understandable:\phantomsection\label{understandable}]{The code will be generated using the Drasil Framework into modules to address each requirement.}
+\item[Reusable:\phantomsection\label{reusable}]{The code will be created using Drasil. The framework has data libraries of scientific theories, concepts, quantities and units commonly used in scientific problems. The created knowledge libraries of Diagnose can be reused as required.}
+\item[Maintainable:\phantomsection\label{maintainable}]{The traceability between requirements, assumptions, theoretical models, general definitions, data definitions, instance models, likely changes, unlikely changes, and modules is completely recorded in traceability matrices throughout the documentation of Diagnose to measure maintainability. The traceability will be measured by ensuring the connections are recorded and identifiable.}
 \item[Portable:\phantomsection\label{portable}]{The code is able to be run in different environments.}
 \end{itemize}
 \section{Likely Changes}
@@ -562,9 +566,8 @@ This section provides the non-functional requirements, the qualities that the so
 This section lists the likely changes to be made to the software.
 
 \begin{itemize}
-\item[Increase-time-frame:\phantomsection\label{incTimeFrame}]{The software may be expanded to cover a wide range of time frames which is possible due to  \hyperref[proportional]{A: proportional}.}
 \item[More-Inputs:\phantomsection\label{moreInputs}]{The software may be expanded to include more inputs from the user  to increase the accuracy of the output. This change may alter assumptions: \hyperref[allProductive]{A: allProductive} , \hyperref[neglectSick]{A: neglectSick} and \hyperref[neglectDrugs]{A: neglectDrugs}.}
-\item[More-Outputs:\phantomsection\label{moreOutputs}]{The software may be expanded to include more outputs  like a suggestion for therapy.}
+\item[More-Outputs:\phantomsection\label{moreOutputs}]{The software may be expanded to include more outputs  like assessing the progression to AIDs or a suggestion for therapy.}
 \end{itemize}
 \section{Unlikely Changes}
 \label{Sec:UCs}
@@ -633,8 +636,6 @@ The purpose of the traceability matrices is to provide easy references on what h
 \\
 \hyperref[outputValues]{FR: Output-Values} &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[correctness]{NFR: Correctness} &  &  &  &  &  &  &  &  & 
-\\
 \hyperref[verifiable]{NFR: Verifiable} &  &  &  &  &  &  &  &  & 
 \\
 \hyperref[understandable]{NFR: Understandable} &  &  &  &  &  &  &  &  & 
@@ -644,8 +645,6 @@ The purpose of the traceability matrices is to provide easy references on what h
 \hyperref[maintainable]{NFR: Maintainable} &  &  &  &  &  &  &  &  & 
 \\
 \hyperref[portable]{NFR: Portable} &  &  &  &  &  &  &  &  & 
-\\
-\hyperref[incTimeFrame]{LC: Increase-time-frame} &  &  &  &  &  &  &  &  & X
 \\
 \hyperref[moreInputs]{LC: More-Inputs} &  &  &  &  & X &  & X & X & 
 \\
@@ -681,37 +680,35 @@ The purpose of the traceability matrices is to provide easy references on what h
 \caption{Traceability Matrix Showing the Connections Between Items and Other Sections}
 \label{Table:TraceMatRefvsRef}
 \end{longtable}
-\begin{longtable}{l l l l l l l l l l l l l l l l l}
+\begin{longtable}{l l l l l l l l l l l l l l l l}
 \toprule
-\textbf{} & \textbf{\hyperref[DD:viralLoad]{DD: viralLoad}} & \textbf{\hyperref[TM:expElim]{TM: expElim}} & \textbf{\hyperref[GD:vLoadt]{GD: vLoadt}} & \textbf{\hyperref[IM:calofElimConst]{IM: calofElimConst}} & \textbf{\hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}} & \textbf{\hyperref[inputValues]{FR: Input-Values}} & \textbf{\hyperref[verifyInput]{FR: Verify-Input-Values}} & \textbf{\hyperref[calcValues]{FR: Calculate-Values}} & \textbf{\hyperref[verifyOutput]{FR: Verify-Output}} & \textbf{\hyperref[outputValues]{FR: Output-Values}} & \textbf{\hyperref[correctness]{NFR: Correctness}} & \textbf{\hyperref[verifiable]{NFR: Verifiable}} & \textbf{\hyperref[understandable]{NFR: Understandable}} & \textbf{\hyperref[reusable]{NFR: Reusable}} & \textbf{\hyperref[maintainable]{NFR: Maintainable}} & \textbf{\hyperref[portable]{NFR: Portable}}
+\textbf{} & \textbf{\hyperref[DD:viralLoad]{DD: viralLoad}} & \textbf{\hyperref[TM:expElim]{TM: expElim}} & \textbf{\hyperref[GD:vLoadt]{GD: vLoadt}} & \textbf{\hyperref[IM:calofElimConst]{IM: calofElimConst}} & \textbf{\hyperref[IM:calofPredictedVL]{IM: calofPredictedVL}} & \textbf{\hyperref[inputValues]{FR: Input-Values}} & \textbf{\hyperref[verifyInput]{FR: Verify-Input-Values}} & \textbf{\hyperref[calcValues]{FR: Calculate-Values}} & \textbf{\hyperref[verifyOutput]{FR: Verify-Output}} & \textbf{\hyperref[outputValues]{FR: Output-Values}} & \textbf{\hyperref[verifiable]{NFR: Verifiable}} & \textbf{\hyperref[understandable]{NFR: Understandable}} & \textbf{\hyperref[reusable]{NFR: Reusable}} & \textbf{\hyperref[maintainable]{NFR: Maintainable}} & \textbf{\hyperref[portable]{NFR: Portable}}
 \\
 \midrule
 \endhead
-\hyperref[detElimrate]{GS: detElimrate} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[detElimrate]{GS: detElimrate} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[predictVL30]{GS: predictVL30} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[predictVL30]{GS: predictVL30} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[inputValues]{FR: Input-Values} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[inputValues]{FR: Input-Values} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[verifyInput]{FR: Verify-Input-Values} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[verifyInput]{FR: Verify-Input-Values} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[calcValues]{FR: Calculate-Values} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[calcValues]{FR: Calculate-Values} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[verifyOutput]{FR: Verify-Output} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[verifyOutput]{FR: Verify-Output} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[outputValues]{FR: Output-Values} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[outputValues]{FR: Output-Values} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[correctness]{NFR: Correctness} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[verifiable]{NFR: Verifiable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[verifiable]{NFR: Verifiable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[understandable]{NFR: Understandable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[understandable]{NFR: Understandable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[reusable]{NFR: Reusable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[reusable]{NFR: Reusable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[maintainable]{NFR: Maintainable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
-\hyperref[maintainable]{NFR: Maintainable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
-\\
-\hyperref[portable]{NFR: Portable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
+\hyperref[portable]{NFR: Portable} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 
 \\
 \bottomrule
 \caption{Traceability Matrix Showing the Connections Between Requirements, Goal Statements and Other Items}

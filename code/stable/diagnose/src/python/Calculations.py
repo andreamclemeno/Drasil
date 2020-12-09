@@ -16,10 +16,10 @@ def func_k(inParams):
     
     return (math.log(inParams.N_o) - math.log(inParams.N_t)) / inParams.t_t
 
-## \brief Calculates predicted viral load after 30 days (mol/mL)
+## \brief Calculates predicted viral load at time t (mol/mL)
 # \param inParams structure holding the input values
 # \param k elimination constant (d^-1)
-# \return predicted viral load after 30 days (mol/mL)
+# \return predicted viral load at time t (mol/mL)
 def func_N_p(inParams, k):
     outfile = open("log.txt", "a")
     print("function func_N_p called with inputs: {", file=outfile)

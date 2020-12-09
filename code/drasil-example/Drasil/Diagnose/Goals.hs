@@ -13,16 +13,16 @@ goals = [detElimrate, predictVL30]
 
 detElimrate :: ConceptInstance
 detElimrate = cic "detElimrate" 
-  (S "Determine the elimination rate of the HIV Virus due to immune response.")
+  (S "Determine the elimination rate of the HIV virus due to immune response.")
   "detElimrate" goalStmtDom
   
 
 predictVL30 :: ConceptInstance
 predictVL30 = cic "predictVL30" 
-  (S "Determine the viral load at 30 days.")
+  (S "Predict viral load after chosen prediction period.")
   "predictVL30" goalStmtDom
   
---  (S "Determine the viral load at 30 days.")
+--  (S "Predict viral load after chosen prediction period")
 --  "predictVL30" goalStmtDom
 
 --goalsInputs :: [Sentence]

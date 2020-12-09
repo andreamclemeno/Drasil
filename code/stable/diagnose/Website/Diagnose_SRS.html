@@ -80,12 +80,12 @@
                 </tr>
                 <tr>
                   <td><em>N<sub>p</sub></em></td>
-                  <td>Predicted viral load after 30 days</td>
+                  <td>Predicted viral load at time t</td>
                   <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>N<sub>t</sub></em></td>
-                  <td>Viral load at time t</td>
+                  <td>Viral load at user-defined time t</td>
                   <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
@@ -105,12 +105,14 @@
                 </tr>
                 <tr>
                   <td><em>t<sub>p</sub></em></td>
-                  <td>Chosen prediction period</td>
+                  <td>Time duration of chosen prediction period</td>
                   <td><em>d</em></td>
                 </tr>
                 <tr>
                   <td><em>t<sub>t</sub></em></td>
-                  <td>Time at secondary test</td>
+                  <td>
+                    Time duration between initial and secondary viral load test
+                  </td>
                   <td><em>d</em></td>
                 </tr>
                 <tr>
@@ -192,7 +194,7 @@
           <div class="subsection">
             <h2>Scope of Requirements</h2>
             <p class="paragraph">
-              The scope of the requirements includes the analysis of HIV-1 concentration over time.
+              The scope of the requirements includes the analysis of HIV-1 viral load concentration over time after the viremia peak of the initial infection without the influence of external factors that can affect the efficiency of the immune system.
             </p>
           </div>
         </div>
@@ -208,7 +210,7 @@
           <div class="subsection">
             <h2>Problem Description</h2>
             <p class="paragraph">
-              A system is needed to assess the risk before substantial immune destruction has occurred. The system will predict viral load at 30 days and the patient's progression.
+              A system is needed to assess the risk of progression to AIDs before substantial immune destruction has occurred. Diagnose will model the viral load over time for the HIV-1 virus responsible for AIDs. The system will determine the initial elimination rate of the virus and predict viral load at a user-defined time.
             </p>
             <div id="Sec:TermDefs">
               <div class="subsubsection">
@@ -222,13 +224,25 @@
                     Viral load: The concentration of HIV virus at a point in time.
                   </li>
                   <li>
+                    Replication: The process where infected cells rapidly reproduce genetic material of the virus rather than its normal process of reproducing itself.
+                  </li>
+                  <li>
+                    Productivity:  Cells can be productive and non-productive. Productive means that infection occurs. The HIV-1 virus needs to interact with a cell to be productive and replicate.
+                  </li>
+                  <li>
                     Infected cells: Cells that interact with the virus replicate into cells altered by the virus.
                   </li>
                   <li>
                     Helper T cell: Cells of the immune system that neutralize infected cells.
                   </li>
                   <li>
+                    Immune Response: The defensive reaction of the human body against harmful substances like the HIV-1 virus.
+                  </li>
+                  <li>
                     Elimination: Physical quantity undergoing a decline in amount.
+                  </li>
+                  <li>
+                    Viremia Peak: The peak of viral load after the virus has entered the blood stream. There is a trend of elimination for viral load due to the body's immune response.
                   </li>
                   <li>
                     AIDs: Acquired Immunodeficiency Syndrome develops from an increase in HIV viral load to the extent where T cell count decreases to under 200 mol/L.
@@ -252,7 +266,8 @@
                   <p>PS1: The HIV Virion.</p>
                   <p>PS2: The virus-infected cells.</p>
                   <p>PS3: The Helper T cell.</p>
-                  <p>PS4: The Human Body.</p>
+                  <p>PS4: The human body.</p>
+                  <p>PS5: The skin barrier of the human body.</p>
                 </div>
                 <div id="Figure:Virus">
                   <figure>
@@ -266,17 +281,17 @@
               <div class="subsubsection">
                 <h3>Goal Statements</h3>
                 <p class="paragraph">
-                  Given two HIV-1 viral load datum taken on consecutive days, the goal statements are:
+                  Given two HIV-1 viral load test datum, time duration between the tests and the chosen prediction period, the goal statements are:
                 </p>
                 <div class="list">
                   <p>
                     <div id="detElimrate">
-                      detElimrate: Determine the elimination rate of the HIV Virus due to immune response.
+                      detElimrate: Determine the elimination rate of the HIV virus due to immune response.
                     </div>
                   </p>
                   <p>
                     <div id="predictVL30">
-                      predictVL30: Determine the viral load at 30 days.
+                      predictVL30: Predict viral load after chosen prediction period.
                     </div>
                   </p>
                 </div>
@@ -299,7 +314,7 @@
                 <div class="list">
                   <p>
                     <div id="initialInf">
-                      initialInf: Initial infection of an HIV patient assumed (RefBy: <a href=#verifyOutput>FR: Verify-Output</a>, <a href=#verifyInput>FR: Verify-Input-Values</a>, <a href=#IM:calofPredictedVL>IM: calofPredictedVL</a>, and <a href=#alwaysElim>A: alwaysElim</a>.)
+                      initialInf: Initial infection of HIV for patient is assumed (RefBy: <a href=#verifyOutput>FR: Verify-Output</a>, <a href=#verifyInput>FR: Verify-Input-Values</a>, <a href=#IM:calofPredictedVL>IM: calofPredictedVL</a>, and <a href=#alwaysElim>A: alwaysElim</a>.)
                     </div>
                   </p>
                   <p>
@@ -319,7 +334,7 @@
                   </p>
                   <p>
                     <div id="allProductive">
-                      allProductive: All infected cells are infect other cells productively (RefBy: <a href=#moreInputs>LC: More-Inputs</a>.)
+                      allProductive: All viruses within the volume infect cells productively (RefBy: <a href=#moreInputs>LC: More-Inputs</a>.)
                     </div>
                   </p>
                   <p>
@@ -339,7 +354,7 @@
                   </p>
                   <p>
                     <div id="proportional">
-                      proportional: The elimination of the virus is assumed to be proportional to the amount of viruses present (RefBy: <a href=#incTimeFrame>LC: Increase-time-frame</a> and <a href=#IM:calofElimConst>IM: calofElimConst</a>.)
+                      proportional: The elimination of the virus is assumed to be proportional to the amount of viruses present (RefBy: <a href=#IM:calofElimConst>IM: calofElimConst</a>.)
                     </div>
                   </p>
                 </div>
@@ -374,7 +389,7 @@
                           </li>
                           <li><em>t</em> is the time (<em>d</em>)</li>
                           <li>
-                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
+                            <em>N<sub>t</sub></em> is the viral load at user-defined time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
                             <em>k</em> is the elimination constant (<em>d<sup>-1</sup></em>)
@@ -434,7 +449,7 @@
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
+                            <em>N<sub>t</sub></em> is the viral load at user-defined time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
@@ -464,13 +479,13 @@
                 </div>
                 <div id="GD:vLoadtDeriv">
                   <div class="subsubsubsection">
-                    <h4>Detailed derivation of viral load at time t:</h4>
+                    <h4>Detailed derivation of viral load at user-defined time t:</h4>
                     <p class="paragraph">
                       Using the First-Order rate Law in <a href=#TM:expElim>TM: expElim</a>, we have:
                     </p>
                     \[\frac{\,dN}{\,dt}=-k {N_{\text{o}}}\]
                     <p class="paragraph">
-                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>k</em> denotes the elimination constant. When rearranging for integration,  we have:
+                      Where <em>N<sub>t</sub></em> denotes the viral load at user-defined time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>k</em> denotes the elimination constant. When rearranging for integration,  we have:
                     </p>
                     \[\int_{{N_{\text{o}}}}^{{N_{\text{t}}}}{1}\,d{N_{\text{t}}}=-\int_{0}^{t}{k}\,dt\]
                     <p class="paragraph">
@@ -605,10 +620,10 @@
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>N<sub>t</sub></em> is the viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
+                            <em>N<sub>t</sub></em> is the viral load at user-defined time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
-                            <em>t<sub>t</sub></em> is the time at secondary test (<em>d</em>)
+                            <em>t<sub>t</sub></em> is the time duration between initial and secondary viral load test (<em>d</em>)
                           </li>
                         </ul>
                       </td>
@@ -643,7 +658,7 @@
                     </p>
                     \[{N_{\text{t}}}={N_{\text{o}}} e^{-k {t_{\text{t}}}}\]
                     <p class="paragraph">
-                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>k</em> denotes the elimination constant. When isolating for the elimination constant,  we have:
+                      Where <em>N<sub>t</sub></em> denotes the viral load at user-defined time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>k</em> denotes the elimination constant. When isolating for the elimination constant,  we have:
                     </p>
                     \[\frac{{N_{\text{t}}}}{{N_{\text{o}}}}=e^{-k {t_{\text{t}}}}\]
                     <p class="paragraph">
@@ -699,7 +714,7 @@
                       <td>
                         <ul class="hide-list-style-no-indent">
                           <li>
-                            <em>N<sub>p</sub></em> is the predicted viral load after 30 days (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
+                            <em>N<sub>p</sub></em> is the predicted viral load at time t (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
                           </li>
                           <li>
                             <em>N<sub>o</sub></em> is the initial viral load (<em>\(\frac{\text{mol}}{\text{mL}}\)</em>)
@@ -708,7 +723,7 @@
                             <em>k</em> is the elimination constant (<em>d<sup>-1</sup></em>)
                           </li>
                           <li>
-                            <em>t<sub>p</sub></em> is the chosen prediction period (<em>d</em>)
+                            <em>t<sub>p</sub></em> is the time duration of chosen prediction period (<em>d</em>)
                           </li>
                         </ul>
                       </td>
@@ -733,13 +748,13 @@
                 </div>
                 <div id="IM:calofPredictedVLDeriv">
                   <div class="subsubsubsection">
-                    <h4>Detailed derivation of predicted viral load after 30 days:</h4>
+                    <h4>Detailed derivation of predicted viral load at time t:</h4>
                     <p class="paragraph">
                       Using the relationship for the viral load seen in <a href=#DD:viralLoad>DD: viralLoad</a> with respect to time in <a href=#GD:vLoadt>GD: vLoadt</a>, we have:
                     </p>
                     \[{N_{\text{t}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}\]
                     <p class="paragraph">
-                      Where <em>N<sub>t</sub></em> denotes the viral load at time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>k</em> denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in <a href=#IM:calofElimConst>IM: calofElimConst</a>,  is used instead of <em>N<sub>t</sub></em>  therefore we have:
+                      Where <em>N<sub>t</sub></em> denotes the viral load at user-defined time t, <em>N<sub>o</sub></em> denotes the initial viral load and <em>k</em> denotes the elimination constant. When predicting the viral load after 30 days, the elimination constant  found in <a href=#IM:calofElimConst>IM: calofElimConst</a>,  is used instead of <em>N<sub>t</sub></em>  therefore we have:
                     </p>
                     \[{N_{\text{p}}}={N_{\text{o}}} e^{-k {t_{\text{p}}}}\]
                   </div>
@@ -851,17 +866,17 @@
               </p>
               <p>
                 <div id="calcValues">
-                  Calculate-Values: Software calculates the viral load at 30 days and  the probability of progression to AIDs after 3 years.
+                  Calculate-Values: Software calculates the initial elimination rate of HIV virus and the predicted viral load after the chosen prediction period.
                 </div>
               </p>
               <p>
                 <div id="verifyOutput">
-                  Verify-Output: The output values will be cross referenced with  the result constraints, related to the assumptions: <a href=#initialInf>A: initialInf</a> and <a href=#alwaysElim>A: alwaysElim</a>.
+                  Verify-Output: The output values will be cross referenced with  the result constraints. This requirement is related to the assumptions: <a href=#initialInf>A: initialInf</a> and <a href=#alwaysElim>A: alwaysElim</a>.
                 </div>
               </p>
               <p>
                 <div id="outputValues">
-                  Output-Values: Output related requirements including elimination rate and 30 day viral load.
+                  Output-Values: Output related requirements including the elimination rate and predicted viral load to satisfy the goals of Diagnose.
                 </div>
               </p>
             </div>
@@ -879,17 +894,19 @@
                 </tr>
                 <tr>
                   <td><em>N<sub>t</sub></em></td>
-                  <td>Viral load at time t</td>
+                  <td>Viral load at user-defined time t</td>
                   <td><em>\(\frac{\text{mol}}{\text{mL}}\)</em></td>
                 </tr>
                 <tr>
                   <td><em>t<sub>p</sub></em></td>
-                  <td>Chosen prediction period</td>
+                  <td>Time duration of chosen prediction period</td>
                   <td><em>d</em></td>
                 </tr>
                 <tr>
                   <td><em>t<sub>t</sub></em></td>
-                  <td>Time at secondary test</td>
+                  <td>
+                    Time duration between initial and secondary viral load test
+                  </td>
                   <td><em>d</em></td>
                 </tr>
               </table>
@@ -907,24 +924,23 @@
             </p>
             <div class="list">
               <p>
-                <div id="correctness">
-                  Correctness: The outputs have to adhere to the output properties in the output  constraints.
-                </div>
-              </p>
-              <p>
                 <div id="verifiable">
-                  Verifiable: The code is tested with complete verification  and validation plan.
+                  Verifiable: The Drasil generated python code is tested using static and dynamic code analysis, linting, unit and system testing and continuous integration methods outlined in the Verification  and Validation plan of Diagnose.
                 </div>
               </p>
               <p>
                 <div id="understandable">
-                  Understandable: The code is modularized with complete module guide and module interface specification.
+                  Understandable: The code will be generated using the Drasil Framework into modules to address each requirement.
                 </div>
               </p>
-              <p><div id="reusable">Reusable: The code is modularized.</div></p>
+              <p>
+                <div id="reusable">
+                  Reusable: The code will be created using Drasil. The framework has data libraries of scientific theories, concepts, quantities and units commonly used in scientific problems. The created knowledge libraries of Diagnose can be reused as required.
+                </div>
+              </p>
               <p>
                 <div id="maintainable">
-                  Maintainable: The traceability between requirements, assumptions, theoretical models, general definitions, data definitions, instance models, likely changes, unlikely changes, and modules is completely recorded in traceability matrices in the SRS and module guide.
+                  Maintainable: The traceability between requirements, assumptions, theoretical models, general definitions, data definitions, instance models, likely changes, unlikely changes, and modules is completely recorded in traceability matrices throughout the documentation of Diagnose to measure maintainability. The traceability will be measured by ensuring the connections are recorded and identifiable.
                 </div>
               </p>
               <p>
@@ -945,18 +961,13 @@
         </p>
         <div class="list">
           <p>
-            <div id="incTimeFrame">
-              Increase-time-frame: The software may be expanded to cover a wide range of time frames which is possible due to  <a href=#proportional>A: proportional</a>.
-            </div>
-          </p>
-          <p>
             <div id="moreInputs">
               More-Inputs: The software may be expanded to include more inputs from the user  to increase the accuracy of the output. This change may alter assumptions: <a href=#allProductive>A: allProductive</a> , <a href=#neglectSick>A: neglectSick</a> and <a href=#neglectDrugs>A: neglectDrugs</a>.
             </div>
           </p>
           <p>
             <div id="moreOutputs">
-              More-Outputs: The software may be expanded to include more outputs  like a suggestion for therapy.
+              More-Outputs: The software may be expanded to include more outputs  like assessing the progression to AIDs or a suggestion for therapy.
             </div>
           </p>
         </div>
@@ -1255,18 +1266,6 @@
               <td></td>
             </tr>
             <tr>
-              <td><a href=#correctness>NFR: Correctness</a></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
               <td><a href=#verifiable>NFR: Verifiable</a></td>
               <td></td>
               <td></td>
@@ -1325,18 +1324,6 @@
               <td></td>
               <td></td>
               <td></td>
-            </tr>
-            <tr>
-              <td><a href=#incTimeFrame>LC: Increase-time-frame</a></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>X</td>
             </tr>
             <tr>
               <td><a href=#moreInputs>LC: More-Inputs</a></td>
@@ -1474,7 +1461,6 @@
               <th><a href=#calcValues>FR: Calculate-Values</a></th>
               <th><a href=#verifyOutput>FR: Verify-Output</a></th>
               <th><a href=#outputValues>FR: Output-Values</a></th>
-              <th><a href=#correctness>NFR: Correctness</a></th>
               <th><a href=#verifiable>NFR: Verifiable</a></th>
               <th><a href=#understandable>NFR: Understandable</a></th>
               <th><a href=#reusable>NFR: Reusable</a></th>
@@ -1483,7 +1469,6 @@
             </tr>
             <tr>
               <td><a href=#detElimrate>GS: detElimrate</a></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -1517,11 +1502,9 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
             </tr>
             <tr>
               <td><a href=#inputValues>FR: Input-Values</a></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -1555,11 +1538,9 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
             </tr>
             <tr>
               <td><a href=#calcValues>FR: Calculate-Values</a></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -1593,30 +1574,9 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
             </tr>
             <tr>
               <td><a href=#outputValues>FR: Output-Values</a></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a href=#correctness>NFR: Correctness</a></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -1650,11 +1610,9 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
             </tr>
             <tr>
               <td><a href=#understandable>NFR: Understandable</a></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -1688,7 +1646,6 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
             </tr>
             <tr>
               <td><a href=#maintainable>NFR: Maintainable</a></td>
@@ -1707,11 +1664,9 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
             </tr>
             <tr>
               <td><a href=#portable>NFR: Portable</a></td>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>

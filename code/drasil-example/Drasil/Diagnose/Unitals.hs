@@ -59,10 +59,10 @@ tMCC = [timec, ttestingc, tpredictc, vLoadc, numberVc, volc, vLoadtc, vLoadoc, v
 timec = dcc "time" (cn' "time")
   "the indefinite continued progress of existence and events in the past, present, and future regarded as a whole"
   
-ttestingc = dcc "timeTest" (cn' "time at secondary test")
+ttestingc = dcc "timeTest" (cn' "time duration between initial and secondary viral load test")
   "the indefinite continued progress of existence and events in the past, present, and future regarded as a whole"
 
-tpredictc = dcc "timePredict" (cn' "chosen prediction period")
+tpredictc = dcc "timePredict" (cn' "time duration of chosen prediction period")
   "the amount of time between the events of the initial time and time of viral load prediction"
   
 vLoadc = dccWDS "vLoad" (cn' "viral load")
@@ -79,7 +79,7 @@ elimConstc = dcc "elimConst" (cn' "elimination constant")
 
 ----- variants of viral load
 
-vLoadtc = dccWDS "vLoadt" (cn "viral load at time t")
+vLoadtc = dccWDS "vLoadt" (cn "viral load at user-defined time t")
   (S "the amount of copies (in mol) in a volumetric area at time t")
   
 
@@ -89,8 +89,8 @@ vLoadoc = dccWDS "vLoado" (cn "initial viral load")
 vRatec = dccWDS "vRate" (cn' "rate of change of the viral load")
   (S "the rate of change of the viral load")
   
-predictedVLc = dccWDS "predictedVL" (cn "predicted viral load after 30 days")
-  (S "the amount of copies (in mol) in a volumetric area after 30 days")
+predictedVLc = dccWDS "predictedVL" (cn "predicted viral load at time t")
+  (S "predicted viral load at a user-defined time")
   
 
 

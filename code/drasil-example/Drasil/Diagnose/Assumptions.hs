@@ -34,7 +34,7 @@ neglectSick        = cic "neglectSick"       neglectSickDesc        "neglectSick
 proportional       = cic "proportional"      proportionalDesc       "proportional"     assumpDom
 
 initialInfDesc :: Sentence
-initialInfDesc = S "Initial infection of an HIV patient assumed"
+initialInfDesc = S "Initial infection of HIV for patient is assumed"
 
 constGrowthDesc :: Sentence
 constGrowthDesc = S "The virions will invade uninfected cells at a constant rate."
@@ -46,7 +46,7 @@ constConditionsDesc :: Sentence
 constConditionsDesc = S "Temperature of the location associated with the infection remains constant"
 
 allProductiveDesc :: Sentence
-allProductiveDesc = S "All infected cells are infect other cells productively"
+allProductiveDesc = S "All viruses within the volume infect cells productively"
 
 alwaysElimDesc :: Sentence
 alwaysElimDesc = foldlSent[S "In accordance with", makeRef2S initialInf `sC` S "after viremia peak, no significant upward trends occur"]

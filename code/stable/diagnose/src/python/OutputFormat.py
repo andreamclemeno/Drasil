@@ -3,7 +3,7 @@
 # \brief Provides the function for writing outputs
 ## \brief Writes the output values to output.txt
 # \param k elimination constant (d^-1)
-# \param N_p predicted viral load after 30 days (mol/mL)
+# \param N_p predicted viral load at time t (mol/mL)
 def write_output(k, N_p):
     outfile = open("log.txt", "a")
     print("function write_output called with inputs: {", file=outfile)
