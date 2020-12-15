@@ -1,9 +1,0 @@
-build: PatternTest/PatternTest.class
-
-PatternTest/PatternTest.class: PatternTest/PatternTest.java PatternTest/Observer.java
-	javac PatternTest/PatternTest.java
-
-run: build
-	java PatternTest.PatternTest $(RUNARGS)
-
-.PHONY: build run
