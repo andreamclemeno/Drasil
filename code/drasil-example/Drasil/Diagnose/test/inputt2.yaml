@@ -1,0 +1,8 @@
+title: Diagnose T-2
+tests:
+
+#T-2:
+
+################################ testcase1a
+
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt

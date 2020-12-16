@@ -1,0 +1,8 @@
+# initial viral load (mol/mL)
+12000000.0
+# viral load at user-defined time t (mol/mL)
+5000000.0
+# time duration between initial and secondary viral load test (d)
+30.0
+# time duration of chosen prediction period (d)
+1

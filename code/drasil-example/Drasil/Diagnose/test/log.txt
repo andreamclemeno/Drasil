@@ -1,0 +1,950 @@
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.8754687373539003 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.8754687373539003
+  }
+var 'N_p' assigned 4.708081744336389e-05 in module Control
+function write_output called with inputs: {
+  k = 0.8754687373539003, 
+  N_p = 4.708081744336389e-05
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase2a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase2a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 0.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase2b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase2b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned -12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 0.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned -5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase4a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase4a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 5000000.0 in module InputFormat
+var 'inParams.N_t' assigned 12000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 0.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned -1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 0.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned -1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase7a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase7a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 30.0 in module InputFormat
+var 'inParams.t_p' assigned 1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.8754687373539003 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.8754687373539003
+  }
+var 'N_p' assigned 4.708081744336389e-05 in module Control
+function write_output called with inputs: {
+  k = 0.8754687373539003, 
+  N_p = 4.708081744336389e-05
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 0.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase2b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase2b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned -12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 0.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned -5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase4a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase4a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 5000000.0 in module InputFormat
+var 'inParams.N_t' assigned 12000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 0.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned -1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 0.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned -1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase7a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase7a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 30.0 in module InputFormat
+var 'inParams.t_p' assigned 1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.8754687373539003 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.8754687373539003
+  }
+var 'N_p' assigned 4.708081744336389e-05 in module Control
+function write_output called with inputs: {
+  k = 0.8754687373539003, 
+  N_p = 4.708081744336389e-05
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 0.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned -12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 0.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase3b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned -5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase4a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase4a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 5000000.0 in module InputFormat
+var 'inParams.N_t' assigned 12000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 0.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase5b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned -1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 0.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase6b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned -1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase7a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Reposnew/Drasil/code/build/Diagnose/src/python/test/testcase7a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 30.0 in module InputFormat
+var 'inParams.t_p' assigned 1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.8754687373539003 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.8754687373539003
+  }
+var 'N_p' assigned 4.708081744336389e-05 in module Control
+function write_output called with inputs: {
+  k = 0.8754687373539003, 
+  N_p = 4.708081744336389e-05
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 0.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned -12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 0.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned -5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase4a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase4a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 5000000.0 in module InputFormat
+var 'inParams.N_t' assigned 12000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 0.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned -1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 0.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned -1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase7a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase7a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 30.0 in module InputFormat
+var 'inParams.t_p' assigned 1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.8754687373539003 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.8754687373539003
+  }
+var 'N_p' assigned 4.708081744336389e-05 in module Control
+function write_output called with inputs: {
+  k = 0.8754687373539003, 
+  N_p = 4.708081744336389e-05
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 0.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned -12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 0.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned -5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase4a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase4a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 5000000.0 in module InputFormat
+var 'inParams.N_t' assigned 12000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 0.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned -1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 0.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned -1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase7a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase7a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 30.0 in module InputFormat
+var 'inParams.t_p' assigned 1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.8754687373539003 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.8754687373539003
+  }
+var 'N_p' assigned 4.708081744336389e-05 in module Control
+function write_output called with inputs: {
+  k = 0.8754687373539003, 
+  N_p = 4.708081744336389e-05
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 0.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned -12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 0.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned -5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase4a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase4a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 5000000.0 in module InputFormat
+var 'inParams.N_t' assigned 12000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 0.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned -1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 0.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6b.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6b.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned -1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase7a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase7a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 30.0 in module InputFormat
+var 'inParams.t_p' assigned 1.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.8754687373539003 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.8754687373539003
+  }
+var 'N_p' assigned 4.708081744336389e-05 in module Control
+function write_output called with inputs: {
+  k = 0.8754687373539003, 
+  N_p = 4.708081744336389e-05
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.8754687373539003 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.8754687373539003
+  }
+var 'N_p' assigned 4.708081744336389e-05 in module Control
+function write_output called with inputs: {
+  k = 0.8754687373539003, 
+  N_p = 4.708081744336389e-05
+  }
+var 'filename' assigned /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt in module Control
+function get_input called with inputs: {
+  filename = /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt, 
+  inParams = Instance of InputParameters object
+  }
+var 'inParams.N_o' assigned 12000000.0 in module InputFormat
+var 'inParams.N_t' assigned 5000000.0 in module InputFormat
+var 'inParams.t_t' assigned 1.0 in module InputFormat
+var 'inParams.t_p' assigned 30.0 in module InputFormat
+function input_constraints called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+function func_k called with inputs: {
+  inParams = Instance of InputParameters object
+  }
+var 'k' assigned 0.8754687373539003 in module Control
+function func_N_p called with inputs: {
+  inParams = Instance of InputParameters object, 
+  k = 0.8754687373539003
+  }
+var 'N_p' assigned 4.708081744336389e-05 in module Control
+function write_output called with inputs: {
+  k = 0.8754687373539003, 
+  N_p = 4.708081744336389e-05
+  }

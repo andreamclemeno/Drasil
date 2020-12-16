@@ -1,0 +1,70 @@
+title: Diagnose Functional Requirements (T-1 and T-2)
+tests:
+
+#T-1:
+
+################################ testcase1a
+
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase1a.txt
+
+
+################################ testcase2a
+  
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2a.txt
+  exit: 1   # Permission denied
+
+################################ testcase2b
+
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase2b.txt
+  exit: 1   # Permission denied
+
+
+################################ testcase3a
+  
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3a.txt
+  exit: 1   # Permission denied
+
+################################ testcase3b
+
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase3b.txt
+  exit: 1   # Permission denied
+  
+################################ testcase4a
+  
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase4a.txt
+  exit: 1   # Permission denied
+
+################################ testcase5a
+  
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5a.txt
+  exit: 1   # Permission denied
+
+################################ testcase5b
+
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase5b.txt
+  exit: 1   # Permission denied
+  
+################################ testcase6a
+  
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6a.txt
+  exit: 1   # Permission denied
+
+################################ testcase6b
+
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase6b.txt
+  exit: 1   # Permission denied
+  
+################################ testcase7a
+  
+- sh: python3 /home/bodhi/Repos/Drasil/code/build/Diagnose/src/python/Control.py /home/bodhi/Repos/Drasil/code/drasil-example/Drasil/Diagnose/inputfiles/testcase7a.txt
+  exit: 1   # Permission denied
+
+
+
+
+    
+    
+
+
+
+  
