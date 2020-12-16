@@ -26,14 +26,14 @@ moreOutputs     = cic "moreOutputs"      moreOutputsDesc   "More-Outputs"       
 
 incTimeFrameDesc, moreInputsDesc, moreOutputsDesc :: Sentence
 
-incTimeFrameDesc = foldlSent [(S "The"), phrase software,
+incTimeFrameDesc = foldlSent [S "The", phrase software,
   S "may be expanded to cover a wide range of time frames which is possible due to " +:+ makeRef2S proportional]
 
-moreInputsDesc = foldlSent [(S "The"), phrase software,
+moreInputsDesc = foldlSent [S "The", phrase software,
   S "may be expanded to include more inputs from the user",
   S " to increase the accuracy of the output. This change may alter assumptions:" +:+ makeRef2S allProductive +:+ S "," +:+ makeRef2S neglectSick +:+ S "and" +:+ makeRef2S neglectDrugs]
   
-moreOutputsDesc = foldlSent [(S "The"), phrase software,
+moreOutputsDesc = foldlSent [S "The", phrase software,
   S "may be expanded to include more outputs",
   S " like assessing the progression to AIDs or a suggestion for therapy"]
 
@@ -52,13 +52,13 @@ inConstraints  = cic "inConstraints"   inConstraintsDesc    "Unchanging-input-co
 
 detElimRateDesc, externalInputDesc, inConstraintsDesc :: Sentence
 
-detElimRateDesc = foldlSent [(S "The goal of determining the elimination"),
+detElimRateDesc = foldlSent [S "The goal of determining the elimination",
   S "rate of the virus will not likely change"]
 
-externalInputDesc = foldlSent [(S "There will always be a source of input "),
+externalInputDesc = foldlSent [S "There will always be a source of input ",
   S "data external to the software"]
   
-inConstraintsDesc = foldlSent [(S "The input constraints will not "),
+inConstraintsDesc = foldlSent [S "The input constraints will not ",
   S "likely change"]
   
   

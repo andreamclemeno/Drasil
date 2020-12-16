@@ -103,16 +103,16 @@ time, ttesting, tpredict, vol, vLoad, numberV, vLoado, vLoadt, vRate, elimConst,
 
 
 time                 = uc timec lT day
-ttesting             = uc ttestingc (sub (lT) (Label "t"))  day
-tpredict             = uc tpredictc (sub (lT) (Label "p")) day
+ttesting             = uc ttestingc (sub lT (Label "t"))  day
+tpredict             = uc tpredictc (sub lT (Label "p")) day
 vol                  = uc volc cV millilitre
 numberV              = uc numberVc lN  mole
 vLoad                = uc vLoadc cN  vLoadU
-vLoadt               = uc vLoadtc (sub (cN) (Label "t"))  vLoadtU
-vLoado               = uc vLoadoc (sub (cN) (Label "o"))  vLoadoU
+vLoadt               = uc vLoadtc (sub cN (Label "t"))  vLoadtU
+vLoado               = uc vLoadoc (sub cN (Label "o"))  vLoadoU
 vRate                = uc vRatec lR vRateU
 elimConst	     = uc elimConstc lK elimConstU
-predictedVL          = uc predictedVLc (sub (cN) (Label "p"))  predictedVLU
+predictedVL          = uc predictedVLc (sub cN (Label "p"))  predictedVLU
 
 
 

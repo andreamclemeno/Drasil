@@ -140,8 +140,8 @@ symbMap :: ChunkDB
 symbMap = cdb (map qw physicscon ++ symbols) (nw diagnoseTitle : nw mass : nw inValue : [nw program] ++
     map nw doccon ++ map nw doccon' ++ map nw physicalcon ++ map nw physicCon ++ map nw physicCon'++ map nw acronyms ++
     map nw mathcon ++ map nw fundamentals ++ map nw derived ++ map nw tMCC) (map cw defSymbols ++ srsDomains)
-  (siUnits) (dataDefs) (iMods)
-  (genDefns) (tMods) (concIns)
+  siUnits dataDefs iMods
+  genDefns tMods concIns
   ([] :: [Section]) ([] :: [LabelledContent])
   
 -- add ++ map nw unitless in second arg if there is unitlessconstants

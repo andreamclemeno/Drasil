@@ -59,7 +59,7 @@ elimConstDerivEqns = [elimConstDerivEqn1, elimConstDerivEqn2, elimConstDerivEqn3
 elimConstDerivEqn1, elimConstDerivEqn2, elimConstDerivEqn3, elimConstDerivEqn4 :: Expr
 elimConstDerivEqn1 =  sy vLoadt $= sy vLoado * exp (negate(sy elimConst * sy ttesting))
 elimConstDerivEqn2 =  sy vLoadt / sy vLoado $= exp (negate(sy elimConst * sy ttesting))
-elimConstDerivEqn3 =  ln (sy vLoadt / sy vLoado) $= (negate(sy elimConst * sy ttesting))
+elimConstDerivEqn3 =  ln (sy vLoadt / sy vLoado) $= negate(sy elimConst * sy ttesting)
 elimConstDerivEqn4 =  sy elimConst $= (ln(sy vLoado) - ln(sy vLoadt)) / sy ttesting
 
    
